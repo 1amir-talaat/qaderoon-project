@@ -2,22 +2,25 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../utils/Card/Card";
 import Loader from "../utils/Loader/Loader";
+import { Link } from "react-router-dom";
 
 const News = () => {
   const [news, setNews] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [isLoading, setIsLoading] = useState(false); 
-  const [isPageLoading, setIsPageLoading] = useState(false); 
-  const limit = 9; 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isPageLoading, setIsPageLoading] = useState(false);
+  const limit = 9;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(`${import.meta.env.VITE_HOST_SERVER}news`);
-        
+        const response = await axios.get(
+          `${import.meta.env.VITE_HOST_SERVER}news`
+        );
+
         console.log("API Response Data:", response.data.data);
-        
+
         setNews(response.data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -33,16 +36,19 @@ const News = () => {
 
   const handlePageClick = (page) => {
     if (page >= 0 && page < totalPages) {
-      setIsPageLoading(true); 
+      setIsPageLoading(true);
 
       setTimeout(() => {
         setCurrentPage(page);
-        setIsPageLoading(false); 
-      }, 500); 
+        setIsPageLoading(false);
+      }, 500);
     }
   };
 
-  const displayedNews = news.slice(currentPage * limit, (currentPage + 1) * limit);
+  const displayedNews = news.slice(
+    currentPage * limit,
+    (currentPage + 1) * limit
+  );
 
   return (
     <section className="container my-11 mx-auto">
@@ -52,14 +58,20 @@ const News = () => {
 
       <div className="flex flex-wrap justify-between gap-15 m-5 md:justify-center sm:justify-center text-center cards-containerr">
         {isLoading || isPageLoading ? (
-          <Loader /> 
+          <Loader />
         ) : (
-          displayedNews.map((article, index) => (
-            <Card
-              key={index}
-              description={article.reportTitle}
-              image={`${import.meta.env.VITE_HOST_SERVER}imgs/` + article.newsImg}
-            />
+          displayedNews.map((news, index) => (
+            <Link
+              key={news._id}
+              to={`/news/${news._id}`}>
+              <Card
+                key={index}
+                description={news.newsTitle}
+                image={`${import.meta.env.VITE_HOST_SERVER}imgs/${
+                  news.newsImg
+                }`}
+              />
+            </Link>
           ))
         )}
       </div>
@@ -83,7 +95,9 @@ const News = () => {
             </button>
           )}
 
-          <button className="px-4 py-2 bg-primary text-white rounded cursor-default" disabled>
+          <button
+            className="px-4 py-2 bg-primary text-white rounded cursor-default"
+            disabled>
             {currentPage + 1}
           </button>
 
@@ -99,7 +113,9 @@ const News = () => {
             onClick={() => handlePageClick(currentPage + 1)}
             disabled={currentPage >= totalPages - 1}
             className={`px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 transition-colors ${
-              currentPage >= totalPages - 1 ? "opacity-50 cursor-not-allowed" : ""
+              currentPage >= totalPages - 1
+                ? "opacity-50 cursor-not-allowed"
+                : ""
             }`}>
             التالي
           </button>

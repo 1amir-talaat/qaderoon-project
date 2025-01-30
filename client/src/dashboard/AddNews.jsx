@@ -39,7 +39,7 @@ const AddNews = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-blue-600">Add News</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primary">Add News</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <Label
@@ -83,8 +83,8 @@ const AddNews = () => {
         <div className="flex items-center justify-between">
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-            Add News
+            className="bg-primary hover:bg-secondary transition-color duration-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Publish
           </button>
         </div>
       </form>
