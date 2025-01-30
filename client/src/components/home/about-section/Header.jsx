@@ -6,7 +6,7 @@ const Header = () => (
     <h1>
       من نحن <span className="text-primary">&quot;شباب قادرون&quot;</span>
     </h1>
-    <div className="w-16 h-1 bg-primary mt-6 mb-7"></div>
+    <div className="w-16 h-1 bg-primary my-4"></div>
   </header>
 );
 

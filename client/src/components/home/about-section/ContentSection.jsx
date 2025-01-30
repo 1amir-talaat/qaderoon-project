@@ -7,20 +7,28 @@ const ContentSection = () => (
     className="text-right"
     data-aos="fade-right">
     <p
-      className="text-gray-700 text-lg md:text-xl leading-relaxed tracking-wide"
-      style={{ lineHeight: "1.8" }}>
+      className="text-gray-700 text-lg md:text-xl font-bold leading-relaxed tracking-wide"
+      style={{ lineHeight: "1.7" }}>
       احد مؤسسات المجتمع المدنى بوزارة التضامن الإجتماعى بقرار وزاري قيد رقم
-      ١١٤٩٢ لسنة ٢٠٢٢ عضو الجميعة العمومية لاتحاد تنظيم الكيانات الشبابية . احد
-      الكيانات الشبابية الرسمية بوزارة الشباب والرياضة علي مستوى الجمهورية . احد
-      الكيانات الشبابية بلجنة الكيانات الشبابية والمتطوعين بحملة السيد الرئيس
-      عبدالفتاح السيسي. احد المؤسسات التى تعمل بشكل إقليمي والبداية كانت من
-      الاردن وفي صدد السعودية والإمارات وعمان والبحرين والمغرب وفي ٢٠ محافظة
+      <span className="text-primary">١١٤٩٢</span> لسنة{" "}
+      <span className="text-primary">٢٠٢٢</span> عضو الجميعة العمومية لاتحاد
+      تنظيم الكيانات الشبابية . احد الكيانات الشبابية الرسمية بوزارة الشباب
+      والرياضة علي مستوى الجمهورية . احد الكيانات الشبابية بلجنة الكيانات
+      الشبابية والمتطوعين بحملة السيد الرئيس
+      <span className="text-primary"> عبدالفتاح السيسي</span>. احد المؤسسات التى
+      تعمل بشكل إقليمي والبداية كانت من
+      <span className="text-primary"> الاردن </span> وفي صدد{" "}
+      <span className="text-primary">السعودية </span> و
+      <span className="text-primary"> الإمارات</span> و
+      <span className="text-primary"> عمان </span> و
+      <span className="text-primary"> البحرين </span> و
+      <span className="text-primary"> المغرب </span> وفي{" "}
+      <span className="text-primary"> ٢٠ محافظة </span>
       داخل مصر. تعمل شباب قادرون علي تنمية قدرات الشباب المصري وتطوير مهاراتهم
       الريادية وتوفير فرص عمل لائقة للشباب وبناء الوعي والتثقيف للمجتمع ودعم
       البحث العلمي وريادة الأعمال والاستثمار وملفات المرأة والبيئة والتكنولوجيا
-      ضمن استراتيجية الوطنية لمصر ٢٠٣٠.
+      ضمن استراتيجية الوطنية  <span className="text-primary">لمصر ٢٠٣٠ </span>.
     </p>
-
     <div className="flex flex-col justify-start sm:flex-col md:flex-row mt-8 md:gap-8">
       {" "}
       {/* Increased gap between buttons */}
