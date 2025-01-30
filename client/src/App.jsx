@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Home from "./pages/Home";
 import AllArticles from "./pages/AllArticles";
-import ArticleDetails from "./pages/ArticleDetails.jsx";
+import Details from "./pages/Details.jsx";
 import AddNews from "./dashboard/AddNews";
 import Whowe from "./components/AboutUS/WhoWe/Whowe";
 import Speech from "./components/AboutUS/Speech/Speech";
@@ -42,8 +42,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/articles" element={<AllArticles />} />
-        <Route path="/article/:id" element={<ArticleDetails />} />
+        <Route path="/article/:id" element={<Details type="articles" />} />
         <Route path="/news" element={<News />} />
+        <Route path="/news/:id" element={<Details type="news" />} />
         <Route path="contact" element={<ContactUs />} />
 
         {/* Dashboard Routes */}
