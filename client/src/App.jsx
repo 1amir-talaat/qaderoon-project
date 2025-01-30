@@ -19,7 +19,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 import AddAuthor from "./dashboard/AddAuthor";
 import Board from "./components/AboutUS/BoardofTrustees/Board";
 import ComingSoon from "./utils/CoomingSoon/ComingSoon";
-import AdminLogin from "./dashboard/Login";
+import AdminLogin from "./dashboard/AdminLogin.jsx";
 import Dashboard from "./dashboard/Dashboard";
 import Supreme from "./components/AboutUS/Supreme/Supreme";
 import ContactUs from "./pages/ContactUs/ContactUs.jsx";
