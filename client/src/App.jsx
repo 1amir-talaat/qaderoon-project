@@ -12,7 +12,7 @@ import ComingSoon from "./utils/CoomingSoon/ComingSoon";
 // Lazy Loaded Components
 const Home = lazy(() => import("./pages/Home"));
 const AllArticles = lazy(() => import("./pages/AllArticles"));
-const ArticleDetails = lazy(() => import("./pages/ArticleDetails.jsx"));
+const Details = lazy(() => import("./pages/Details.jsx"));
 const News = lazy(() => import("./pages/News"));
 const ContactUs = lazy(() => import("./pages/ContactUs/ContactUs.jsx"));
 
@@ -51,8 +51,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<AllArticles />} />
-          <Route path="/article/:id" element={<ArticleDetails />} />
+          <Route path="/article/:id" element={<Details type="articles" />} />
           <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<Details type="news" />} />
           <Route path="/contact" element={<ContactUs />} />
 
           {/* Dashboard Routes */}
