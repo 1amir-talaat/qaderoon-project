@@ -23,6 +23,7 @@ const Dashboard = () => {
         } else {
           navigate("/dashboard/login", { replace: true });
         }
+        // eslint-disable-next-line no-unused-vars
       } catch (error) {
         navigate("/dashboard/login", { replace: true });
       }

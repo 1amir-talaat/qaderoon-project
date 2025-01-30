@@ -10,7 +10,7 @@ function AllArticles() {
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [isPageLoading, setIsPageLoading] = useState(false);
-  const limit = 3;
+  const limit = 9;
 
   useEffect(() => {
     const fetchData = async () => {

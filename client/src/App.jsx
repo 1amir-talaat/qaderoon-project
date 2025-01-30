@@ -17,14 +17,14 @@ import Offices from "./components/AboutUS/Offices/Offices";
 import News from "./pages/News";
 import ScrollToTop from "./utils/ScrollToTop";
 import AddAuthor from "./dashboard/AddAuthor";
-import AddArticle from "./dashboard/AddArticle.jsx";
 import Board from "./components/AboutUS/BoardofTrustees/Board";
 import ComingSoon from "./utils/CoomingSoon/ComingSoon";
-import AdminLogin from "./dashboard/Login";
+import AdminLogin from "./dashboard/AdminLogin.jsx";
 import Dashboard from "./dashboard/Dashboard";
 import Supreme from "./components/AboutUS/Supreme/Supreme";
 import ContactUs from "./pages/ContactUs/ContactUs.jsx";
 import DashboardActions from "./dashboard/DashboardActions.jsx";
+import AddArticle from "./dashboard/AddArticle.jsx";
 
 function App() {
   // initialize AOS
@@ -61,17 +61,33 @@ function App() {
           element={<ContactUs />}
         />
 
-                {/* Dashboard Routes */}
+        {/* Dashboard Routes */}
         <Route path="dashboard">
           {/* Login (public) */}
-          <Route path="login" element={<AdminLogin />} />
+          <Route
+            path="login"
+            element={<AdminLogin />}
+          />
 
           {/* Protected Routes (wrapped in Dashboard layout) */}
           <Route element={<Dashboard />}>
-            <Route index element={<DashboardActions />} /> {/* /dashboard */}
-            <Route path="add-article" element={<AddArticle />} />
-            <Route path="add-news" element={<AddNews />} />
-            <Route path="add-author" element={<AddAuthor />} />
+            <Route
+              index
+              element={<DashboardActions />}
+            />{" "}
+            {/* /dashboard */}
+            <Route
+              path="add-article"
+              element={<AddArticle />}
+            />
+            <Route
+              path="add-news"
+              element={<AddNews />}
+            />
+            <Route
+              path="add-author"
+              element={<AddAuthor />}
+            />
           </Route>
         </Route>
 
