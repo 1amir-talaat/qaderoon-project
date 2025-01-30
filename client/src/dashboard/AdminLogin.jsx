@@ -1,28 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import DefaultInput from "../components/Forms/DefaultInput";
 import Label from "../components/Forms/Label";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (sessionStorage.getItem("token") != undefined) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
     try {
-      // console.log("email", email);
-      // console.log("password", password);
       const { data } = await axios.post(
         `${import.meta.env.VITE_HOST_SERVER}admin/login`,
         { email, password }
       );
       if (data.refreshToken) {
         sessionStorage.setItem("token", data.refreshToken);
-        alert("Login Successful, Token Stored");
+        navigate("/dashboard", { replace: true });
       } else {
         throw new Error("Token not received");
       }
@@ -44,7 +50,9 @@ export default function AdminLogin() {
             Admin Login
           </h2>
           {error && (
-            <p className="bg-secondary text-white p-2 my-3 rounded text-center">{error}</p>
+            <p className="bg-secondary text-white p-2 my-3 rounded text-center">
+              {error}
+            </p>
           )}
           <form
             onSubmit={handleSubmit}
@@ -81,7 +89,7 @@ export default function AdminLogin() {
               type="submit"
               className="w-full mt-6 bg-primary hover:bg-primary-dark text-white p-3 rounded-lg font-bold transition-colors duration-300 disabled:opacity-50"
               disabled={loading}>
-              {loading ? "جاري تسجيل الدخول..." : "تسجيل الدخول"}
+              {loading ? "جار تسجيل الدخول..." : "تسجيل الدخول"}
             </button>
           </form>
         </div>
