@@ -40,97 +40,38 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route
-          path="/"
-          element={<Home />}
-        />
-        <Route
-          path="/articles"
-          element={<AllArticles />}
-        />
-        <Route
-          path="/article/:id"
-          element={<ArticleDetails />}
-        />
-        <Route
-          path="/news"
-          element={<News />}
-        />
-        <Route
-          path="contact"
-          element={<ContactUs />}
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/articles" element={<AllArticles />} />
+        <Route path="/article/:id" element={<ArticleDetails />} />
+        <Route path="/news" element={<News />} />
+        <Route path="contact" element={<ContactUs />} />
 
         {/* Dashboard Routes */}
         <Route path="dashboard">
           {/* Login (public) */}
-          <Route
-            path="login"
-            element={<AdminLogin />}
-          />
-
-          {/* Protected Routes (wrapped in Dashboard layout) */}
+          <Route path="login" element={<AdminLogin />} />
+            {/* Protected Routes (wrapped in Dashboard layout) */}
           <Route element={<Dashboard />}>
-            <Route
-              index
-              element={<DashboardActions />}
-            />{" "}
-            {/* /dashboard */}
-            <Route
-              path="add-article"
-              element={<AddArticle />}
-            />
-            <Route
-              path="add-news"
-              element={<AddNews />}
-            />
-            <Route
-              path="add-author"
-              element={<AddAuthor />}
-            />
+            <Route index element={<DashboardActions />} />
+            <Route path="add-article" element={<AddArticle />} />
+            <Route path="add-news" element={<AddNews />} />
+            <Route path="add-author" element={<AddAuthor />} />
           </Route>
         </Route>
 
-        {/* من نحن Section */}
-        <Route
-          path="/about/institution"
-          element={<Whowe />}
-        />
-        <Route
-          path="/about/speech"
-          element={<Speech />}
-        />
-        <Route
-          path="/about/governorates"
-          element={<Governorates />}
-        />
-        <Route
-          path="/about/success-partners"
-          element={<SuccessPartners />}
-        />
-        <Route
-          path="/about/offices"
-          element={<Offices />}
-        />
-        <Route
-          path="/about/board"
-          element={<Board />}
-        />
-        <Route
-          path="/about/units"
-          element={<Units />}
-        />
-        <Route
-          path="/about/supreme-advisory"
-          element={<Supreme />}
-        />
+         {/* من نحن Section */}
+        <Route path="/about/institution" element={<Whowe />} />
+        <Route path="/about/speech" element={<Speech />} />
+        <Route path="/about/governorates" element={<Governorates />} />
+        <Route path="/about/success-partners" element={<SuccessPartners />} />
+        <Route path="/about/offices" element={<Offices />} />
+        <Route path="/about/board" element={<Board />} />
+        <Route path="/about/units" element={<Units />} />
+        <Route path="/about/supreme-advisory" element={<Supreme />} />
 
-        <Route
-          path="*"
-          element={<ComingSoon />}
-        />
+        <Route path="*" element={<ComingSoon />} />
+
       </Routes>
-
       <Footer />
     </Router>
   );
