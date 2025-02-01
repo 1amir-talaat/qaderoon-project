@@ -22,7 +22,3 @@ dist-ssr
 *.sln
 *.sw?
 pnpm-lock.yaml
-*.pdf
-
-# Local Netlify folder
-.netlify
