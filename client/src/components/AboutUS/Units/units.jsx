@@ -20,7 +20,7 @@ const Units = () => {
   return (
     <div className="py-16 min-h-screen w-full">
       <h2 className="font-extrabold text-2xl md:text-4xl underlineR md:pb-6 text-gray-900 mb-8 text-center">
-        أدارات <span className="text-primary relative">شباب قادرون</span>
+        إدارات <span className="text-primary relative">شباب قادرون</span>
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 container m-auto">
         {unitsData.map((unit, index) => (
