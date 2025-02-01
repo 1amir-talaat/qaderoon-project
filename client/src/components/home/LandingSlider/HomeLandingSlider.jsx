@@ -85,7 +85,7 @@ const HomeLandingSlider = () => {
           </div>
           <div className="hero-slider">
             <Swiper
-              autoplay={{ delay: 500 }}
+              autoplay={{ delay: 1000 }}
               loop={true}
               effect="cards"
               onSwiper={setHeroSwiper}
