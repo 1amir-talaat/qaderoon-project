@@ -12,7 +12,27 @@ const app = express();
 const port = process.env.PORT || 5000;
 const mongoURI = process.env.MONGO_URI;
 
-app.use(cors());
+app.use(cors((req, callback) => {
+  const allowedOrigins = ['https://qyf-eg.org']; 
+  const origin = req.header('Origin');
+  
+  if (allowedOrigins.includes(origin)) {
+      callback(null, { origin: true });
+  } else {
+      callback(null, { origin: false });
+  }
+}));
+
+app.use((req, res, next) => {
+  const allowedReferer = 'https://qyf-eg.org';
+  const referer = req.headers.referer || req.headers.origin;
+
+  if (!referer || !referer.startsWith(allowedReferer)) {
+      return res.status(403).json({ message: 'Forbidden: Invalid Referer' });
+  }
+  next();
+});
+
 app.use(express.json());
 // to use anything in Public
 app.use(express.static("Public"));
