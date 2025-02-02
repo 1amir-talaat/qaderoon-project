@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://qaderoon.vercel.app/</loc>
+        <loc>https://qyf-eg.org/</loc>
         <priority>1.0</priority>
         <changefreq>daily</changefreq>
     </url>
     <url>
-        <loc>https://qaderoon.vercel.app/articles</loc>
+        <loc>https://qyf-eg.org/articles</loc>
         <priority>0.8</priority>
         <changefreq>weekly</changefreq>
     </url>
     <url>
-        <loc>https://qaderoon.vercel.app/news</loc>
+        <loc>https://qyf-eg.org/news</loc>
         <priority>0.8</priority>
         <changefreq>weekly</changefreq>
     </url>
     <url>
-        <loc>https://qaderoon.vercel.app/about/institution</loc>
+        <loc>https://qyf-eg.org/about/institution</loc>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://qaderoon.vercel.app/about/speech</loc>
+        <loc>https://qyf-eg.org/about/speech</loc>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://qaderoon.vercel.app/about/governorates</loc>
+        <loc>https://qyf-eg.org/about/governorates</loc>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://qaderoon.vercel.app/about/success-partners</loc>
+        <loc>https://qyf-eg.org/about/success-partners</loc>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://qaderoon.vercel.app/about/offices</loc>
+        <loc>https://qyf-eg.org/about/offices</loc>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>

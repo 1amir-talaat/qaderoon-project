@@ -2,4 +2,4 @@ User-agent: *
 Disallow:
 Allow: /
 
-Sitemap: https://qaderoon.vercel.app/sitemap.xml
+Sitemap: https://qyf-eg.org/sitemap.xml
