@@ -3,7 +3,7 @@
   "useTabs": false,
   "bracketSameLine": true,
   "withNodeModules": true,
-  "singleAttributePerLine": true,
+  "singleAttributePerLine": false,
   "experimentalTernaries": true,
   "endOfLine": "auto"
 }

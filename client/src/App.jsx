@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./utils/ScrollToTop";
 import ComingSoon from "./utils/CoomingSoon/ComingSoon";
+import Loader from "./utils/Loader/Loader.jsx";
 
 // Lazy Loaded Components
 const Home = lazy(() => import("./pages/Home"));
@@ -27,8 +28,12 @@ const AddAuthor = lazy(() => import("./dashboard/AddAuthor"));
 // About Us Lazy Loading
 const Whowe = lazy(() => import("./components/AboutUS/WhoWe/Whowe"));
 const Speech = lazy(() => import("./components/AboutUS/Speech/Speech"));
-const Governorates = lazy(() => import("./components/AboutUS/Governorates/Governorates"));
-const SuccessPartners = lazy(() => import("./components/AboutUS/SuccessPartners/SuccessPartners"));
+const Governorates = lazy(() =>
+  import("./components/AboutUS/Governorates/Governorates")
+);
+const SuccessPartners = lazy(() =>
+  import("./components/AboutUS/SuccessPartners/SuccessPartners")
+);
 const Units = lazy(() => import("./components/AboutUS/Units/units.jsx"));
 const Offices = lazy(() => import("./components/AboutUS/Offices/Offices"));
 const Board = lazy(() => import("./components/AboutUS/BoardofTrustees/Board"));
@@ -47,7 +52,7 @@ function App() {
       <Navbar />
 
       {/* Lazy Loading Components */}
-      <Suspense>
+      <Suspense fallback={<Loader margin={20} />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<AllArticles />} />

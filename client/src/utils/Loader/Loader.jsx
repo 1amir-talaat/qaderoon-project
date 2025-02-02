@@ -1,5 +1,5 @@
-import "./Loader.css"
+import "./Loader.css";
 
-const Loader = () => <div className="loader" />;
+const Loader = ({ margin }) => <div className={`loader my-${margin || 0}`} />;
 
 export default Loader;
