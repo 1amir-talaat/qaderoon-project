@@ -2,38 +2,46 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
-require("dotenv").config();
 const adminRoutes = require("./Routes/adminRoutes");
 const articlesRoutes = require("./Routes/articlesRoutes");
 const newsRoutes = require("./Routes/newsRoutes");
 const authorRoutes = require("./Routes/authorRoutes");
-const swaggerUi = require("swagger-ui-express")
-const swaggerDocment = require("./swagger.json")
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocment = require("./swagger.json");
+require("dotenv").config();
+
 const app = express();
 const port = process.env.PORT || 5000;
 const mongoURI = process.env.MONGO_URI;
 
-app.use(cors((req, callback) => {
-  const allowedOrigins = [
-  'https://qyf-eg.org',
-  'https://www.qyf-eg.org','http://localhost:5000'
-]; 
-  const origin = req.header('Origin');
-  
-  if (allowedOrigins.includes(origin)) {
-      callback(null, { origin: true });
-  } else {
-      callback(null, { origin: false });
-  }
-}));
+app.use(
+  cors((req, callback) => {
+    const allowedOrigins = [
+      "https://qyf-eg.org",
+      "https://www.qyf-eg.org",
+      "http://localhost:5173",
+    ];
+    const origin = req.header("Origin");
 
-app.use((req, res, next) => { // comment this function to access to swagger docs
-  
-  const allowedReferer = process.env.NODE_ENVIRONMENT == "development" ?'http://localhost:5000' : 'https://qyf-eg.org';
+    if (allowedOrigins.includes(origin)) {
+      callback(null, { origin: true });
+    } else {
+      callback(null, { origin: false });
+    }
+  })
+);
+
+app.use((req, res, next) => {
+  // comment this function to access to swagger docs
+
+  const allowedReferer =
+    process.env.NODE_ENVIRONMENT == "development"
+      ? "http://localhost:5173"
+      : "https://qyf-eg.org";
   const referer = req.headers.referer || req.headers.origin;
 
   if (!referer || !referer.startsWith(allowedReferer)) {
-      return res.status(403).json({ message: 'Forbidden: Invalid Referer' });
+    return res.status(403).json({ message: "Forbidden: Invalid Referer" });
   }
   next();
 });
@@ -49,10 +57,9 @@ app.use("/news", newsRoutes);
 app.use("/authors", authorRoutes);
 app.use("/admin", adminRoutes);
 
-// use swagger for backend documentation 
+// use swagger for backend documentation
 
-app.use("/api-docs",swaggerUi.serve,swaggerUi.setup(swaggerDocment))
-
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocment));
 
 // if the database connection failed don't run the server
 mongoose

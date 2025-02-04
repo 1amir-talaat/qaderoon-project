@@ -9,13 +9,15 @@ import SponsorsSlider from "../components/home/SponsersSliders/SponsersSliders";
 const Home = () => {
   return (
     <>
-      <HomeLandingSlider />
-      <AboutSectionComponent />
-      <Articles />
-      <ActivitiesCard />
-      <StatisticsSection />
-      <EgyptVision />
-      <SponsorsSlider />
+      <main>
+        <HomeLandingSlider />
+        <AboutSectionComponent />
+        <Articles />
+        <ActivitiesCard />
+        <StatisticsSection />
+        <EgyptVision />
+        <SponsorsSlider />
+      </main>
     </>
   );
 };

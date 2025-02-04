@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import Api from "../lib/Api";
 import Card from "../utils/Card/Card";
 import Loader from "../utils/Loader/Loader";
 import { Link } from "react-router-dom";
+import { HOST_SERVER } from "../lib/constants";
 
 const News = () => {
   const [news, setNews] = useState([]);
@@ -15,9 +16,7 @@ const News = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(
-          `${import.meta.env.VITE_HOST_SERVER}news`
-        );
+        const response = await Api.get(`${HOST_SERVER}/news`);
 
         console.log("API Response Data:", response.data.data);
 
@@ -61,15 +60,11 @@ const News = () => {
           <Loader />
         ) : (
           displayedNews.map((news, index) => (
-            <Link
-              key={news._id}
-              to={`/news/${news._id}`}>
+            <Link key={news._id} to={`/news/${news._id}`}>
               <Card
                 key={index}
                 description={news.newsTitle}
-                image={`${import.meta.env.VITE_HOST_SERVER}imgs/${
-                  news.newsImg
-                }`}
+                image={`${HOST_SERVER}/imgs/${news.newsImg}`}
               />
             </Link>
           ))

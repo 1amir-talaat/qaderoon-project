@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./utils/ScrollToTop";
 import ComingSoon from "./utils/CoomingSoon/ComingSoon";
 import TrainingAndِConsulting from "./components/services/Training and consulting/TrainingAndِConsulting.jsx";
+import JoinUs from "./pages/Join-us/Join-us.jsx";
 
 // Lazy Loaded Components
 const Home = lazy(() => import("./pages/Home"));
@@ -28,8 +29,12 @@ const AddAuthor = lazy(() => import("./dashboard/AddAuthor"));
 // About Us Lazy Loading
 const Whowe = lazy(() => import("./components/AboutUS/WhoWe/Whowe"));
 const Speech = lazy(() => import("./components/AboutUS/Speech/Speech"));
-const Governorates = lazy(() => import("./components/AboutUS/Governorates/Governorates"));
-const SuccessPartners = lazy(() => import("./components/AboutUS/SuccessPartners/SuccessPartners"));
+const Governorates = lazy(() =>
+  import("./components/AboutUS/Governorates/Governorates")
+);
+const SuccessPartners = lazy(() =>
+  import("./components/AboutUS/SuccessPartners/SuccessPartners")
+);
 const Units = lazy(() => import("./components/AboutUS/Units/units.jsx"));
 const Offices = lazy(() => import("./components/AboutUS/Offices/Offices"));
 const Board = lazy(() => import("./components/AboutUS/BoardofTrustees/Board"));
@@ -56,6 +61,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/news/:id" element={<Details type="news" />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/join-us" element={<JoinUs />} />
 
           {/* Dashboard Routes */}
           <Route path="dashboard">

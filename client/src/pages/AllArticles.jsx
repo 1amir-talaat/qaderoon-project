@@ -1,10 +1,11 @@
-import axios from "axios";
+import Api from "../lib/Api";
 import { useEffect, useState } from "react";
 import Card from "../utils/Card/Card";
 import { Link } from "react-router-dom";
 import Loader from "../utils/Loader/Loader";
 import { Helmet } from "react-helmet";
 import { isEmptyArray } from "../lib/utils";
+import { HOST_SERVER } from "../lib/constants";
 
 function AllArticles() {
   const [articles, setArticles] = useState([]);
@@ -17,11 +18,7 @@ function AllArticles() {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(
-          `${import.meta.env.VITE_HOST_SERVER}articles/`
-        );
-
-        console.log("API Response Data:", response.data.data);
+        const response = await Api.get(`${HOST_SERVER}/articles/`);
 
         setArticles(response.data.data);
       } catch (error) {
@@ -72,10 +69,7 @@ function AllArticles() {
           content="تصفح أحدث المقالات التعليمية والتنموية في مختلف المجالات على منصة قادرون. استفد من خبراتنا في تطوير الذات وتحسين الجودة الحياتية."
         />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content={`${import.meta.env.VITE_HOST_SERVER}imgs/logo.png`}
-        />
+        <meta property="og:image" content={`${HOST_SERVER}/imgs/logo.png`} />
         <meta property="og:url" content={window.location.href} />
 
         {/* Twitter Card tags */}
@@ -88,7 +82,7 @@ function AllArticles() {
         />
         <meta
           name="twitter:image"
-          content={`${import.meta.env.VITE_HOST_SERVER}imgs/logo-twitter.png`}
+          content={`${HOST_SERVER}/imgs/logo-twitter.png`}
         />
       </Helmet>
       <div className="py-11 pb-16">
@@ -96,7 +90,7 @@ function AllArticles() {
           اخر <span className="text-primary relative top-1">المقالات</span>
         </h2>
 
-        <div className="flex flex-wrap justify-between gap-15 m-5 md:justify-center text-center sm:justify-center cards-containerr mt-16">
+        <main className="flex flex-wrap justify-between gap-15 m-5 md:justify-center text-center sm:justify-center cards-containerr mt-16">
           {isLoading || isPageLoading ? (
             <Loader />
           ) : (
@@ -104,12 +98,12 @@ function AllArticles() {
               <Link key={_id} to={`/article/${_id}`}>
                 <Card
                   description={title}
-                  image={`${import.meta.env.VITE_HOST_SERVER}imgs/` + Img}
+                  image={`${HOST_SERVER}/imgs/` + Img}
                 />
               </Link>
             ))
           )}
-        </div>
+        </main>
 
         {!isLoading && !isEmptyArray(articles) && (
           <div className="flex justify-center mt-8 space-x-2">

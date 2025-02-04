@@ -1,28 +1,28 @@
 import { useState } from "react";
-import "./contactUs.css";
+import "./Join.css";
 import Loader from "../../utils/Loader/Loader";
 
-const ContactUs = () => {
+const JoinUs = () => {
   const [loading, setLoading] = useState(true);
 
   return (
     <div className="container my-11 mx-auto">
       {/* Header is always visible */}
       <h2 className="font-extrabold text-3xl md:text-4xl pb-5 underlineR text-neutral-950 mb-6">
-        تواصل <span className="text-primary relative top-1">معنا</span>
+        إنضم <span className="text-primary relative top-1">إلينا</span>
       </h2>
 
       {/* Iframe wrapper with loader */}
       <div className="relative">
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10 ">
-            <Loader/>
+            <Loader />
           </div>
         )}
         <iframe
-          src={import.meta.env.VITE_Form_Facade_URL}
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdv06KwWuqnhgPUiu2pRHGm0lvUQsLsVymBN6VyAs0RYNwJhw/viewform?embedded=true"
           width="100%"
-          height={`${loading ? "88vh" : "1100px"}`}
+          height={`${loading ? "88vh" : "3000"}`}
           frameBorder="0"
           marginWidth="0"
           marginHeight="0"
@@ -34,4 +34,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default JoinUs;

@@ -1,3 +1,4 @@
+import { HOST_SERVER } from "../../lib/constants";
 import MarkdownParser from "../MarkdownParser/MarkdownParser";
 
 const NewsDetails = ({ news }) => {
@@ -8,11 +9,7 @@ const NewsDetails = ({ news }) => {
         <div className="absolute left-0 bottom-0 w-full h-full z-10 bg-gradient-to-b from-transparent to-black" />
         <img
           loading="lazy"
-          src={
-            news.newsImg
-              ? `${import.meta.env.VITE_HOST_SERVER}imgs/${news.newsImg}`
-              : ""
-          }
+          src={news.newsImg ? `${HOST_SERVER}/imgs/${news.newsImg}` : ""}
           className="absolute left-0 top-0 w-full h-full z-0 object-cover bg-black"
           alt={news.newsTitle}
         />
