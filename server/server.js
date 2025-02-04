@@ -15,7 +15,7 @@ const mongoURI = process.env.MONGO_URI;
 app.use(cors((req, callback) => {
   const allowedOrigins = [
   'https://qyf-eg.org',
-  'https://www.qyf-eg.org'
+  'https://www.qyf-eg.org','http://localhost:5000'
 ]; 
   const origin = req.header('Origin');
   
