@@ -57,21 +57,21 @@ function Details(props) {
   }, [id, type]);
 
   return (
-    <div className="max-w-screen-xl mx-auto pb-10">
+    <main className="max-w-screen-xl mx-auto pb-10">
       {isLoading || isEmptyObject(data) ? (
         <div className="w-full loader-container grid place-items-center overflow-y-hidden h-[75dvh]">
           <Loader />
         </div>
       ) : (
-        <main className="lg:mt-10 mt-0">
+        <article className="lg:mt-10 mt-0">
           {type == "news" ? (
             <NewsDetails news={data} />
           ) : (
             <ArticleDetails article={data} />
           )}
-        </main>
+        </article>
       )}
-    </div>
+    </main>
   );
 }
 

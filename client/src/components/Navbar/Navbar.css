@@ -1,13 +1,17 @@
 @font-face {
   font-family: "CustomFont";
-  src: url("../../assets/fonts/arfonts-vip-hala-bold-vip-hala-bold.ttf") format("truetype");
+  src: url("fonts/arfonts-vip-hala-bold-vip-hala-bold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 .logo {
   font-family: "CustomFont", sans-serif;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }

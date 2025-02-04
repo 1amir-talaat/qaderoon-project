@@ -90,17 +90,20 @@ function AllArticles() {
           اخر <span className="text-primary relative top-1">المقالات</span>
         </h2>
 
-        <div className="flex flex-wrap justify-between gap-15 m-5 md:justify-center text-center sm:justify-center cards-containerr mt-16">
+        <main className="flex flex-wrap justify-between gap-15 m-5 md:justify-center text-center sm:justify-center cards-containerr mt-16">
           {isLoading || isPageLoading ? (
             <Loader />
           ) : (
             displayedArticles.map(({ _id, title, Img }) => (
               <Link key={_id} to={`/article/${_id}`}>
-                <Card description={title} image={`${HOST_SERVER}/imgs/` + Img} />
+                <Card
+                  description={title}
+                  image={`${HOST_SERVER}/imgs/` + Img}
+                />
               </Link>
             ))
           )}
-        </div>
+        </main>
 
         {!isLoading && !isEmptyArray(articles) && (
           <div className="flex justify-center mt-8 space-x-2">
