@@ -1,6 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import Api from "../lib/Api";
+import { HOST_SERVER } from "../lib/constants";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -14,10 +15,9 @@ const Dashboard = () => {
           navigate("/dashboard/login", { replace: true });
           return;
         }
-        const response = await axios.post(
-          `${import.meta.env.VITE_HOST_SERVER}admin/verify`,
-          { token }
-        );
+        const response = await Api.post(`${HOST_SERVER}/admin/verify`, {
+          token,
+        });
         if (response.status === 200) {
           setIsVerified(true);
         } else {

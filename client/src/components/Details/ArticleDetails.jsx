@@ -1,3 +1,4 @@
+import { HOST_SERVER } from "../../lib/constants";
 import MarkdownParser from "../MarkdownParser/MarkdownParser";
 
 const ArticleDetails = ({ article }) => {
@@ -8,11 +9,7 @@ const ArticleDetails = ({ article }) => {
         <div className="absolute left-0 bottom-0 w-full h-full z-10 bg-gradient-to-b from-transparent to-black" />
         <img
           loading="lazy"
-          src={
-            article.Img
-              ? `${import.meta.env.VITE_HOST_SERVER}imgs/${article.Img}`
-              : ""
-          }
+          src={article.Img ? `${HOST_SERVER}/imgs/${article.Img}` : ""}
           className="absolute left-0 top-0 w-full h-full z-0 object-cover bg-black"
           alt={article.title}
         />
@@ -42,9 +39,7 @@ const ArticleDetails = ({ article }) => {
               loading="lazy"
               src={
                 article.author?.image
-                  ? `${import.meta.env.VITE_HOST_SERVER}imgs/${
-                      article.author?.image
-                    }`
+                  ? `${HOST_SERVER}/imgs/${article.author?.image}`
                   : `/images/profile.png`
               }
               className="md:size-24 size-16 rounded-full object-cover hidden sm:block"

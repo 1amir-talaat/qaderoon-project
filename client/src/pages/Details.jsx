@@ -1,10 +1,11 @@
-import axios from "axios";
+import Api from "../lib/Api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { isEmptyObject } from "../lib/utils";
 import Loader from "../utils/Loader/Loader";
 import NewsDetails from "../components/Details/NewsDetails";
 import ArticleDetails from "../components/Details/ArticleDetails";
+import { HOST_SERVER } from "../lib/constants";
 
 function Details(props) {
   const { id } = useParams();
@@ -16,12 +17,10 @@ function Details(props) {
     const fetchArticels = async () => {
       try {
         setIsLoading(true);
-        const res = await axios.get(
-          `${import.meta.env.VITE_HOST_SERVER}articles/${id}`
-        );
+        const res = await Api.get(`${HOST_SERVER}/articles/${id}`);
 
-        const authorRes = await axios.get(
-          `${import.meta.env.VITE_HOST_SERVER}authors/${res.data.data.author}`
+        const authorRes = await Api.get(
+          `${HOST_SERVER}/authors/${res.data.data.author}`
         );
 
         setData({ ...res.data.data, author: authorRes.data.data });
@@ -35,9 +34,7 @@ function Details(props) {
     const fetchNews = async () => {
       try {
         setIsLoading(true);
-        const res = await axios.get(
-          `${import.meta.env.VITE_HOST_SERVER}news/${id}`
-        );
+        const res = await Api.get(`${HOST_SERVER}/news/${id}`);
 
         setData({ ...res.data.data, author: null });
       } catch (error) {

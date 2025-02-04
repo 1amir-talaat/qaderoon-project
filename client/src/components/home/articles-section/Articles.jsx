@@ -1,12 +1,13 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import axios from "axios";
+import Api from "../../../lib/Api";
 import { useEffect, useState } from "react";
 import "./articles.css";
 import { Link } from "react-router-dom";
 import Button from "../../../utils/Button";
 import Card from "../../../utils/Card/Card";
 import { isEmptyArray } from "../../../lib/utils";
+import { HOST_SERVER } from "../../../lib/constants";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
@@ -16,9 +17,7 @@ function Articles() {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_HOST_SERVER}articles/`
-        );
+        const response = await Api.get(`articles/`);
 
         setArticles(response.data.data.slice(0, 3));
       } catch (error) {
@@ -45,13 +44,8 @@ function Articles() {
         <div className="flex flex-wrap justify-between gap-15 m-5 md:justify-center text-center sm:justify-center">
           {!isEmptyArray(articles) &&
             articles.map(({ _id, title, Img }) => (
-              <Link
-                to={`/article/${_id}`}
-                key={_id}>
-                <Card
-                  description={title}
-                  image={`${import.meta.env.VITE_HOST_SERVER}imgs/${Img}`}
-                />
+              <Link to={`/article/${_id}`} key={_id}>
+                <Card description={title} image={`${HOST_SERVER}/imgs/${Img}`} />
               </Link>
             ))}
         </div>
