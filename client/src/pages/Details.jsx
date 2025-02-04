@@ -63,7 +63,7 @@ function Details(props) {
           <Loader />
         </div>
       ) : (
-        <main className="md:mt-10 mt-0">
+        <main className="lg:mt-10 mt-0">
           {type == "news" ? (
             <NewsDetails news={data} />
           ) : (
