@@ -18,8 +18,7 @@ app.use(
   cors((req, callback) => {
     const allowedOrigins = [
       "https://qyf-eg.org",
-      "https://www.qyf-eg.org",
-      "www.qyf-eg.org",
+      "https://www.qyf-eg.org"
     ]; 
     const origin = req.header("Origin");
 
@@ -36,8 +35,7 @@ app.use((req, res, next) => {
 
   const allowedReferer =[
     "https://qyf-eg.org",
-    "https://www.qyf-eg.org",
-    "www.qyf-eg.org",
+    "https://www.qyf-eg.org"
   ]; ;
   const referer = req.headers.referer || req.headers.origin;
 
