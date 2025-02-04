@@ -10,6 +10,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 import ComingSoon from "./utils/CoomingSoon/ComingSoon";
 import TrainingAndِConsulting from "./components/services/Training and consulting/TrainingAndِConsulting.jsx";
 import JoinUs from "./pages/Join-us/Join-us.jsx";
+import Certification from "./components/services/Certification/Certification.jsx";
 
 // Lazy Loaded Components
 const Home = lazy(() => import("./pages/Home"));
@@ -86,6 +87,8 @@ function App() {
 
           {/* services routes  */}
           <Route path="/services/training" element={<TrainingAndِConsulting/>}/>
+          <Route path="/services/certification" element={<Certification/>}/>
+
 
           <Route path="*" element={<ComingSoon />} />
         </Routes>
