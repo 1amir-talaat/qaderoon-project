@@ -11,6 +11,7 @@ import ComingSoon from "./utils/CoomingSoon/ComingSoon";
 import TrainingAndِConsulting from "./components/services/Training and consulting/TrainingAndِConsulting.jsx";
 import JoinUs from "./pages/Join-us/Join-us.jsx";
 import Certification from "./components/services/Certification/Certification.jsx";
+import Conferences from "./components/services/Conferences and seminars/Conferences.jsx";
 
 // Lazy Loaded Components
 const Home = lazy(() => import("./pages/Home"));
@@ -88,7 +89,7 @@ function App() {
           {/* services routes  */}
           <Route path="/services/training" element={<TrainingAndِConsulting/>}/>
           <Route path="/services/certification" element={<Certification/>}/>
-
+          <Route path="/services/conferences" element={<Conferences/>}/>
 
           <Route path="*" element={<ComingSoon />} />
         </Routes>
