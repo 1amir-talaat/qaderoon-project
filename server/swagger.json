@@ -1,0 +1,99 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "qaderoon-project",
+        "description": " هي مؤسسة مجتمع مدني شبابية تطوعية مشهرة برقم 11492 لسنة 2022 بوزارة التضامن الإجتماعي مشروع شباب قادرون",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:5000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Article",
+            "description": "Returns all articles from the system that the user has access to"
+        }
+    
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/articles": {
+            "get": {
+                "description": "Returns all articles from the system that the user has access to",
+                "produces": [
+                    "application/json"
+                ],
+                "tags":["Article"],
+                "responses": {
+                    "200": {
+                        "description": "A list of articles.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/articles"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "articles": {
+            "required": [
+                "title",
+                "content",
+                "author",
+                "Img"
+            ],
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "description": "Unique identifier for the document (ObjectId format)"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "Title of the post"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "Content of the post"
+                },
+                "Img": {
+                    "type": "string",
+                    "description": "URL or path to the image"
+                },
+                "author": {
+                    "type": "string",
+                    "description": "Unique identifier of the author (ObjectId format)"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp of when the document was created"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp of when the document was last updated"
+                },
+                "__v": {
+                    "type": "integer",
+                    "description": "Version key for the document"
+                }
+            }
+        }
+    }
+}

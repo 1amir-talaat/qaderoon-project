@@ -7,7 +7,8 @@ const adminRoutes = require("./Routes/adminRoutes");
 const articlesRoutes = require("./Routes/articlesRoutes");
 const newsRoutes = require("./Routes/newsRoutes");
 const authorRoutes = require("./Routes/authorRoutes");
-
+const swaggerUi = require("swagger-ui-express")
+const swaggerDocment = require("./swagger.json")
 const app = express();
 const port = process.env.PORT || 5000;
 const mongoURI = process.env.MONGO_URI;
@@ -26,7 +27,7 @@ app.use(cors((req, callback) => {
   }
 }));
 
-app.use((req, res, next) => {
+app.use((req, res, next) => { // comment this function to access to swagger docs
   
   const allowedReferer = process.env.NODE_ENVIRONMENT == "development" ?'http://localhost:5000' : 'https://qyf-eg.org';
   const referer = req.headers.referer || req.headers.origin;
@@ -47,6 +48,11 @@ app.use("/articles", articlesRoutes);
 app.use("/news", newsRoutes);
 app.use("/authors", authorRoutes);
 app.use("/admin", adminRoutes);
+
+// use swagger for backend documentation 
+
+app.use("/api-docs",swaggerUi.serve,swaggerUi.setup(swaggerDocment))
+
 
 // if the database connection failed don't run the server
 mongoose
