@@ -13,7 +13,10 @@ const port = process.env.PORT || 5000;
 const mongoURI = process.env.MONGO_URI;
 
 app.use(cors((req, callback) => {
-  const allowedOrigins = ['https://qyf-eg.org']; 
+  const allowedOrigins = [
+  'https://qyf-eg.org',
+  'https://www.qyf-eg.org'
+]; 
   const origin = req.header('Origin');
   
   if (allowedOrigins.includes(origin)) {
