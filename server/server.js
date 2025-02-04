@@ -28,7 +28,7 @@ app.use(cors((req, callback) => {
 
 app.use((req, res, next) => {
   
-  const allowedReferer = process.env.NODE_ENVIRONMENTL == "development" ?'http://localhost:5000' : 'https://qyf-eg.org';
+  const allowedReferer = process.env.NODE_ENVIRONMENT == "development" ?'http://localhost:5000' : 'https://qyf-eg.org';
   const referer = req.headers.referer || req.headers.origin;
 
   if (!referer || !referer.startsWith(allowedReferer)) {
