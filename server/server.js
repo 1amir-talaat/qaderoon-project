@@ -18,9 +18,8 @@ app.use(
   cors((req, callback) => {
     const allowedOrigins = [
       "https://qyf-eg.org",
-      "https://www.qyf-eg.org",
-      "http://localhost:5173",
-    ];
+      "https://www.qyf-eg.org"
+    ]; 
     const origin = req.header("Origin");
 
     if (allowedOrigins.includes(origin)) {
@@ -34,10 +33,10 @@ app.use(
 app.use((req, res, next) => {
   // comment this function to access to swagger docs
 
-  const allowedReferer =
-    process.env.NODE_ENVIRONMENT == "development"
-      ? "http://localhost:5173"
-      : "https://qyf-eg.org";
+  const allowedReferer =[
+    "https://qyf-eg.org",
+    "https://www.qyf-eg.org"
+  ]; ;
   const referer = req.headers.referer || req.headers.origin;
 
   if (!referer || !referer.startsWith(allowedReferer)) {
