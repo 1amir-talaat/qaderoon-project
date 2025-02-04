@@ -25,6 +25,7 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@scarf/scarf",
       "argon2"
     ]
   }
