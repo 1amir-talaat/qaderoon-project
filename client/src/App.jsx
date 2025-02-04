@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./utils/ScrollToTop";
 import ComingSoon from "./utils/CoomingSoon/ComingSoon";
+import TrainingAndِConsulting from "./components/services/Training and consulting/TrainingAndِConsulting.jsx";
 
 // Lazy Loaded Components
 const Home = lazy(() => import("./pages/Home"));
@@ -76,6 +77,9 @@ function App() {
           <Route path="/about/board" element={<Board />} />
           <Route path="/about/units" element={<Units />} />
           <Route path="/about/supreme-advisory" element={<Supreme />} />
+
+          {/* services routes  */}
+          <Route path="/services/training" element={<TrainingAndِConsulting/>}/>
 
           <Route path="*" element={<ComingSoon />} />
         </Routes>
