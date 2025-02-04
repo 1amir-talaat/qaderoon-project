@@ -96,7 +96,7 @@ exports.updateReport = async (req, res) => {
 
       report.title = title || report.title;
       report.content = content || report.content;
-      report.author = { ...report.author, ...author };
+      report.author = author || report.author;
 
       await report.save();
       res

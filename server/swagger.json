@@ -16,7 +16,6 @@
             "name": "Article",
             "description": "Returns all articles from the system that the user has access to"
         }
-    
     ],
     "schemes": [
         "http"
@@ -29,12 +28,17 @@
     ],
     "paths": {
         "/articles": {
+
+            
             "get": {
+                "summary": "Retrive All Articles",
                 "description": "Returns all articles from the system that the user has access to",
                 "produces": [
                     "application/json"
                 ],
-                "tags":["Article"],
+                "tags": [
+                    "Article"
+                ],
                 "responses": {
                     "200": {
                         "description": "A list of articles.",
@@ -42,6 +46,193 @@
                             "type": "array",
                             "items": {
                                 "$ref": "#/definitions/articles"
+                            }
+                        }
+                    }
+                }
+            },
+
+
+
+
+            "post": {
+                "summary": "Add a New Article",
+                "description": "Creates a new Article with an image upload capability",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Article"
+                ],
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "Img",
+                        "type": "file",
+                        "required": true,
+                        "description": "Image file to be uploaded"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "title",
+                        "type": "string",
+                        "required": true,
+                        "description": "Title of the Article"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "content",
+                        "type": "string",
+                        "required": true,
+                        "description": "Content of the Article"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "author",
+                        "type": "string",
+                        "required": true,
+                        "description": "Author of the Article (ObjectId) eg:507f1f77bcf86cd799439011"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Article successfully created",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "example": "Article added successfully"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/articles"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input or missing fields",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "example": "All fields are required."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "example": "An error occurred while adding the Article"
+                                },
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/articles/{id}": {
+            "put": {
+                "summary": "Update an Article",
+                "description": "Update an existing article with optional image upload",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Article"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "description": "Article ID to update"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "Img",
+                        "type": "file",
+                        "required": false,
+                        "description": "New image file (optional)"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "title",
+                        "type": "string",
+                        "required": false,
+                        "description": "New title for the article"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "content",
+                        "type": "string",
+                        "required": false,
+                        "description": "New content for the article"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "author",
+                        "type": "string",
+                        "required": false,
+                        "description": "New author ObjectId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Article successfully updated",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "example": "Report updated successfully"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/articles"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Article not found",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "example": "Report not found"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "example": "An error occurred while updating the report"
+                                },
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     }
