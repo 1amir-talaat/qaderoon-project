@@ -16,16 +16,13 @@ const ContactUs = () => {
       <div className="relative">
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10 ">
-            <Loader/>
+            <Loader />
           </div>
         )}
         <iframe
           src={import.meta.env.VITE_Form_Facade_URL}
           width="100%"
           height={`${loading ? "88vh" : "1100px"}`}
-          frameBorder="0"
-          marginWidth="0"
-          marginHeight="0"
           onLoad={() => setLoading(false)}
           className="mt-14"
         />

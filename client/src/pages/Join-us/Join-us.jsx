@@ -15,18 +15,15 @@ const JoinUs = () => {
       {/* Iframe wrapper with loader */}
       <div className="relative">
         {loading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10 ">
+          <div className="absolute overflow-hidden debug flex items-center justify-center bg-white z-10 w-full h-[50vh]">
             <Loader />
           </div>
         )}
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSdv06KwWuqnhgPUiu2pRHGm0lvUQsLsVymBN6VyAs0RYNwJhw/viewform?embedded=true"
           width="100%"
-          height={`${loading ? "88vh" : "3000"}`}
-          frameBorder="0"
-          marginWidth="0"
-          marginHeight="0"
-          onLoad={() => setLoading(false)}
+          style={{ height: loading ? "50vh" : "3000px" }}
+          onLoad={() => setLoading((prev) => !prev)}
           className="mt-14"
         />
       </div>
