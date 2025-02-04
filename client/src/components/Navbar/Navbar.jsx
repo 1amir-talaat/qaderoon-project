@@ -22,7 +22,7 @@ function Navbar() {
   };
 
   return (
-    <div
+    <header
       className={`navbar flex justify-between px-6 py-2 md:px-16 md:py-4 xl:px-24 xl:py-6 sticky top-0 z-50 w-full bg-white transition-all duration-500 ease-out
       ${scrolled ? "md:h-24 shadow-md" : "md:h-30 shadow-sm"}`}>
       {/* Logo Section */}
@@ -53,7 +53,7 @@ function Navbar() {
       </div>
 
       {/* Navigation Links */}
-      <div className="hidden lg:flex justify-center items-center space-x-5 font-black text-lg z-50">
+      <nav className="hidden lg:flex justify-center items-center space-x-5 font-black text-lg z-50">
         <ul className="flex space-x-10">
           {LinksData.map((item, index) => (
             <li
@@ -71,7 +71,7 @@ function Navbar() {
             </li>
           ))}
         </ul>
-      </div>
+      </nav>
 
       {/* Social Media Links */}
       <SocialMediaLinks />
@@ -148,7 +148,7 @@ function Navbar() {
           </ul>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 

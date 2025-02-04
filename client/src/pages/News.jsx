@@ -50,12 +50,12 @@ const News = () => {
   );
 
   return (
-    <section className="container my-11 mx-auto">
+    <section className="py-11 pb-16">
       <h2 className="font-extrabold text-3xl md:text-4xl pb-5 underlineR text-neutral-950 mb-6">
-        اخر <span className="text-primary relative top-1">الاخبار</span>
+        آخر <span className="text-primary relative top-1">الاخبار</span>
       </h2>
 
-      <div className="flex flex-wrap justify-between gap-15 m-5 md:justify-center sm:justify-center text-center cards-containerr">
+      <main className="flex flex-wrap justify-between gap-15 m-5 md:justify-center text-center sm:justify-center mt-16">
         {isLoading || isPageLoading ? (
           <Loader />
         ) : (
@@ -69,7 +69,7 @@ const News = () => {
             </Link>
           ))
         )}
-      </div>
+      </main>
 
       {!isLoading && news.length > 0 && (
         <div className="flex justify-center mt-8 space-x-2">

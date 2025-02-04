@@ -1,9 +1,69 @@
-import { HOST_SERVER } from "../../lib/constants";
+import { Helmet } from "react-helmet";
+import { HOST_SERVER, ORG_NAME } from "../../lib/constants";
 import MarkdownParser from "../MarkdownParser/MarkdownParser";
 
 const NewsDetails = ({ news }) => {
   return (
     <>
+      <Helmet>
+        <title>
+          {news.newsTitle} | {ORG_NAME}
+        </title>
+        <meta
+          name="description"
+          content={`${news.newsDesc.slice(
+            0,
+            150
+          )}... اقرأ المزيد على موقع ${ORG_NAME}.`}
+        />
+        <meta
+          name="keywords"
+          content={`أخبار, ${news.newsTitle}, ${ORG_NAME}`}
+        />
+
+        {/* Open Graph tags for social sharing */}
+        <meta property="og:title" content={`${news.newsTitle} | ${ORG_NAME}`} />
+        <meta
+          property="og:description"
+          content={`${news.newsDesc.slice(
+            0,
+            150
+          )}... اكتشف الخبر بالكامل على موقع ${ORG_NAME}.`}
+        />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:image"
+          content={
+            news.newsImg
+              ? `${HOST_SERVER}/imgs/${news.newsImg}`
+              : "/images/og-banner.jpg"
+          }
+        />
+        <meta property="og:url" content={window.location.href} />
+
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@qaderoon492" />
+        <meta
+          name="twitter:title"
+          content={`${news.newsTitle} | ${ORG_NAME}`}
+        />
+        <meta
+          name="twitter:description"
+          content={`${news.newsDesc.slice(
+            0,
+            150
+          )}... المزيد على موقع ${ORG_NAME}.`}
+        />
+        <meta
+          name="twitter:image"
+          content={
+            news.newsImg
+              ? `${HOST_SERVER}/imgs/${news.newsImg}`
+              : "/images/twitter-card.jpg"
+          }
+        />
+      </Helmet>
       {/* Hero Section */}
       <div className="mb-4 md:mb-0 w-full lg:max-w-screen-lg max-w-screen mx-auto relative h-full aspect-video hover:scale-105 transition-transform duration-500 cursor-default">
         <div className="absolute left-0 bottom-0 w-full h-full z-10 bg-gradient-to-b from-transparent to-black" />

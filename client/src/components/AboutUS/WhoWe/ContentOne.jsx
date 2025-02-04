@@ -1,6 +1,6 @@
 const ContentOne = () => {
   return (
-    <div
+    <article
       className="text-right"
       data-aos="fade-down">
       <p className="text-base md:text-xl text-gray-800 leading-relaxed mb-6" style={{ lineHeight: "1.8" }}>
@@ -49,7 +49,7 @@ const ContentOne = () => {
           سنوات الأخيرة.
         </li>
       </ol>
-    </div>
+    </article>
   );
 };
 

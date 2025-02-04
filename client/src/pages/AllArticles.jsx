@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Loader from "../utils/Loader/Loader";
 import { Helmet } from "react-helmet";
 import { isEmptyArray } from "../lib/utils";
-import { HOST_SERVER } from "../lib/constants";
+import { HOST_SERVER, ORG_NAME } from "../lib/constants";
 
 function AllArticles() {
   const [articles, setArticles] = useState([]);
@@ -52,10 +52,10 @@ function AllArticles() {
   return (
     <>
       <Helmet>
-        <title>قادرون | آخر المقالات</title>
+        <title>{ORG_NAME} | آخر المقالات</title>
         <meta
           name="description"
-          content="اكتشف أحدث المقالات على موقع قادرون. اطلع على مقالات متنوعة في مجالات التنمية الذاتية، الصحة النفسية، والتكنولوجيا. تصفح الآن للمزيد من المعرفة!"
+          content={`اكتشف أحدث المقالات على موقع ${ORG_NAME}. اطلع على مقالات متنوعة في مجالات التنمية الذاتية، الصحة النفسية، والتكنولوجيا. تصفح الآن للمزيد من المعرفة!`}
         />
         <meta
           name="keywords"
@@ -63,34 +63,31 @@ function AllArticles() {
         />
 
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="قادرون | آخر المقالات" />
+        <meta property="og:title" content={`${ORG_NAME} | آخر المقالات`} />
         <meta
           property="og:description"
-          content="تصفح أحدث المقالات التعليمية والتنموية في مختلف المجالات على منصة قادرون. استفد من خبراتنا في تطوير الذات وتحسين الجودة الحياتية."
+          content={`تصفح أحدث المقالات التعليمية والتنموية في مختلف المجالات على منصة ${ORG_NAME}. استفد من خبراتنا في تطوير الذات وتحسين الجودة الحياتية.`}
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`${HOST_SERVER}/imgs/logo.png`} />
+        <meta property="og:image" content="/images/og-banner.jpg" />
         <meta property="og:url" content={window.location.href} />
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@QaderoonPlatform" />
-        <meta name="twitter:title" content="قادرون | مقالات تنموية وتثقيفية" />
+        <meta name="twitter:site" content="@qaderoon492" />
+        <meta name="twitter:title" content={`${ORG_NAME} | آخر المقالات`} />
         <meta
           name="twitter:description"
           content="استكشف مكتبتنا الغنية بالمقالات في مجالات التنمية الشخصية والصحة النفسية. تحديثات دورية بمحتوى قيّم ومفيد للجميع."
         />
-        <meta
-          name="twitter:image"
-          content={`${HOST_SERVER}/imgs/logo-twitter.png`}
-        />
+        <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
-      <div className="py-11 pb-16">
+      <section className="py-11 pb-16">
         <h2 className="font-extrabold text-3xl md:text-4xl pb-5 underlineR text-neutral-950 mx-auto">
-          اخر <span className="text-primary relative top-1">المقالات</span>
+          آخر <span className="text-primary relative top-1">المقالات</span>
         </h2>
 
-        <main className="flex flex-wrap justify-between gap-15 m-5 md:justify-center text-center sm:justify-center cards-containerr mt-16">
+        <main className="flex flex-wrap justify-between gap-15 m-5 md:justify-center text-center sm:justify-center mt-16">
           {isLoading || isPageLoading ? (
             <Loader />
           ) : (
@@ -150,7 +147,7 @@ function AllArticles() {
             </button>
           </div>
         )}
-      </div>
+      </section>
     </>
   );
 }
