@@ -9,7 +9,6 @@ function ActivitiesCard() {
     AOS.init();
   }, []);
 
-  // Array of training programs
   const trainingPrograms = [
     "برنامج شباب قادرون للتأهيل لسوق العمل",
     "منحة شباب قادرون للقيادة والريادة",
@@ -22,27 +21,21 @@ function ActivitiesCard() {
 
   return (
     <div>
-      {/* Bootstrap-like container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 my-10 md:my-22">
-        {/* A container for animation */}
         <div className="text-center">
           <h1 className="text-2xl md:text-3xl font-bold py-3.5 underlineR w-fit mx-auto">
             أنشطة المؤسسة
           </h1>
-
-          {/* Content and image container */}
           <div className="flex flex-col-reverse md:flex-row mt-6 gap-6">
             <div
               className="md:w-1/2 text-right"
               data-aos="fade-down"
               data-aos-duration="1500">
-              {/* If this is the main section heading, it should be <h2> */}
               <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
                 البرامج التدريبية
               </h2>
               <div className="space-y-0 md:space-y-2">
                 {" "}
-                {/* Reduced margin between items */}
                 {trainingPrograms.map((program, index) => (
                   <div
                     key={index}
@@ -52,7 +45,6 @@ function ActivitiesCard() {
                     </div>
                     <h3 className="text-xl font-semibold mr-4 group-hover:text-primary">
                       {" "}
-                      {/* Added margin-right (mr-4) for spacing */}
                       {program}
                     </h3>
                   </div>
@@ -68,8 +60,6 @@ function ActivitiesCard() {
               className="w-full md:w-1/2 rounded-lg shadow-md object-cover"
             />
           </div>
-
-          {/* End of content and image container */}
         </div>
       </div>
     </div>
