@@ -21,5 +21,10 @@
     "nodemon": "^3.1.9",
     "path": "^0.12.7",
     "request-ip": "^3.3.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "argon2"
+    ]
   }
 }
