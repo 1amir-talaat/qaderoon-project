@@ -1,9 +1,10 @@
 import { useState } from "react";
-import axios from "axios";
+import Api from "../lib/Api";
 import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
 import Textarea from "../components/Forms/TextArea";
 import Label from "../components/Forms/Label";
 import DefaultInput from "../components/Forms/DefaultInput";
+import { HOST_SERVER } from "../lib/constants";
 
 const AddNews = () => {
   const [newsTitle, setNewsTitle] = useState("");
@@ -22,7 +23,7 @@ const AddNews = () => {
     formData.append("newsImg", newsImg);
 
     try {
-      await axios.post(`${import.meta.env.VITE_HOST_SERVER}news`, formData, {
+      await Api.post(`${HOST_SERVER}/news`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -42,10 +43,7 @@ const AddNews = () => {
       <h2 className="text-2xl font-bold mb-6 text-primary">Add News</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <Label
-            htmlFor="newsTitle"
-            label="News Title"
-          />
+          <Label htmlFor="newsTitle" label="News Title" />
           <DefaultInput
             type="text"
             name="newsTitle"
@@ -56,10 +54,7 @@ const AddNews = () => {
           />
         </div>
         <div className="mb-4">
-          <Label
-            htmlFor="newsDesc"
-            label="Article Content"
-          />
+          <Label htmlFor="newsDesc" label="Article Content" />
           <Textarea
             value={newsDesc}
             onChange={(e) => setNewsDesc(e.target.value)}
@@ -69,10 +64,7 @@ const AddNews = () => {
           />
         </div>
         <div className="mb-4">
-          <Label
-            htmlFor="newsImg"
-            label="News Image"
-          />
+          <Label htmlFor="newsImg" label="News Image" />
           <AttachmentsFileInput
             name="newsImg"
             accept="image/jpeg, image/jpg, image/png, image/gif, image/bmp, image/webp"

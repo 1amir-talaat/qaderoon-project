@@ -1,9 +1,10 @@
 import { useState } from "react";
-import axios from "axios";
+import Api from "../lib/Api";
 import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
 import Textarea from "../components/Forms/TextArea";
 import Label from "../components/Forms/Label";
 import DefaultInput from "../components/Forms/DefaultInput";
+import { HOST_SERVER } from "../lib/constants";
 
 const AddAuthor = () => {
   const [name, setName] = useState("");
@@ -22,7 +23,7 @@ const AddAuthor = () => {
     formData.append("image", image);
 
     try {
-      await axios.post(`${import.meta.env.VITE_HOST_SERVER}authors`, formData, {
+      await Api.post(`${HOST_SERVER}/authors`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -42,10 +43,7 @@ const AddAuthor = () => {
       <h2 className="text-2xl font-bold mb-6 text-red-600">Add Author</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <Label
-            htmlFor="name"
-            label="Author Name"
-          />
+          <Label htmlFor="name" label="Author Name" />
           <DefaultInput
             type="text"
             name="name"
@@ -56,10 +54,7 @@ const AddAuthor = () => {
           />
         </div>
         <div className="mb-4">
-          <Label
-            htmlFor="title"
-            label="Author title"
-          />
+          <Label htmlFor="title" label="Author title" />
           <Textarea
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -71,10 +66,7 @@ const AddAuthor = () => {
         </div>
 
         <div className="mb-4">
-          <Label
-            htmlFor="image"
-            label="Author Image"
-          />
+          <Label htmlFor="image" label="Author Image" />
           <AttachmentsFileInput
             name="image"
             accept="image/jpeg, image/jpg, image/png, image/gif, image/bmp, image/webp"

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import Api from "../lib/Api";
 import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
 import Textarea from "../components/Forms/TextArea";
 import SelectInput from "../components/Forms/SelectInput";
 import Label from "../components/Forms/Label";
 import DefaultInput from "../components/Forms/DefaultInput";
+import { HOST_SERVER } from "../lib/constants";
 
 const AddArticle = () => {
   const [title, setTitle] = useState("");
@@ -16,9 +17,7 @@ const AddArticle = () => {
   useEffect(() => {
     const fetchAuthors = async () => {
       try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_HOST_SERVER}authors`
-        );
+        const response = await Api.get(`${HOST_SERVER}/authors`);
         setAuthors(response.data.data);
       } catch (error) {
         console.error("Error fetching authors:", error);
@@ -41,15 +40,11 @@ const AddArticle = () => {
     formData.append("author", selectedAuthor);
 
     try {
-      await axios.post(
-        `${import.meta.env.VITE_HOST_SERVER}articles`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      await Api.post(`${HOST_SERVER}/articles`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       setTitle("");
       setContent("");
       setImg(null);
@@ -67,10 +62,7 @@ const AddArticle = () => {
       <h2 className="text-2xl font-bold mb-6 text-red-600">Add Article</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <Label
-            htmlFor="title"
-            label="Article Title"
-          />
+          <Label htmlFor="title" label="Article Title" />
           <DefaultInput
             type="text"
             name="title"
@@ -82,10 +74,7 @@ const AddArticle = () => {
         </div>
         <div className="mb-4">
           <Label htmlFor="author">Author</Label>
-          <Label
-            htmlFor="author"
-            label="Author"
-          />
+          <Label htmlFor="author" label="Author" />
           <SelectInput
             value={selectedAuthor}
             onChange={(e) => setSelectedAuthor(e.target.value)}
@@ -96,10 +85,7 @@ const AddArticle = () => {
           />
         </div>
         <div className="mb-4">
-          <Label
-            htmlFor="content"
-            label="Article Content"
-          />
+          <Label htmlFor="content" label="Article Content" />
           <Textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
@@ -110,10 +96,7 @@ const AddArticle = () => {
         </div>
         <div className="mb-4">
           {/* Image upload input */}
-          <Label
-            htmlFor="Img"
-            label="Article Image"
-          />
+          <Label htmlFor="Img" label="Article Image" />
           <AttachmentsFileInput
             name="Img"
             accept="image/jpeg, image/jpg, image/png, image/gif, image/bmp, image/webp"

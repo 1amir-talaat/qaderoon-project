@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import Api from "../lib/Api";
 import DefaultInput from "../components/Forms/DefaultInput";
 import Label from "../components/Forms/Label";
 import { useNavigate } from "react-router-dom";
+import { HOST_SERVER } from "../lib/constants";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -22,10 +23,10 @@ export default function AdminLogin() {
     setLoading(true);
     setError("");
     try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_HOST_SERVER}admin/login`,
-        { email, password }
-      );
+      const { data } = await Api.post(`${HOST_SERVER}/admin/login`, {
+        email,
+        password,
+      });
       if (data.refreshToken) {
         sessionStorage.setItem("token", data.refreshToken);
         navigate("/dashboard", { replace: true });
@@ -54,14 +55,9 @@ export default function AdminLogin() {
               {error}
             </p>
           )}
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="mb-4">
-              <Label
-                label="البريد الاكتروني"
-                htmlFor="email"
-              />
+              <Label label="البريد الاكتروني" htmlFor="email" />
               <DefaultInput
                 name="email"
                 type="email"
@@ -72,10 +68,7 @@ export default function AdminLogin() {
               />
             </div>
             <div className="mb-4">
-              <Label
-                label="كلمة السر"
-                htmlFor="password"
-              />
+              <Label label="كلمة السر" htmlFor="password" />
               <DefaultInput
                 name="password"
                 type="password"
