@@ -90,13 +90,12 @@ function App() {
           </Route>
 
           {/* services routes  */}
-          <Route
-            path="/services/training"
-            element={<TrainingAndِConsulting />}
-          />
-          <Route path="/services/certification" element={<Certification />} />
-          <Route path="/services/conferences" element={<Conferences />} />
-          <Route path="/services/employment" element={<Employment />} />
+          <Route path="/services">
+            <Route path="training" element={<TrainingAndِConsulting />} />
+            <Route path="certification" element={<Certification />} />
+            <Route path="conferences" element={<Conferences />} />
+            <Route path="employment" element={<Employment />} />
+          </Route>
 
           <Route path="*" element={<ComingSoon />} />
         </Routes>
