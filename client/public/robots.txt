@@ -1,5 +1,10 @@
 User-agent: *
-Disallow:
 Allow: /
+User-agent: *
+Disallow: /dashboard/
+Disallow: /dashboard/add-article
+Disallow: /dashboard/add-news
+Disallow: /dashboard/add-author
+Disallow: /dashboard/login
 
 Sitemap: https://qyf-eg.org/sitemap.xml
