@@ -11,7 +11,7 @@ const ArticleDetails = ({ article }) => {
         </title>
         <meta
           name="description"
-          content={`${article.content.slice(
+          content={`${article.title.slice(
             0,
             150
           )}... اقرأ المزيد على موقع ${ORG_NAME}.`}
@@ -25,7 +25,7 @@ const ArticleDetails = ({ article }) => {
         <meta property="og:title" content={`${article.title} | ${ORG_NAME}`} />
         <meta
           property="og:description"
-          content={`${article.content.slice(
+          content={`${article.title.slice(
             0,
             150
           )}... اكتشف المقال بالكامل على موقع ${ORG_NAME}.`}
@@ -47,7 +47,7 @@ const ArticleDetails = ({ article }) => {
         <meta name="twitter:title" content={`${article.title} | ${ORG_NAME}`} />
         <meta
           name="twitter:description"
-          content={`${article.content.slice(
+          content={`${article.title.slice(
             0,
             150
           )}... المزيد على موقع ${ORG_NAME}.`}

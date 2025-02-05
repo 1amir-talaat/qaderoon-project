@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import Api from "../lib/Api";
+import { HOST_SERVER, ORG_NAME } from "../lib/constants";
 import Card from "../utils/Card/Card";
 import Loader from "../utils/Loader/Loader";
-import { Link } from "react-router-dom";
-import { HOST_SERVER } from "../lib/constants";
 
 const News = () => {
   const [news, setNews] = useState([]);
@@ -51,6 +52,37 @@ const News = () => {
 
   return (
     <section className="py-11 pb-16">
+      <Helmet>
+        <title>{ORG_NAME} | آخر الأخبار</title>
+        <meta
+          name="description"
+          content={`تابع أحدث الأخبار والتحديثات على منصة ${ORG_NAME}. احصل على معلومات حصرية عن فعاليات الشباب، التطورات التكنولوجية، ومبادرات التنمية المجتمعية.`}
+        />
+        <meta
+          name="keywords"
+          content="أخبار, تطوير الذات, الصحة النفسية, التكنولوجيا, آخر الأخبار, قادرون, نصائح عملية, تثقيف صحي, شباب قادرون"
+        />
+
+        {/* Open Graph tags */}
+        <meta property="og:title" content={`${ORG_NAME} | آخر الأخبار`} />
+        <meta
+          property="og:description"
+          content={`كن أول من يعلم بأهم الأخبار والتحديثات على منصة ${ORG_NAME}. أخبار حصرية عن البرامج التدريبية والفعاليات الشبابية.`}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/og-banner.jpg" />
+        <meta property="og:url" content={window.location.href} />
+
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@qaderoon492" />
+        <meta name="twitter:title" content={`${ORG_NAME} | آخر الأخبار`} />
+        <meta
+          name="twitter:description"
+          content="مصدرك الرئيسي لأخبار الشباب والتكنولوجيا. تحديثات مباشرة عن ورش العمل، البرامج التدريبية، والفعاليات القادمة."
+        />
+        <meta name="twitter:image" content="/images/twitter-card.jpg" />
+      </Helmet>
       <h2 className="font-extrabold text-3xl md:text-4xl pb-5 underlineR text-neutral-950 mb-6">
         آخر <span className="text-primary relative top-1">الاخبار</span>
       </h2>

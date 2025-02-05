@@ -11,10 +11,10 @@ const NewsDetails = ({ news }) => {
         </title>
         <meta
           name="description"
-          content={`${news.newsDesc.slice(
+          content={`${news.newsTitle.slice(
             0,
             150
-          )}... اقرأ المزيد على موقع ${ORG_NAME}.`}
+          )}... اكتشف الخبر بالكامل على موقع ${ORG_NAME}.`}
         />
         <meta
           name="keywords"
@@ -25,7 +25,7 @@ const NewsDetails = ({ news }) => {
         <meta property="og:title" content={`${news.newsTitle} | ${ORG_NAME}`} />
         <meta
           property="og:description"
-          content={`${news.newsDesc.slice(
+          content={`${news.newsTitle.slice(
             0,
             150
           )}... اكتشف الخبر بالكامل على موقع ${ORG_NAME}.`}
@@ -50,10 +50,10 @@ const NewsDetails = ({ news }) => {
         />
         <meta
           name="twitter:description"
-          content={`${news.newsDesc.slice(
+          content={`${news.newsTitle.slice(
             0,
             150
-          )}... المزيد على موقع ${ORG_NAME}.`}
+          )}... اكتشف الخبر بالكامل على موقع ${ORG_NAME}.`}
         />
         <meta
           name="twitter:image"
