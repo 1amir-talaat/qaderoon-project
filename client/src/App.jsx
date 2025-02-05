@@ -13,6 +13,9 @@ import JoinUs from "./pages/Join-us/Join-us.jsx";
 import Certification from "./components/services/Certification/Certification.jsx";
 import Conferences from "./components/services/Conferences and seminars/Conferences.jsx";
 import Employment from "./components/services/employment/Employment.jsx";
+import ManageAuthors from "./dashboard/ManageAuthors.jsx";
+import ManageArticles from "./dashboard/ManageArticles.jsx";
+import ManageNews from "./dashboard/ManageNews.jsx";
 
 // Lazy Loaded Components
 const Home = lazy(() => import("./pages/Home"));
@@ -74,6 +77,9 @@ function App() {
               <Route path="add-article" element={<AddArticle />} />
               <Route path="add-news" element={<AddNews />} />
               <Route path="add-author" element={<AddAuthor />} />
+              <Route path="manage-author" element={<ManageAuthors />} />
+              <Route path="manage-articles" element={<ManageArticles />} />
+              <Route path="manage-news" element={<ManageNews />} />
             </Route>
           </Route>
 

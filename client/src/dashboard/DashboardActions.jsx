@@ -1,4 +1,4 @@
-import { FaNewspaper, FaUserPlus } from "react-icons/fa";
+import { FaNewspaper, FaUserPlus, FaEdit } from "react-icons/fa";
 import { AiFillFileAdd } from "react-icons/ai";
 import DashboardCard from "./DashboardCard";
 import { Helmet } from "react-helmet";
@@ -21,6 +21,21 @@ const DashboardActions = () => {
       url: "/dashboard/add-author",
       icon: <FaUserPlus className="size-12" />,
     },
+    {
+      action: "تعديل مقال",
+      url: "/dashboard/manage-articles",
+      icon: <FaEdit className="size-12" />,
+    },
+    {
+      action: "تعديل خبر",
+      url: "/dashboard/manage-news",
+      icon: <FaEdit className="size-12" />,
+    },
+    {
+      action: "تعديل كاتب",
+      url: "/dashboard/manage-author",
+      icon: <FaEdit className="size-12" />,
+    },
   ];
 
   return (
@@ -33,10 +48,9 @@ const DashboardActions = () => {
         />
         <meta
           name="keywords"
-          content="لوحة تحكم, إضافة مقال, إضافة خبر, إضافة كاتب, إدارة المحتوى, مؤسسة شباب قادرون"
+          content="لوحة تحكم, إضافة مقال, إضافة خبر, إضافة كاتب, تعديل مقال, تعديل خبر, تعديل كاتب, إدارة المحتوى, مؤسسة شباب قادرون"
         />
 
-        {/* Open Graph tags for social sharing */}
         <meta property="og:title" content={`لوحة التحكم | ${ORG_NAME}`} />
         <meta
           property="og:description"
@@ -46,7 +60,6 @@ const DashboardActions = () => {
         <meta property="og:image" content="/images/og-banner.jpg" />
         <meta property="og:url" content={window.location.href} />
 
-        {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@qaderoon492" />
         <meta name="twitter:title" content={`لوحة التحكم | ${ORG_NAME}`} />
