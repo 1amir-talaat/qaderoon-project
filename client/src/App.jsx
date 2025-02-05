@@ -1,18 +1,18 @@
-import { useEffect, lazy, Suspense } from "react";
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
-import "aos/dist/aos.css";
 import AOS from "aos";
+import "aos/dist/aos.css";
+import { lazy, Suspense, useEffect } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 // Import Static Components
-import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import ScrollToTop from "./utils/ScrollToTop";
-import ComingSoon from "./utils/CoomingSoon/ComingSoon";
-import TrainingAndِConsulting from "./components/services/Training and consulting/TrainingAndِConsulting.jsx";
-import JoinUs from "./pages/Join-us/Join-us.jsx";
+import Navbar from "./components/Navbar/Navbar";
 import Certification from "./components/services/Certification/Certification.jsx";
 import Conferences from "./components/services/Conferences and seminars/Conferences.jsx";
 import Employment from "./components/services/employment/Employment.jsx";
+import TrainingAndِConsulting from "./components/services/Training and consulting/TrainingAndِConsulting.jsx";
+import JoinUs from "./pages/Join-us/Join-us.jsx";
+import ComingSoon from "./utils/CoomingSoon/ComingSoon";
+import ScrollToTop from "./utils/ScrollToTop";
 
 // Lazy Loaded Components
 const Home = lazy(() => import("./pages/Home"));

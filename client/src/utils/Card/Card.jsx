@@ -9,7 +9,7 @@ function Card(props) {
           loading="lazy"
           className="rounded-t-lg card-images hover:scale-105 ease-in duration-200"
           src={props.image}
-          alt=""
+          alt={props.description}
         />
       </p>
       <div className="p-5 text-center flex flex-col flex-grow">
@@ -39,7 +39,5 @@ function Card(props) {
     </div>
   );
 }
-
-
 
 export default Card;

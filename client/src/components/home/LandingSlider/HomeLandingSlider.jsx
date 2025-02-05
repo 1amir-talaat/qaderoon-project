@@ -1,11 +1,11 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards } from "swiper/modules";
 import { useEffect, useState } from "react";
+import { EffectCards } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import data from "./LandingSliderData.json";
 import "swiper/css";
-import "./HomeLandingSlider.css";
 import "swiper/css/effect-cards";
+import "./HomeLandingSlider.css";
+import data from "./LandingSliderData.json";
 
 const HomeLandingSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -63,7 +63,7 @@ const HomeLandingSlider = () => {
           <img
             loading="lazy"
             src={heroData[activeIndex].img}
-            alt=""
+            alt={heroData[activeIndex].description}
             className="blur"
           />
         )}
@@ -95,11 +95,7 @@ const HomeLandingSlider = () => {
               className="mySwiper">
               {heroData.map((d, index) => (
                 <SwiperSlide key={index}>
-                  <img
-                    loading="lazy"
-                    src={d.img}
-                    alt={d.title}
-                  />
+                  <img src={d.img} alt={d.title} />
                 </SwiperSlide>
               ))}
             </Swiper>
