@@ -78,21 +78,25 @@ function App() {
           </Route>
 
           {/* About Us Section */}
-          <Route path="/about/institution" element={<Whowe />} />
-          <Route path="/about/speech" element={<Speech />} />
-          <Route path="/about/governorates" element={<Governorates />} />
-          <Route path="/about/success-partners" element={<SuccessPartners />} />
-          <Route path="/about/offices" element={<Offices />} />
-          <Route path="/about/board" element={<Board />} />
-          <Route path="/about/units" element={<Units />} />
-          <Route path="/about/supreme-advisory" element={<Supreme />} />
+          <Route path="/about">
+            <Route path="institution" element={<Whowe />} />
+            <Route path="speech" element={<Speech />} />
+            <Route path="governorates" element={<Governorates />} />
+            <Route path="success-partners" element={<SuccessPartners />} />
+            <Route path="offices" element={<Offices />} />
+            <Route path="board" element={<Board />} />
+            <Route path="units" element={<Units />} />
+            <Route path="supreme-advisory" element={<Supreme />} />
+          </Route>
 
           {/* services routes  */}
-          <Route path="/services/training" element={<TrainingAndِConsulting/>}/>
-          <Route path="/services/certification" element={<Certification/>}/>
-          <Route path="/services/conferences" element={<Conferences/>}/>
-          <Route path="/services/employment" element={<Employment/>}/>
-
+          <Route
+            path="/services/training"
+            element={<TrainingAndِConsulting />}
+          />
+          <Route path="/services/certification" element={<Certification />} />
+          <Route path="/services/conferences" element={<Conferences />} />
+          <Route path="/services/employment" element={<Employment />} />
 
           <Route path="*" element={<ComingSoon />} />
         </Routes>
