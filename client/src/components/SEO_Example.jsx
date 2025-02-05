@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Helmet } from "react-helmet";
 import { ORG_NAME } from "../lib/constants";
 
