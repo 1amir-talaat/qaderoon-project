@@ -1,7 +1,7 @@
 const LinksData = [
   {
     label: "من نحن",
-    link: "/about/institution",
+    link: "#",
     subItems: [
       { label: "عن المؤسسة", link: "/about/institution" },
       { label: "كلمة رئيس المؤسسة", link: "/about/speech" },

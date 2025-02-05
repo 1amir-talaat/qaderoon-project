@@ -21,15 +21,19 @@ function Navbar() {
     setOpenDropdown(openDropdown === itemName ? null : itemName);
   };
 
+  const closeMenu = (hasSubItems) => {
+    if (!hasSubItems) {
+      setNavMenuOpen(false);
+    }
+  };
+
   return (
     <header
       className={`navbar flex justify-between px-6 py-2 md:px-16 md:py-4 xl:px-24 xl:py-6 sticky top-0 z-50 w-full bg-white transition-all duration-500 ease-out
       ${scrolled ? "md:h-24 shadow-md" : "md:h-30 shadow-sm"}`}>
       {/* Logo Section */}
       <div className="flex items-center justify-center z-50">
-        <Link
-          to={"/"}
-          className="flex flex-col items-center">
+        <Link to={"/"} className="flex flex-col items-center">
           <img
             loading="lazy"
             src="/images/logo.png"
@@ -56,9 +60,7 @@ function Navbar() {
       <nav className="hidden lg:flex justify-center items-center space-x-5 font-black text-lg z-50">
         <ul className="flex space-x-10">
           {LinksData.map((item, index) => (
-            <li
-              key={index}
-              className="relative group z-50">
+            <li key={index} className="relative group z-50">
               <Link
                 to={item.link}
                 className="hover:text-[#262e30] text-primary flex items-center">
@@ -78,9 +80,7 @@ function Navbar() {
 
       {/* Mobile Nav */}
       <div className="lg:hidden flex flex-col justify-center items-center z-50 cursor-pointer">
-        <div
-          onClick={() => setNavMenuOpen(!navMenuOpen)}
-          className="space-y-1">
+        <div onClick={() => setNavMenuOpen(!navMenuOpen)} className="space-y-1">
           <div
             className={`w-10 h-1 bg-[#262e30]/90 rounded-full transition-all duration-300 ease-in-out
               ${navMenuOpen ? "translate-y-2 rotate-45" : ""}`}></div>
@@ -100,13 +100,21 @@ function Navbar() {
           <ul className="w-full space-y-3">
             <li>
               {LinksData.map((item, index) => (
-                <div
+                <Link
+                  to={item.link}
                   key={index}
-                  className="relative group w-full mt-3">
+                  className="relative group w-full">
                   <button
-                    className="cursor-pointer hover:text-primary text-[#262e30] text-lg flex items-center w-full justify-between"
-                    onClick={() => toggleDropdown(item.label)}>
-                    <Link to={item.link}>{item.label}</Link>
+                    className="cursor-pointer hover:text-primary text-[#262e30] text-lg flex items-center w-full justify-between mt-3"
+                    onClick={() => {
+                      if (item.subItems) {
+                        toggleDropdown(item.label);
+                        setNavMenuOpen(true);
+                      } else {
+                        closeMenu(false);
+                      }
+                    }}>
+                    {item.label}
                     {item.subItems && (
                       <FaCaretDown
                         className={`mr-2 mt-1 transition-transform duration-400 ${
@@ -132,7 +140,10 @@ function Navbar() {
                           <Link
                             to={subItem.link}
                             key={subIndex}
-                            onClick={() => setNavMenuOpen(false)}
+                            onClick={() => {
+                              setNavMenuOpen(false);
+                              toggleDropdown(item.label);
+                            }}
                             className="border-b text-gray-200">
                             <h1 className="cursor-pointer hover:text-secondary text-[#414e52] text-base flex items-center mt-2">
                               {subItem.label}
@@ -142,7 +153,7 @@ function Navbar() {
                       </li>
                     </ul>
                   )}
-                </div>
+                </Link>
               ))}
             </li>
           </ul>
