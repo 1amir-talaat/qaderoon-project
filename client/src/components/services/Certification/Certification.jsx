@@ -1,8 +1,3 @@
-// import AOS from "aos";
-// import "aos/dist/aos.css";
-// import { useEffect } from "react";
-// import { AiFillSafetyCertificate } from "react-icons/ai";
-
 import InfoCard from "../../../utils/InfoCard";
 
 function Certification() {
