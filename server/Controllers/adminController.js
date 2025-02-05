@@ -31,7 +31,7 @@ const registerAdmin = async (req, res) => {
         await newAdmin.save();
         res.status(201).json({ message: 'تم تسجيل المسؤول بنجاح' });
     } catch (error) {
-        res.status(500).json({ error: 'فشل في تسجيل المسؤول' });
+        res.status(500).json({ error: 'فشل في تسجيل المسؤول' ,err:error});
     }
 };
 

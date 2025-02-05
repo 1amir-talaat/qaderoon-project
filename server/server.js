@@ -54,6 +54,7 @@ app.use((req, res, next) => {
 
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // to use anything in Public
 app.use(express.static("Public"));
 app.use("/imgs", express.static(path.join(__dirname, "Public/imgs")));
