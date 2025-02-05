@@ -6,6 +6,7 @@ const Api = axios.create({
   headers: {
     Referer: REFERER, // http://localhost:5173 || https://qyf-eg.org
     "Content-Type": "application/json",
+    "Accept-Encoding": "gzip, deflate",
   },
 });
 
