@@ -19,8 +19,6 @@ const News = () => {
         setIsLoading(true);
         const response = await Api.get(`${HOST_SERVER}/news`);
 
-        console.log("API Response Data:", response.data.data);
-
         setNews(response.data.data);
       } catch (error) {
         console.error("Error fetching data:", error);

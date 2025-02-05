@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import Api from "../lib/Api";
-import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
-import Textarea from "../components/Forms/TextArea";
-import SelectInput from "../components/Forms/SelectInput";
-import Label from "../components/Forms/Label";
-import DefaultInput from "../components/Forms/DefaultInput";
-import { HOST_SERVER, ORG_NAME } from "../lib/constants";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
+import DefaultInput from "../components/Forms/DefaultInput";
+import Label from "../components/Forms/Label";
+import SelectInput from "../components/Forms/SelectInput";
+import Textarea from "../components/Forms/TextArea";
+import Api from "../lib/Api";
+import { HOST_SERVER, ORG_NAME } from "../lib/constants";
 
 const AddArticle = () => {
   const [title, setTitle] = useState("");
@@ -52,8 +52,7 @@ const AddArticle = () => {
       setSelectedAuthor("");
       alert("Article added successfully");
     } catch (error) {
-      console.info("Error adding article: ");
-      console.dir(error);
+      console.error(error);
       alert("Failed to add article");
     }
   };
