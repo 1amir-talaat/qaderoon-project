@@ -19,6 +19,7 @@ app.use(
     const allowedOrigins = [
       "https://qyf-eg.org",
       "https://www.qyf-eg.org",
+      "http://localhost:5173",
     ]; 
     const origin = req.header("Origin");
 
@@ -27,7 +28,7 @@ app.use(
     } else {
       callback(null, { origin: false });
     }
-  })
+  }) 
 );
 
 app.use((req, res, next) => {
@@ -36,12 +37,23 @@ app.use((req, res, next) => {
   const allowedReferer =[
     "https://qyf-eg.org",
     "https://www.qyf-eg.org",
+    "http://localhost:5173",
   ]; ;
   const referer = req.headers.referer || req.headers.origin;
 
-  if (!referer || !referer.startsWith(allowedReferer)) {
-    return res.status(403).json({ message: "Forbidden: Invalid Referer" });
-  }
+  let isAuthorized = true;
+
+  allowedReferer.forEach((allowed) => {
+    if (!referer || !referer.startsWith(allowed)) {
+      isAuthorized = false;
+    }else{
+      isAuthorized = true;
+    }
+  });
+
+  if(!isAuthorized){
+      return res.status(403).json({ message: "Forbidden: Invalid Referer" });
+    }
   next();
 });
 
