@@ -100,39 +100,73 @@ const sponsors = [
     link: "https://www.facebook.com/Falcon197/?locale=ar_AR",
   },
 ];
+import { Helmet } from "react-helmet";
+import { ORG_NAME } from "../../../lib/constants";
 
 const SuccessPartners = () => {
   return (
-    <div className="w-full mx-auto px-4 md:px-10 lg:px-20 my-12">
-      <h2 className="text-center font-extrabold text-2xl md:text-4xl pb-4 underlineR text-neutral-950 mb-8">
-        شركاء <span className="text-primary relative top-1">النجاح</span>
-      </h2>
+    <>
+      <Helmet>
+        <title>{ORG_NAME} | شركاء النجاح </title>
+        <meta
+          name="description"
+          content="تعرف على شركاء النجاح الذين يدعمون مؤسسة شباب قادرون في تحقيق أهدافها. هؤلاء الشركاء المتميزون يقدمون الدعم المستمر للمؤسسة لتحقيق مستقبل أفضل للشباب."
+        />
+        <meta
+          name="keywords"
+          content="شركاء النجاح, مؤسسة شباب قادرون, تمكين الشباب, تعاون, دعم"
+        />
+        <meta property="og:title" content={`شركاء النجاح | ${ORG_NAME}`} />
+        <meta
+          property="og:description"
+          content="اكتشف المزيد عن شركاء النجاح الذين يدعمون مؤسسة شباب قادرون في مشاريعها التنموية."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/og-banner.jpg" />
+        <meta property="og:url" content={window.location.href} />
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 cursor-pointer">
-        {sponsors.map((sponsor) => (
-          <div
-            data-aos="fade-down"
-            key={sponsor.id}
-            className="flex flex-col items-center text-center bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
-            <a
-              href={sponsor.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex justify-center items-center w-full">
-              <img
-                loading="lazy"
-                src={`/images/sponsors/sponsor-${sponsor.id}.png`}
-                alt={sponsor.name}
-                className="w-full max-h-20 sm:max-h-24 md:max-h-28 lg:max-h-32 object-contain"
-              />
-            </a>
-            <p className="mt-3 text-sm sm:text-base md:text-lg font-semibold text-neutral-800">
-              {sponsor.name}
-            </p>
-          </div>
-        ))}
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@qaderoon492" />
+        <meta name="twitter:title" content={`شركاء النجاح | ${ORG_NAME}`} />
+        <meta
+          name="twitter:description"
+          content="تعرف على شركاء النجاح الذين يساهمون في تمكين الشباب وتحقيق التغيير."
+        />
+        <meta name="twitter:image" content="/images/twitter-card.jpg" />
+      </Helmet>
+
+      <div className="w-full mx-auto px-4 md:px-10 lg:px-20 my-12">
+        <h2 className="text-center font-extrabold text-2xl md:text-4xl pb-4 underlineR text-neutral-950 mb-8">
+          شركاء <span className="text-primary relative top-1">النجاح</span>
+        </h2>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 cursor-pointer">
+          {sponsors.map((sponsor) => (
+            <div
+              data-aos="fade-down"
+              key={sponsor.id}
+              className="flex flex-col items-center text-center bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+              <a
+                href={sponsor.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex justify-center items-center w-full">
+                <img
+                  loading="lazy"
+                  src={`/images/sponsors/sponsor-${sponsor.id}.png`}
+                  alt={sponsor.name}
+                  className="w-full max-h-20 sm:max-h-24 md:max-h-28 lg:max-h-32 object-contain"
+                />
+              </a>
+              <p className="mt-3 text-sm sm:text-base md:text-lg font-semibold text-neutral-800">
+                {sponsor.name}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

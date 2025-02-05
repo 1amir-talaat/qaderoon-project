@@ -6,11 +6,14 @@ import AboutSectionComponent from "../components/home/about-section/AboutSection
 import ActivitiesCard from "../components/home/activities-section/ActivitiesCard";
 import Articles from "../components/home/articles-section/Articles";
 import StatisticsSection from "../components/home/statistics-section/StatisticsSection";
+import { ORG_NAME } from "../lib/constants";
+
 
 const Home = () => {
   return (
     <>
       <Helmet>
+        <title>{ORG_NAME} | الصفحة الرئيسية</title>
         <meta
           name="description"
           content="مؤسسة شباب قادرون، مؤسسة مجتمع مدني شبابية تطوعية مشهرة برقم 11492 لسنة 2022 بوزارة التضامن الاجتماعي. عضو الجمعية العمومية لاتحاد المؤسسات الشبابية بوزارة الشباب والرياضة تحت رعاية الوزير أشرف صبحي."
