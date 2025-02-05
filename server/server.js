@@ -32,30 +32,26 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  // comment this function to access to swagger docs
+  // Comment this function to access Swagger docs
 
-  const allowedReferer =[
+  const allowedReferer = [
     "https://qyf-eg.org",
     "https://www.qyf-eg.org",
     "http://localhost:5173",
-  ]; ;
+  ];
+
   const referer = req.headers.referer || req.headers.origin;
 
-  let isAuthorized = true;
+  // Check if referer starts with any of the allowed URLs
+  const isAuthorized = allowedReferer.some((allowed) => referer && referer.startsWith(allowed));
 
-  allowedReferer.forEach((allowed) => {
-    if (!referer || !referer.startsWith(allowed)) {
-      isAuthorized = false;
-    }else{
-      isAuthorized = true;
-    }
-  });
+  if (!isAuthorized) {
+    return res.status(403).json({ message: "Forbidden: Invalid Referer" });
+  }
 
-  if(!isAuthorized){
-      return res.status(403).json({ message: "Forbidden: Invalid Referer" });
-    }
   next();
 });
+
 
 app.use(express.json());
 // to use anything in Public
