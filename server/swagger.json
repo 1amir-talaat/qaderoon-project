@@ -14,7 +14,11 @@
     "tags": [
         {
             "name": "Article",
-            "description": "Returns all articles from the system that the user has access to"
+            "description": "Articles Endpoints"
+        },
+        {
+            "name": "Admin",
+            "description": "Admin Endpoints"
         }
     ],
     "schemes": [
@@ -353,79 +357,28 @@
             }
         },
 
-     "/admin/add": {
-  "post": {
-    "summary": "Add a New Admin",
-    "description": "Creates a new Admin",
-    "consumes": ["application/x-www-form-urlencoded"],
-    "produces": ["application/json"],
-    "tags": ["Admin"],
-    "parameters": [
-      {
-        "in": "formData",
-        "name": "email",
-        "type": "string",
-        "required": true,
-        "description": "Admin email"
-      },
-      {
-        "in": "formData",
-        "name": "password",
-        "type": "string",
-        "required": true,
-        "description": "Password of the admin"
-      }
-    ],
-    "responses": {
-      "201": {
-        "description": "Admin registered successfully",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "message": {
-              "type": "string",
-              "example": "تم تسجيل المسؤول بنجاح"
-            }
-          }
-        }
-      },
-      "500": {
-        "description": "Registration failed",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "error": {
-              "type": "string",
-              "example": "فشل في تسجيل المسؤول"
-            }
-          }
-        }
-      }
-    }
-  }
-}
-,
           "/admin/login": {
             "post": {
               "tags": ["Admin"],
               "summary": "Login admin",
+              "consumes": ["application/x-www-form-urlencoded"],
+              "produces": ["application/json"],
               "parameters": [
                 {
-                  "in": "formData",
-                  "name": "email",
-                  "type": "string",
-                  "format": "email",
-                  "required": true
-                },
-                {
-                  "in": "formData",
-                  "name": "password",
-                  "type": "string",
-                  "format": "password",
-                  "required": true
-                }
+                    "in": "formData",
+                    "name": "email",
+                    "type": "string",
+                    "required": true,
+                    "description": "Admin email"
+                  },
+                  {
+                    "in": "formData",
+                    "name": "password",
+                    "type": "string",
+                    "required": true,
+                    "description": "Password of the admin"
+                  }
               ],
-              "consumes": ["multipart/form-data"],
               "responses": {
                 "200": {
                   "description": "Login successful",
@@ -460,42 +413,7 @@
                 }
               }
             }
-          },
-          "/admin/get-admin": {
-            "post": {
-              "tags": ["Admin"],
-              "summary": "Get admin details using token",
-              "parameters": [
-                {
-                  "in": "formData",
-                  "name": "token",
-                  "type": "string",
-                  "required": true
-                }
-              ],
-              "consumes": ["multipart/form-data"],
-              "responses": {
-                "200": {
-                  "description": "Admin details retrieved successfully",
-                  "schema": {
-                    "type": "string",
-                    "description": "Admin email"
-                  }
-                },
-                "401": {
-                  "description": "Token required",
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "error": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }    },
+          }   },
     "definitions": {
         "articles": {
             "required": [
@@ -540,6 +458,29 @@
                     "type": "integer",
                     "description": "Version key for the document"
                 }
+            }
+        },
+
+        "admin": {
+            "required": [
+                "email",
+                "password"
+            ],
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "description": "Unique identifier for the document (ObjectId format)"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Email of admin"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "admin password"
+                }
+              
             }
         }
     }
