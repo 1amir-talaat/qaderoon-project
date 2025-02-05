@@ -18,7 +18,7 @@ app.use(
   cors((req, callback) => {
     const allowedOrigins = [
       "https://qyf-eg.org",
-      "https://www.qyf-eg.org"
+      "https://www.qyf-eg.org",
     ]; 
     const origin = req.header("Origin");
 
@@ -30,23 +30,17 @@ app.use(
   })
 );
 
-app.use(cors((req, callback) => {
-  const allowedOrigins = ['https://qyf-eg.org','https://www.qyf-eg.org']; 
-  const origin = req.header('Origin');
-  
-  if (allowedOrigins.includes(origin)) {
-      callback(null, { origin: true });
-  } else {
-      callback(null, { origin: false });
-  }
-}));
-
 app.use((req, res, next) => {
-  const allowedReferer = ['https://qyf-eg.org','https://www.qyf-eg.org'];
+  // comment this function to access to swagger docs
+
+  const allowedReferer =[
+    "https://qyf-eg.org",
+    "https://www.qyf-eg.org",
+  ]; ;
   const referer = req.headers.referer || req.headers.origin;
 
   if (!referer || !referer.startsWith(allowedReferer)) {
-      return res.status(403).json({ message: 'Forbidden: Invalid Referer' });
+    return res.status(403).json({ message: "Forbidden: Invalid Referer" });
   }
   next();
 });
