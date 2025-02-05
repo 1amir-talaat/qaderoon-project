@@ -3,10 +3,12 @@
   src: url("/fonts/arfonts-vip-hala-bold-vip-hala-bold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 .logo {
-  font-family: "CustomFont", sans-serif;
+  font-family: "CustomFont", Arial, Helvetica, sans-serif;
+  font-display: swap;
   background: linear-gradient(
     90deg,
     var(--color-primary),
