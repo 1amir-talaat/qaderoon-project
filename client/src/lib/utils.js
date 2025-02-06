@@ -28,23 +28,23 @@ export const StringLimit = (string, limit) => {
 /**
  * Checks if an array is empty without using the length property.
  *
- * @param {Array} array - The array to check for emptiness.
+ * @param {Array|undefined} array - The array to check for emptiness.
  * @returns {boolean} Returns true if the array is empty, false otherwise.
  */
 export const isEmptyArray = (array) => {
-  for (let i in array) {
-    return false;
-  }
+  if (array === undefined) return true;
+  for (let _ in array) return false;
   return true;
 };
 
 /**
  * Checks if an object is empty by verifying its keys.
  *
- * @param {Object} obj - The object to check for emptiness.
+ * @param {Object|undefined} obj - The object to check for emptiness.
  * @returns {boolean} Returns true if the object is empty, false otherwise.
  */
 export const isEmptyObject = (obj) => {
+  if (obj === undefined) return true;
   for (let key in obj) {
     if (key) {
       return false;
