@@ -4,20 +4,20 @@ const fs = require("fs");
 const path = require("path");
 
 exports.addNews = async (req, res) => {
-  upload.single("newsImg")(req, res, async (err) => {
+  upload.single("img")(req, res, async (err) => {
     if (err) {
       return res.status(400).json({ message: err.message });
     }
     try {
-      const { newsTitle, newsDesc } = req.body;
-      if (!newsTitle || !newsDesc || !req.file) {
+      const { title, content } = req.body;
+      if (!title || !content || !req.file) {
         return res.status(400).json({ message: "All fields are required." });
       }
 
       const newNews = new News({
-        newsTitle,
-        newsDesc,
-        newsImg: req.file.filename,
+        title,
+        content,
+        img: req.file.filename,
       });
 
       await newNews.save();
@@ -25,12 +25,10 @@ exports.addNews = async (req, res) => {
         .status(201)
         .json({ message: "News added successfully", data: newNews });
     } catch (error) {
-      res
-        .status(500)
-        .json({
-          message: "An error occurred while adding the News",
-          error: error.message,
-        });
+      res.status(500).json({
+        message: "An error occurred while adding the News",
+        error: error.message,
+      });
     }
   });
 };
@@ -40,12 +38,10 @@ exports.getNews = async (req, res) => {
     const news = await News.find();
     res.status(200).json({ data: news });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "An error occurred while fetching Newss",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "An error occurred while fetching Newss",
+      error: error.message,
+    });
   }
 };
 
@@ -57,24 +53,22 @@ exports.getNewsById = async (req, res) => {
     }
     res.status(200).json({ data: news });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "An error occurred while fetching the News",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "An error occurred while fetching the News",
+      error: error.message,
+    });
   }
 };
 
 exports.updateNews = async (req, res) => {
-  upload.single("newsImg")(req, res, async (err) => {
+  upload.single("img")(req, res, async (err) => {
     if (err) {
       return res.status(400).json({ message: err.message });
     }
 
     try {
       const { id } = req.params;
-      const { newsTitle, newsDesc } = req.body;
+      const { title, content } = req.body;
       const news = await News.findById(id);
 
       if (!news) {
@@ -82,31 +76,25 @@ exports.updateNews = async (req, res) => {
       }
 
       if (req.file) {
-        const oldFilePath = path.join(
-          __dirname,
-          "../../Public/imgs",
-          news.newsImg,
-        );
+        const oldFilePath = path.join(__dirname, "../../Public/imgs", news.img);
         if (fs.existsSync(oldFilePath)) {
           fs.unlinkSync(oldFilePath);
         }
-        news.newsImg = req.file.filename;
+        news.img = req.file.filename;
       }
 
-      news.newsTitle = newsTitle || news.newsTitle;
-      news.newsDesc = newsDesc || news.newsDesc;
+      news.title = title || news.title;
+      news.content = content || news.content;
 
       await news.save();
       res
         .status(200)
         .json({ message: "News updated successfully", data: news });
     } catch (error) {
-      res
-        .status(500)
-        .json({
-          message: "An error occurred while updating the News",
-          error: error.message,
-        });
+      res.status(500).json({
+        message: "An error occurred while updating the News",
+        error: error.message,
+      });
     }
   });
 };
@@ -118,17 +106,15 @@ exports.deleteNews = async (req, res) => {
     if (!news) {
       return res.status(404).json({ message: "News not found" });
     }
-    const filePath = path.join(__dirname, "../../Public/imgs", news.newsImg);
+    const filePath = path.join(__dirname, "../../Public/imgs", news.img);
     if (fs.existsSync(filePath)) {
       fs.unlinkSync(filePath);
     }
     res.status(200).json({ message: "News deleted successfully" });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "An error occurred while deleting the News",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "An error occurred while deleting the News",
+      error: error.message,
+    });
   }
 };

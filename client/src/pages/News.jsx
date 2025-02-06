@@ -92,8 +92,8 @@ const News = () => {
             <Link key={news._id} to={`/news/${news._id}`}>
               <Card
                 key={index}
-                description={news.newsTitle}
-                image={`${HOST_SERVER}/imgs/${news.newsImg}`}
+                description={news.title}
+                image={`${HOST_SERVER}/imgs/${news.img}`}
               />
             </Link>
           ))

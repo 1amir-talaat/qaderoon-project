@@ -11,7 +11,7 @@ import { HOST_SERVER, ORG_NAME } from "../lib/constants";
 const AddArticle = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [Img, setImg] = useState(null);
+  const [img, setImg] = useState(null);
   const [authors, setAuthors] = useState([]);
   const [selectedAuthor, setSelectedAuthor] = useState("");
 
@@ -37,7 +37,7 @@ const AddArticle = () => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("content", content);
-    formData.append("Img", Img);
+    formData.append("img", img);
     formData.append("author", selectedAuthor);
 
     try {
@@ -128,9 +128,9 @@ const AddArticle = () => {
           </div>
           <div className="mb-4">
             {/* Image upload input */}
-            <Label htmlFor="Img" label="Article Image" />
+            <Label htmlFor="img" label="Article Image" />
             <AttachmentsFileInput
-              name="Img"
+              name="img"
               accept="image/jpeg, image/jpg, image/png, image/gif, image/bmp, image/webp"
               onChange={handleFileChange}
               required={true}

@@ -1,27 +1,27 @@
 import { useState } from "react";
-import Api from "../lib/Api";
-import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
-import Textarea from "../components/Forms/TextArea";
-import Label from "../components/Forms/Label";
-import DefaultInput from "../components/Forms/DefaultInput";
-import { HOST_SERVER, ORG_NAME } from "../lib/constants";
 import { Helmet } from "react-helmet";
+import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
+import DefaultInput from "../components/Forms/DefaultInput";
+import Label from "../components/Forms/Label";
+import Textarea from "../components/Forms/TextArea";
+import Api from "../lib/Api";
+import { HOST_SERVER, ORG_NAME } from "../lib/constants";
 
 const AddNews = () => {
-  const [newsTitle, setNewsTitle] = useState("");
-  const [newsDesc, setNewsDesc] = useState("");
-  const [newsImg, setNewsImg] = useState(null);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [img, setImg] = useState(null);
 
   const handleFileChange = (e) => {
-    setNewsImg(e.target.files[0]);
+    setImg(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("newsTitle", newsTitle);
-    formData.append("newsDesc", newsDesc);
-    formData.append("newsImg", newsImg);
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("img", img);
 
     try {
       await Api.post(`${HOST_SERVER}/news`, formData, {
@@ -29,9 +29,9 @@ const AddNews = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-      setNewsTitle("");
-      setNewsDesc("");
-      setNewsImg(null);
+      setTitle("");
+      setContent("");
+      setImg(null);
       alert("News added successfully");
     } catch (error) {
       console.error("Error adding news:", error);
@@ -76,30 +76,30 @@ const AddNews = () => {
         <h2 className="mb-6 text-2xl font-bold text-primary">Add News</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <Label htmlFor="newsTitle" label="News Title" />
+            <Label htmlFor="title" label="News Title" />
             <DefaultInput
               type="text"
-              name="newsTitle"
-              value={newsTitle}
-              onChange={(e) => setNewsTitle(e.target.value)}
+              name="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               required={true}
               placeholder="عنوان الخبر"
             />
           </div>
           <div className="mb-4">
-            <Label htmlFor="newsDesc" label="Article Content" />
+            <Label htmlFor="content" label="Article Content" />
             <Textarea
-              value={newsDesc}
-              onChange={(e) => setNewsDesc(e.target.value)}
-              name="newsDesc"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              name="content"
               placeholder="محتوى الخبر..."
               required={true}
             />
           </div>
           <div className="mb-4">
-            <Label htmlFor="newsImg" label="News Image" />
+            <Label htmlFor="img" label="News Image" />
             <AttachmentsFileInput
-              name="newsImg"
+              name="img"
               accept="image/jpeg, image/jpg, image/png, image/gif, image/bmp, image/webp"
               onChange={handleFileChange}
               required={true}

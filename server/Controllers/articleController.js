@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 exports.addReport = async (req, res) => {
-  upload.single("Img")(req, res, async (err) => {
+  upload.single("img")(req, res, async (err) => {
     if (err) {
       return res.status(400).json({ message: err.message });
     }
@@ -17,7 +17,7 @@ exports.addReport = async (req, res) => {
       const newReport = new Report({
         title,
         content,
-        Img: req.file.filename,
+        img: req.file.filename,
         author,
       });
 
@@ -62,7 +62,7 @@ exports.getReportById = async (req, res) => {
 };
 
 exports.updateReport = async (req, res) => {
-  upload.single("Img")(req, res, async (err) => {
+  upload.single("img")(req, res, async (err) => {
     if (err) {
       return res.status(400).json({ message: err.message });
     }
@@ -79,13 +79,13 @@ exports.updateReport = async (req, res) => {
       if (req.file) {
         const oldFilePath = path.join(
           __dirname,
-          "../../Public/Imgs",
-          report.Img,
+          "../../Public/imgs",
+          report.img,
         );
         if (fs.existsSync(oldFilePath)) {
           fs.unlinkSync(oldFilePath);
         }
-        report.Img = req.file.filename;
+        report.img = req.file.filename;
       }
 
       report.title = title || report.title;
@@ -112,7 +112,7 @@ exports.deleteReport = async (req, res) => {
     if (!report) {
       return res.status(404).json({ message: "Report not found" });
     }
-    const filePath = path.join(__dirname, "../../Public/Imgs", report.Img);
+    const filePath = path.join(__dirname, "../../Public/imgs", report.img);
     if (fs.existsSync(filePath)) {
       fs.unlinkSync(filePath);
     }

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
+import DefaultInput from "../components/Forms/DefaultInput";
+import Label from "../components/Forms/Label";
+import Textarea from "../components/Forms/TextArea";
 import Api from "../lib/Api";
 import { HOST_SERVER, ORG_NAME } from "../lib/constants";
-import { Helmet } from "react-helmet";
-import DefaultInput from "../components/Forms/DefaultInput";
-import Textarea from "../components/Forms/TextArea";
-import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
-import Label from "../components/Forms/Label";
 
 const ManageArticles = () => {
   const [articles, setArticles] = useState([]);
@@ -13,7 +13,7 @@ const ManageArticles = () => {
   const [editingArticle, setEditingArticle] = useState(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [Img, setImg] = useState(null);
+  const [img, setImg] = useState(null);
   const [selectedAuthor, setSelectedAuthor] = useState("");
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const ManageArticles = () => {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("author", selectedAuthor);
-    if (Img) formData.append("Img", Img);
+    if (img) formData.append("img", img);
 
     try {
       await Api.put(`${HOST_SERVER}/articles/${editingArticle._id}`, formData, {
@@ -125,7 +125,7 @@ const ManageArticles = () => {
                 </option>
               ))}
             </select>
-            <Label htmlFor="Img" label="Update Image (optional)" />
+            <Label htmlFor="img" label="Update Image (optional)" />
             <AttachmentsFileInput onChange={handleFileChange} />
             <button
               type="submit"

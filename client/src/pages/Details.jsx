@@ -1,11 +1,11 @@
-import Api from "../lib/Api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ArticleDetails from "../components/Details/ArticleDetails";
+import NewsDetails from "../components/Details/NewsDetails";
+import Api from "../lib/Api";
+import { HOST_SERVER } from "../lib/constants";
 import { isEmptyObject } from "../lib/utils";
 import Loader from "../utils/Loader/Loader";
-import NewsDetails from "../components/Details/NewsDetails";
-import ArticleDetails from "../components/Details/ArticleDetails";
-import { HOST_SERVER } from "../lib/constants";
 
 function Details(props) {
   const { id } = useParams();

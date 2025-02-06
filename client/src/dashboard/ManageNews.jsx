@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
+import DefaultInput from "../components/Forms/DefaultInput";
+import Label from "../components/Forms/Label";
+import Textarea from "../components/Forms/TextArea";
 import Api from "../lib/Api";
 import { HOST_SERVER, ORG_NAME } from "../lib/constants";
-import { Helmet } from "react-helmet";
-import DefaultInput from "../components/Forms/DefaultInput";
-import Textarea from "../components/Forms/TextArea";
-import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
-import Label from "../components/Forms/Label";
 
 const ManageNews = () => {
   const [newsList, setNewsList] = useState([]);
   const [editingNews, setEditingNews] = useState(null);
-  const [newsTitle, setNewsTitle] = useState("");
-  const [newsDesc, setNewsDesc] = useState("");
-  const [newsImg, setNewsImg] = useState(null);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [img, setImg] = useState(null);
 
   useEffect(() => {
     fetchNews();
@@ -29,29 +29,29 @@ const ManageNews = () => {
 
   const handleEdit = (news) => {
     setEditingNews(news);
-    setNewsTitle(news.newsTitle);
-    setNewsDesc(news.newsDesc);
+    setTitle(news.title);
+    setContent(news.content);
   };
 
   const handleFileChange = (e) => {
-    setNewsImg(e.target.files[0]);
+    setImg(e.target.files[0]);
   };
 
   const handleUpdate = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("newsTitle", newsTitle);
-    formData.append("newsDesc", newsDesc);
-    if (newsImg) formData.append("newsImg", newsImg);
+    formData.append("title", title);
+    formData.append("content", content);
+    if (img) formData.append("img", img);
 
     try {
       await Api.put(`${HOST_SERVER}/news/${editingNews._id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setEditingNews(null);
-      setNewsTitle("");
-      setNewsDesc("");
-      setNewsImg(null);
+      setTitle("");
+      setContent("");
+      setImg(null);
       fetchNews();
       alert("News updated successfully");
     } catch (error) {
@@ -81,20 +81,20 @@ const ManageNews = () => {
         <h2 className="mb-6 text-2xl font-bold text-red-600">Manage News</h2>
         {editingNews && (
           <form onSubmit={handleUpdate} className="mb-6">
-            <Label htmlFor="newsTitle" label="News Title" />
+            <Label htmlFor="title" label="News Title" />
             <DefaultInput
               type="text"
-              value={newsTitle}
-              onChange={(e) => setNewsTitle(e.target.value)}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               required
             />
-            <Label htmlFor="newsDesc" label="News Description" />
+            <Label htmlFor="content" label="News Description" />
             <Textarea
-              value={newsDesc}
-              onChange={(e) => setNewsDesc(e.target.value)}
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
               required
             />
-            <Label htmlFor="newsImg" label="Update Image (optional)" />
+            <Label htmlFor="img" label="Update Image (optional)" />
             <AttachmentsFileInput onChange={handleFileChange} />
             <button
               type="submit"
@@ -109,8 +109,8 @@ const ManageNews = () => {
               key={news._id}
               className="mb-2 flex flex-col justify-center rounded bg-white p-4 shadow">
               <div>
-                <p className="font-bold">{news.newsTitle}</p>
-                <p>{news.newsDesc}</p>
+                <p className="font-bold">{news.title}</p>
+                <p>{news.content}</p>
               </div>
               <div className="mt-2 flex w-full justify-end space-x-4">
                 <button

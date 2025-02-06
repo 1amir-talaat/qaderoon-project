@@ -3,15 +3,15 @@ const Schema = mongoose.Schema;
 
 const NewsSchema = new Schema(
   {
-    newsTitle: {
+    title: {
       type: String,
       required: true,
     },
-    newsDesc: {
+    content: {
       type: String,
       required: true,
     },
-    newsImg: {
+    img: {
       type: String,
       required: true,
     },

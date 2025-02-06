@@ -1,13 +1,13 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Api from "../../../lib/Api";
 import { useEffect, useState } from "react";
-import "./articles.css";
 import { Link } from "react-router-dom";
+import Api from "../../../lib/Api";
+import { HOST_SERVER } from "../../../lib/constants";
+import { isEmptyArray } from "../../../lib/utils";
 import Button from "../../../utils/Button";
 import Card from "../../../utils/Card/Card";
-import { isEmptyArray } from "../../../lib/utils";
-import { HOST_SERVER } from "../../../lib/constants";
+import "./articles.css";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
@@ -43,11 +43,11 @@ function Articles() {
         </p>
         <div className="m-5 flex flex-wrap justify-between gap-15 text-center sm:justify-center md:justify-center">
           {!isEmptyArray(articles) &&
-            articles.map(({ _id, title, Img }) => (
+            articles.map(({ _id, title, img }) => (
               <Link to={`/article/${_id}`} key={_id}>
                 <Card
                   description={title}
-                  image={`${HOST_SERVER}/imgs/${Img}`}
+                  image={`${HOST_SERVER}/imgs/${img}`}
                 />
               </Link>
             ))}

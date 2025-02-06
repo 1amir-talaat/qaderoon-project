@@ -52,7 +52,7 @@
         "parameters": [
           {
             "in": "formData",
-            "name": "Img",
+            "name": "img",
             "type": "file",
             "required": true,
             "description": "Image file to be uploaded"
@@ -197,7 +197,7 @@
           },
           {
             "in": "formData",
-            "name": "Img",
+            "name": "img",
             "type": "file",
             "required": false,
             "description": "New image file (optional)"
@@ -387,7 +387,7 @@
   },
   "definitions": {
     "articles": {
-      "required": ["title", "content", "author", "Img"],
+      "required": ["title", "content", "author", "img"],
       "type": "object",
       "properties": {
         "_id": {
@@ -402,7 +402,7 @@
           "type": "string",
           "description": "Content of the post"
         },
-        "Img": {
+        "img": {
           "type": "string",
           "description": "URL or path to the image"
         },

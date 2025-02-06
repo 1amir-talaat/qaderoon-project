@@ -1,11 +1,11 @@
-import Api from "../lib/Api";
 import { useEffect, useState } from "react";
-import Card from "../utils/Card/Card";
-import { Link } from "react-router-dom";
-import Loader from "../utils/Loader/Loader";
 import { Helmet } from "react-helmet";
-import { isEmptyArray } from "../lib/utils";
+import { Link } from "react-router-dom";
+import Api from "../lib/Api";
 import { HOST_SERVER, ORG_NAME } from "../lib/constants";
+import { isEmptyArray } from "../lib/utils";
+import Card from "../utils/Card/Card";
+import Loader from "../utils/Loader/Loader";
 
 function AllArticles() {
   const [articles, setArticles] = useState([]);
@@ -90,11 +90,11 @@ function AllArticles() {
         <main className="m-5 mt-16 flex flex-wrap justify-between gap-15 text-center sm:justify-center md:justify-center">
           {isLoading || isPageLoading ?
             <Loader />
-          : displayedArticles.map(({ _id, title, Img }) => (
+          : displayedArticles.map(({ _id, title, img }) => (
               <Link key={_id} to={`/article/${_id}`}>
                 <Card
                   description={title}
-                  image={`${HOST_SERVER}/imgs/` + Img}
+                  image={`${HOST_SERVER}/imgs/` + img}
                 />
               </Link>
             ))
