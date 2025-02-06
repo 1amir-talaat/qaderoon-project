@@ -97,7 +97,7 @@ function Navbar() {
               {LinksData.map((item) => (
                 <Link
                   to={item.link}
-                  key={item.link}
+                  key={item.label}
                   className="group relative w-full">
                   <button
                     type="button"
