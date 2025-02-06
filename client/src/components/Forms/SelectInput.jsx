@@ -25,7 +25,7 @@ const SelectInput = ({
             </option>
           ))}
         </select>
-        <span className="border-body-color absolute top-1/2 left-4 z-10 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2"></span>
+        <span className="border-body-color absolute top-1/2 left-4 z-10 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2" />
       </div>
     </>
   );

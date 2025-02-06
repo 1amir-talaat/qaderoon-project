@@ -15,7 +15,7 @@ function Card(props) {
       <div className="flex flex-grow flex-col p-5 text-center">
         <h1 className="my-2 mb-3 text-xl break-words">{props.description}</h1>
         {/* Spacer div to push the button to the bottom */}
-        <div className="flex-grow"></div>
+        <div className="flex-grow" />
         <div className="mt-auto flex justify-center">
           <Button className="font-semibold">
             إقرأ المزيد

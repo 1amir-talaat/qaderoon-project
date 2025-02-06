@@ -17,7 +17,7 @@ function Articles() {
 
     const fetchData = async () => {
       try {
-        const response = await Api.get(`articles/`);
+        const response = await Api.get("articles/");
 
         setArticles(response.data.data.slice(0, 3));
       } catch (error) {
@@ -30,7 +30,7 @@ function Articles() {
 
   return (
     <div className="articles-cont">
-      <div className="layer"></div>
+      <div className="layer" />
       <div
         className="article-content container mx-auto px-4 text-center"
         data-aos="fade-down"

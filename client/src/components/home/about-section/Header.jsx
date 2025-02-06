@@ -5,7 +5,7 @@ const Header = () => (
     <h1>
       من نحن <span className="text-primary">&quot;شباب قادرون&quot;</span>
     </h1>
-    <div className="my-4 h-1 w-16 bg-primary"></div>
+    <div className="my-4 h-1 w-16 bg-primary" />
   </section>
 );
 

@@ -10,7 +10,7 @@ import Loader from "../utils/Loader/Loader";
 function Details(props) {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(false);
-  const [type] = useState(props.type == "news" ? "news" : "articles");
+  const [type] = useState(props.type === "news" ? "news" : "articles");
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -63,7 +63,7 @@ function Details(props) {
           <Loader />
         </div>
       : <article className="mt-0 lg:mt-10">
-          {type == "news" ?
+          {type === "news" ?
             <NewsDetails news={data} />
           : <ArticleDetails article={data} />}
         </article>

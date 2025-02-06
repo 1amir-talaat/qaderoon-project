@@ -94,7 +94,7 @@ function AllArticles() {
               <Link key={_id} to={`/article/${_id}`}>
                 <Card
                   description={title}
-                  image={`${HOST_SERVER}/imgs/` + img}
+                  image={`${HOST_SERVER}/imgs/${img}`}
                 />
               </Link>
             ))

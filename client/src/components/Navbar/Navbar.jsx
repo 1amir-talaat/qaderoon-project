@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { FaCaretDown } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import LinksData from "../../data/LinksData";
 import Dropdown from "./Dropdown";
-import SocialMediaLinks from "./SocialMediaLinks";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
-import { FaCaretDown } from "react-icons/fa";
+import SocialMediaLinks from "./SocialMediaLinks";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -57,8 +57,8 @@ function Navbar() {
       {/* Navigation Links */}
       <nav className="z-50 hidden items-center justify-center space-x-5 text-lg font-black lg:flex">
         <ul className="flex space-x-10">
-          {LinksData.map((item, index) => (
-            <li key={index} className="group relative z-50">
+          {LinksData.map((item) => (
+            <li key={item.label} className="group relative z-50">
               <Link
                 to={item.link}
                 className="flex items-center text-primary hover:text-[#262e30]">
@@ -80,11 +80,11 @@ function Navbar() {
       <div className="z-50 flex cursor-pointer flex-col items-center justify-center lg:hidden">
         <div onClick={() => setNavMenuOpen(!navMenuOpen)} className="space-y-1">
           <div
-            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "translate-y-2 rotate-45" : ""}`}></div>
+            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "translate-y-2 rotate-45" : ""}`} />
           <div
-            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "opacity-0" : ""}`}></div>
+            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "opacity-0" : ""}`} />
           <div
-            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "-translate-y-2 -rotate-45" : ""}`}></div>
+            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
         </div>
 
         {/* Mobile Menu */}
@@ -94,12 +94,13 @@ function Navbar() {
           }`}>
           <ul className="w-full space-y-3">
             <li>
-              {LinksData.map((item, index) => (
+              {LinksData.map((item) => (
                 <Link
                   to={item.link}
-                  key={index}
+                  key={item.link}
                   className="group relative w-full">
                   <button
+                    type="button"
                     className="mt-3 flex w-full cursor-pointer items-center justify-between text-lg text-[#262e30] hover:text-primary"
                     onClick={() => {
                       if (item.subItems) {
@@ -131,10 +132,10 @@ function Navbar() {
                         transitionProperty: "max-height, opacity",
                       }}>
                       <li>
-                        {item.subItems.map((subItem, subIndex) => (
+                        {item.subItems.map((subItem) => (
                           <Link
                             to={subItem.link}
-                            key={subIndex}
+                            key={subItem.label}
                             onClick={() => {
                               setNavMenuOpen(false);
                               toggleDropdown(item.label);

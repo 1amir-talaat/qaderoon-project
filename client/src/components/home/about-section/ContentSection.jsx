@@ -31,7 +31,7 @@ const ContentSection = () => (
       {" "}
       {/* Increased gap between buttons */}
       <Link to="/about/institution">
-        <Button className="card-button inline-flex items-center rounded-lg bg-primary px-8 py-4 text-center text-lg font-medium text-white transition transition-transform duration-150 duration-200 hover:scale-105 hover:bg-secondary focus:ring-4 focus:outline-none sm:px-6 sm:py-3 md:px-8 md:py-4">
+        <Button className="card-button inline-flex items-center rounded-lg bg-primary px-8 py-4 text-center text-lg font-medium text-white transition duration-200 hover:scale-105 hover:bg-secondary focus:ring-4 focus:outline-none sm:px-6 sm:py-3 md:px-8 md:py-4">
           {" "}
           {/* Increased padding */}
           عرض المزيد
@@ -39,8 +39,8 @@ const ContentSection = () => (
       </Link>
       <a
         target="_blank"
-        href="https://youtu.be/XU18YdtyNHk?si=0axAfZTf2PY5JtcO">
-        <Button className="card-button inline-flex items-center rounded-lg bg-primary px-8 py-4 text-center text-lg font-medium text-white transition transition-transform duration-150 duration-200 hover:scale-105 hover:bg-secondary sm:px-6 sm:py-3 md:px-8 md:py-4">
+        href="https://youtu.be/XU18YdtyNHk?si=0axAfZTf2PY5JtcO" rel="noreferrer">
+        <Button className="card-button inline-flex items-center rounded-lg bg-primary px-8 py-4 text-center text-lg font-medium text-white transition duration-200 hover:scale-105 hover:bg-secondary sm:px-6 sm:py-3 md:px-8 md:py-4">
           {" "}
           {/* Increased padding */}
           فيديو تعريفي <FaPlay className="group-hover:-translate-x-2" />

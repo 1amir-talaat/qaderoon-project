@@ -4,7 +4,7 @@ const Textarea = ({ name, onChange, required = false, value, ...rest }) => {
   return (
     <>
       <div className="relative flex">
-        {value?.length == 0 && (
+        {value?.length === 0 && (
           <span className="absolute top-[18px] left-4">
             <FaRegEdit size={20} />
           </span>

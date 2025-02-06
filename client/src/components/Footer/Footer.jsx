@@ -15,8 +15,7 @@ const Footer = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-8 border-t border-gray-200 pt-10 sm:grid-cols-4 xl:grid-cols-6">
-            {LinksData &&
-              LinksData.map(({ label, link, subItems }) => (
+            {LinksData?.map(({ label, link, subItems }) => (
                 <FooterSection
                   key={label}
                   label={label}

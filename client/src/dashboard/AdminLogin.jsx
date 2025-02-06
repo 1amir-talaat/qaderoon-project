@@ -14,7 +14,7 @@ export default function AdminLogin() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (sessionStorage.getItem("token") != undefined) {
+    if (sessionStorage.getItem("token") !== undefined) {
       navigate("/dashboard", { replace: true });
     }
   }, [navigate]);

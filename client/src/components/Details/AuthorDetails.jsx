@@ -30,7 +30,7 @@ const AuthorDetails = ({ item }) => {
             src={
               item.author?.image ?
                 `${HOST_SERVER}/imgs/${item.author?.image}`
-              : `/images/profile.png`
+              : "/images/profile.png"
             }
             className="hidden size-16 rounded-full object-cover sm:block lg:size-24"
             alt={item.author.name}

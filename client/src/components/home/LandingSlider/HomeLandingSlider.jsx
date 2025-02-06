@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -32,6 +32,12 @@ const HomeLandingSlider = () => {
     heroSwiper.current?.slideTo(index);
   };
 
+  const handleTabKeyDown = (e, index) => {
+    if (e.key === "Enter" || e.key === " ") { // Check for Enter or Space key
+      handleTabClick(index);
+    }
+  };
+
   return (
     <div className="hero overflow-hidden">
       <div className="overlay">
@@ -43,7 +49,7 @@ const HomeLandingSlider = () => {
             className="blur"
           />
         )}
-        <div className="shodo"></div>
+        <div className="shodo" />
       </div>
 
       <div className="hero-content">
@@ -62,13 +68,13 @@ const HomeLandingSlider = () => {
               autoplay={{ delay: 5000 }}
               loop
               effect="cards"
-              onSwiper={(swiper) => (heroSwiper.current = swiper)}
+              onSwiper={(swiper) => {heroSwiper.current = swiper}}
               grabCursor
               onSlideChange={handleSlideChange}
               modules={[EffectCards]}
               className="mySwiper">
-              {heroData.map((d, index) => (
-                <SwiperSlide key={index}>
+              {heroData.map((d) => (
+                <SwiperSlide key={d.title}>
                   <img src={d.img} alt={d.title} />
                 </SwiperSlide>
               ))}
@@ -78,9 +84,11 @@ const HomeLandingSlider = () => {
         <div className="tab-area">
           {heroData.map((d, index) => (
             <div
-              key={index}
+              key={d.title}
               className={`tab-item ${activeIndex === index ? "active" : ""}`}
-              onClick={() => handleTabClick(index)}>
+              onClick={() => handleTabClick(index)}
+              onKeyDown={(e) => handleTabKeyDown(e, index)} // Add onKeyDown handler
+            >
               <div className="tab-title">{d.title}</div>
             </div>
           ))}
