@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,51 +9,27 @@ import data from "./LandingSliderData.json";
 
 const HomeLandingSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [heroSwiper, setHeroSwiper] = useState(null);
+  const heroSwiper = useRef(null);
 
-  const heroData = data || [];
+  const heroData = useMemo(() => data || [], []);
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = useCallback((swiper) => {
     setActiveIndex(swiper.realIndex);
-  };
+  }, []);
 
   useEffect(() => {
+    if (!heroSwiper.current) return;
+
     const interval = setInterval(() => {
-      if (heroSwiper) {
-        heroSwiper.slideNext();
-      }
+      heroSwiper.current?.slideNext();
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [heroSwiper]);
-
-  useEffect(() => {
-    const handleAnimationReset = () => {
-      const animatedElements = document.querySelectorAll(".hero-animated");
-      animatedElements.forEach((element) => {
-        element.style.animation = "none";
-        requestAnimationFrame(() => {
-          element.style.animation = "fadeInUp 0.4s ease-in-out forwards";
-        });
-      });
-    };
-
-    if (heroSwiper) {
-      heroSwiper.on("slideChange", handleAnimationReset);
-    }
-
-    return () => {
-      if (heroSwiper) {
-        heroSwiper.off("slideChange", handleAnimationReset);
-      }
-    };
-  }, [heroSwiper]);
+  }, []);
 
   const handleTabClick = (index) => {
     setActiveIndex(index);
-    if (heroSwiper) {
-      heroSwiper.slideTo(index);
-    }
+    heroSwiper.current?.slideTo(index);
   };
 
   return (
@@ -61,9 +37,9 @@ const HomeLandingSlider = () => {
       <div className="overlay">
         {heroData.length > 0 && (
           <img
-            loading="lazy"
-            src={heroData[activeIndex].img}
-            alt={heroData[activeIndex].description}
+            // loading="lazy"
+            src={heroData[activeIndex]?.img}
+            alt={heroData[activeIndex]?.description}
             className="blur"
           />
         )}
@@ -75,20 +51,18 @@ const HomeLandingSlider = () => {
           <div className="hero-text hero-animated">
             <div className="hero-text-content">
               {heroData.length > 0 && (
-                <>
-                  <p className="hero-text-title lg:text-3xl xl:text-4xl">
-                    {heroData[activeIndex].description}
-                  </p>
-                </>
+                <p className="hero-text-title lg:text-3xl xl:text-4xl">
+                  {heroData[activeIndex]?.description}
+                </p>
               )}
             </div>
           </div>
           <div className="hero-slider">
             <Swiper
-              autoplay={{ delay: 1000 }}
-              loop={true}
+              autoplay={{ delay: 5000 }}
+              loop
               effect="cards"
-              onSwiper={setHeroSwiper}
+              onSwiper={(swiper) => (heroSwiper.current = swiper)}
               grabCursor
               onSlideChange={handleSlideChange}
               modules={[EffectCards]}

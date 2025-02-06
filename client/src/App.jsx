@@ -2,21 +2,32 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { lazy, Suspense, useEffect } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Loader from "./utils/Loader/Loader.jsx";
 
 // apply lazy loading to all pages
 
-const Footer =  lazy(() => import("./components/Footer/Footer"));
+const Footer = lazy(() => import("./components/Footer/Footer"));
 const Navbar = lazy(() => import("./components/Navbar/Navbar"));
-const Certification = lazy(() => import("./components/services/Certification/Certification.jsx"));
-const Conferences = lazy(() => import("./components/services/Conferences and seminars/Conferences.jsx"));
-const Employment = lazy(() => import("./components/services/employment/Employment.jsx"));
+const Certification = lazy(() =>
+  import("./components/services/Certification/Certification.jsx")
+);
+const Conferences = lazy(() =>
+  import("./components/services/Conferences and seminars/Conferences.jsx")
+);
+const Employment = lazy(() =>
+  import("./components/services/employment/Employment.jsx")
+);
 const ManageAuthors = lazy(() => import("./dashboard/ManageAuthors.jsx"));
 const ManageArticles = lazy(() => import("./dashboard/ManageArticles.jsx"));
 const ManageNews = lazy(() => import("./dashboard/ManageNews.jsx"));
-const TrainingAndِConsulting = lazy(() => import("./components/services/Training and consulting/TrainingAndِConsulting.jsx"));
+const TrainingAndِConsulting = lazy(() =>
+  import(
+    "./components/services/Training and consulting/TrainingAndِConsulting.jsx"
+  )
+);
 const JoinUs = lazy(() => import("./pages/Join-us/Join-us.jsx"));
-const ComingSoon = lazy(()=> import("./utils/CoomingSoon/ComingSoon"));
-const ScrollToTop = lazy(()=> import("./utils/ScrollToTop"));
+const ComingSoon = lazy(() => import("./utils/CoomingSoon/ComingSoon"));
+const ScrollToTop = lazy(() => import("./utils/ScrollToTop"));
 // Lazy Loaded Components
 const Home = lazy(() => import("./pages/Home"));
 const AllArticles = lazy(() => import("./pages/AllArticles"));
@@ -56,10 +67,15 @@ function App() {
     <Router>
       {/* Ensures the page scrolls to the top on route change */}
       <ScrollToTop />
-      <Navbar />
 
       {/* Lazy Loading Components */}
-      <Suspense>
+      <Suspense
+        fallback={
+          <div className="h-screen w-screen flex items-center justify-center">
+            <Loader />
+          </div>
+        }>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<AllArticles />} />
@@ -105,9 +121,8 @@ function App() {
 
           <Route path="*" element={<ComingSoon />} />
         </Routes>
+        <Footer />
       </Suspense>
-
-      <Footer />
     </Router>
   );
 }
