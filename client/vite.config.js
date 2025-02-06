@@ -8,7 +8,6 @@ export default defineConfig({
   plugins: [tailwindcss(), react(),
     compression({
       algorithm: "brotliCompress", // Brotli compression
-      ext: ".br",
       threshold:1024
     }),
     compression({
