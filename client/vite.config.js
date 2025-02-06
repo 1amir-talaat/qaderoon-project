@@ -6,7 +6,15 @@ import compression from "vite-plugin-compression";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [tailwindcss(), react(),
-    compression({ algorithm: "brotliCompress",threshold:1024 })
+    compression({
+      algorithm: "brotliCompress", // Brotli compression
+      ext: ".br",
+      threshold:1024
+    }),
+    compression({
+      algorithm: "gzip", // Gzip fallback
+      ext: ".gz",
+    }),
   ],
   server: {
     // port: 2000,
