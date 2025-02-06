@@ -17,7 +17,7 @@
   }
 
   p {
-    @apply leading-relaxed text-gray-700;
+    @apply leading-relaxed text-gray-800;
   }
 
   a {
@@ -42,6 +42,11 @@
 
   ol {
     @apply list-decimal space-y-3.5 pl-6;
+  }
+
+  ol li::marker,
+  ul li::marker {
+    @apply font-sans text-secondary;
   }
 
   hr {
