@@ -2,18 +2,18 @@
 @import "../../colors.css";
 
 .markdown-content {
-  @apply text-gray-800 md:text-xl space-y-6 leading-relaxed max-w-screen-lg sm:text-sm;
+  @apply mx-auto mt-12 w-full max-w-screen-lg space-y-6 px-8 pb-12 text-lg leading-relaxed text-gray-800 md:px-4 md:text-xl lg:max-w-screen-lg;
 
   h1 {
-    @apply md:text-4xl text-2xl font-bold text-secondary;
+    @apply text-2xl font-bold text-secondary md:text-4xl;
   }
 
   h2 {
-    @apply md:text-3xl text-xl font-semibold text-secondary;
+    @apply text-xl font-semibold text-secondary md:text-3xl;
   }
 
   h3 {
-    @apply md:text-2xl text-lg font-semibold text-secondary;
+    @apply text-lg font-semibold text-secondary md:text-2xl;
   }
 
   p {
@@ -25,23 +25,23 @@
   }
 
   blockquote {
-    @apply border-l-4 border-primary pl-4 italic text-gray-600;
+    @apply border-l-4 border-primary pl-4 text-gray-600 italic;
   }
 
   code {
-    @apply bg-gray-100 px-1 py-0.5 rounded text-sm  text-secondary;
+    @apply rounded bg-gray-100 px-1 py-0.5 text-sm text-secondary;
   }
 
   pre {
-    @apply bg-gray-900 text-white p-4 rounded-md overflow-x-auto text-sm;
+    @apply overflow-x-auto rounded-md bg-gray-900 p-4 text-sm text-white;
   }
 
   ul {
-    @apply list-disc pl-6 space-y-6;
+    @apply list-disc space-y-6 pl-6;
   }
 
   ol {
-    @apply list-decimal pl-6 space-y-3.5;
+    @apply list-decimal space-y-3.5 pl-6;
   }
 
   hr {
@@ -53,10 +53,10 @@
   }
 
   th {
-    @apply bg-gray-200 p-2 border border-gray-950 text-center;
+    @apply border border-gray-950 bg-gray-200 p-2 text-center;
   }
 
   td {
-    @apply p-2 border border-gray-950;
+    @apply border border-gray-950 p-2;
   }
 }

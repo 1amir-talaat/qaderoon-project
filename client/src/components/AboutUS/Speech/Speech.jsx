@@ -43,28 +43,28 @@ function Speech() {
 
       <div
         data-aos="fade-down"
-        className="container items-center gap-6 p-6  mx-auto my-6 lg:my-20">
-        <h2 className="font-extrabold text-2xl md:text-4xl pb-5 underlinee text-neutral-950 mb-6 ">
-          كلمة <span className="text-primary relative">رئيس المؤسسة</span>
+        className="container mx-auto my-6 items-center gap-6 p-6 lg:my-20">
+        <h2 className="underlinee mb-6 pb-5 text-2xl font-extrabold text-neutral-950 md:text-4xl">
+          كلمة <span className="relative text-primary">رئيس المؤسسة</span>
         </h2>
-        <div className="flex flex-col xl:flex-row gap-6 w-full">
+        <div className="flex w-full flex-col gap-6 xl:flex-row">
           {/* Image Section Mobile */}
-          <div className="w-full xl:w-1/2 flex xl:hidden justify-center">
+          <div className="flex w-full justify-center xl:hidden xl:w-1/2">
             <img
               loading="lazy"
               src="/images/WhoWe/Speech/Head-of-the-institution.jpg"
               alt="Head of the institution"
-              className="rounded-xl shadow-md h-auto"
+              className="h-auto rounded-xl shadow-md"
             />
           </div>
 
           {/* Text Section */}
           <div className="w-full xl:w-2/3">
             <p
-              className="text-base md:text-xl text-gray-800 "
+              className="text-base text-gray-800 md:text-xl"
               style={{ lineHeight: "1.8" }}>
               في{" "}
-              <span className="text-secondary font-semibold">شباب قادرون</span>،
+              <span className="font-semibold text-secondary">شباب قادرون</span>،
               نؤمن بأن الابتكار وريادة الأعمال هما الأساس لتحقيق تنمية اقتصادية
               واجتماعية مستدامة في مصر والوطن العربي. رؤيتنا ترتكز على بناء
               مجتمع مزدهر يعتمد على تمكين الشباب ودعمهم لتحويل أفكارهم إلى
@@ -78,11 +78,11 @@ function Speech() {
               والتقدم. دعم البحث العلمي والمشروعات الناشئة والصناعة هو جزء لا
               يتجزأ من استراتيجيتنا، حيث نعمل على تعزيز الابتكار في كافة
               القطاعات الاقتصادية لضمان تقدم مستدام. في{" "}
-              <span className="text-secondary font-semibold">شباب قادرون</span>،
+              <span className="font-semibold text-secondary">شباب قادرون</span>،
               نعتبر أن التنمية المستدامة مسؤولية مشتركة، وتتطلب تكاتف الجهود بين
               جميع الأطراف. ومن خلال شراكاتنا الاستراتيجية ودعم الابتكار، نواصل
               العمل لتحقيق تنمية شاملة تلبي تطلعات الشباب وتواكب أهداف{" "}
-              <span className="text-secondary font-semibold">
+              <span className="font-semibold text-secondary">
                 الاستراتيجية الوطنية لمصر 2030
               </span>
               .
@@ -103,12 +103,12 @@ function Speech() {
           </div>
 
           {/* Image Section Desktop*/}
-          <div className="w-full xl:w-1/2 hidden xl:flex justify-center">
+          <div className="hidden w-full justify-center xl:flex xl:w-1/2">
             <img
               loading="lazy"
               src="/images/WhoWe/Speech/Head-of-the-institution.jpg"
               alt="Head of the institution"
-              className="rounded-xl shadow-md h-auto"
+              className="h-auto rounded-xl shadow-md"
             />
           </div>
         </div>

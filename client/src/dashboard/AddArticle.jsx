@@ -90,8 +90,8 @@ const AddArticle = () => {
         />
         <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
-      <div className="max-w-3xl w-full mx-auto my-10 p-6 bg-gray-100 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6 text-red-600">Add Article</h2>
+      <div className="mx-auto my-10 w-full max-w-3xl rounded-lg bg-gray-100 p-6 shadow-md">
+        <h2 className="mb-6 text-2xl font-bold text-red-600">Add Article</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <Label htmlFor="title" label="Article Title" />
@@ -136,10 +136,10 @@ const AddArticle = () => {
               required={true}
             />
           </div>
-          <div className="flex items-center justify-between mt-5">
+          <div className="mt-5 flex items-center justify-between">
             <button
               type="submit"
-              className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              className="focus:shadow-outline rounded bg-primary px-4 py-2 font-bold text-white hover:bg-secondary focus:outline-none">
               Publish
             </button>
           </div>

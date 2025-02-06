@@ -46,13 +46,13 @@ const socialMediaLinks = [
 ];
 
 const SocialMediaLinks = () => (
-  <div className="group hidden lg:flex justify-center items-center text-2xl gap-2 z-50 relative">
-    <button className="flex justify-center items-center h-14 w-14 rounded-full bg-[#262e30]/80 cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-110">
-      <FaPhoneAlt className="text-white text-xl transition-all duration-300 ease-in-out" />
+  <div className="group relative z-50 hidden items-center justify-center gap-2 text-2xl lg:flex">
+    <button className="flex h-14 w-14 transform cursor-pointer items-center justify-center rounded-full bg-[#262e30]/80 transition-all duration-300 ease-in-out hover:scale-110">
+      <FaPhoneAlt className="text-xl text-white transition-all duration-300 ease-in-out" />
     </button>
     <div
       dir="ltr"
-      className="absolute top-full mt-4 rounded-bl-2xl rounded-br-2xl left-0 z-50 block space-y-4 bg-white max-h-0 overflow-hidden min-w-[230px] group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-500">
+      className="absolute top-full left-0 z-50 mt-4 block max-h-0 min-w-[230px] space-y-4 overflow-hidden rounded-br-2xl rounded-bl-2xl bg-white px-6 transition-all duration-500 group-hover:max-h-[700px] group-hover:pt-6 group-hover:pb-4 group-hover:opacity-100">
       {socialMediaLinks.map((social, index) => (
         <a
           key={index}

@@ -12,7 +12,7 @@
 
   p,
   button {
-    @apply font-semibold text-base;
+    @apply text-base font-semibold;
   }
 }
 
@@ -20,7 +20,7 @@
 .ev-section::before {
   content: "";
   background-color: #252220;
-  @apply bottom-0 size-full absolute z-0 opacity-80;
+  @apply absolute bottom-0 z-0 size-full opacity-80;
 }
 
 .ev-arrow {
@@ -28,7 +28,7 @@
 }
 
 .ev-button {
-  @apply px-4.5 py-2 rounded flex items-center justify-between gap-3;
+  @apply flex items-center justify-between gap-3 rounded px-4.5 py-2;
 }
 
 /*

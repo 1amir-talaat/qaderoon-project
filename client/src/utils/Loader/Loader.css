@@ -4,7 +4,7 @@
   animation: rotation 1s linear infinite;
   /* margin: 0 calc(100vw - 100%); */
   margin: auto;
-  @apply size-20 shadow rounded-full box-border border-8 border-white border-b-secondary;
+  @apply box-border size-20 rounded-full border-8 border-white border-b-secondary shadow;
 }
 
 @keyframes rotation {

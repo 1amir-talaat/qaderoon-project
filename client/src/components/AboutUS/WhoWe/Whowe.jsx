@@ -40,11 +40,11 @@ const Whowe = () => {
         <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
 
-      <section className="container items-center gap-6 p-6 rounded-xl mx-auto my-6 lg:my-20">
+      <section className="container mx-auto my-6 items-center gap-6 rounded-xl p-6 lg:my-20">
         <HeaderWho />
         <ContentOne />
       </section>
-      <section className="container items-center gap-6 p-6 rounded-xl mx-auto my-6 lg:my-20">
+      <section className="container mx-auto my-6 items-center gap-6 rounded-xl p-6 lg:my-20">
         <Header2 />
         <Cards />
       </section>

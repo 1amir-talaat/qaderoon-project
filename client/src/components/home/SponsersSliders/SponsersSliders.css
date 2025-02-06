@@ -10,5 +10,5 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--color-primary);
-  @apply bottom-0 h-1 w-[15%] lg:w-[5%] absolute;
+  @apply absolute bottom-0 h-1 w-[15%] lg:w-[5%];
 }

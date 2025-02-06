@@ -34,8 +34,8 @@ const Dashboard = () => {
   if (!isVerified) return null; // Show nothing until verification completes
 
   return (
-    <div className="flex flex-col h-full w-full">
-      <div className="bg-gray-100 w-full py-10 px-5">
+    <div className="flex h-full w-full flex-col">
+      <div className="w-full bg-gray-100 px-5 py-10">
         <h1 className="text-4xl font-bold text-primary">لوحة التحكم</h1>
       </div>
       <main className="flex-1 bg-white">

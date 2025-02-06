@@ -32,25 +32,28 @@ function Articles() {
     <div className="articles-cont">
       <div className="layer"></div>
       <div
-        className="container mx-auto px-4 text-center article-content"
+        className="article-content container mx-auto px-4 text-center"
         data-aos="fade-down"
         data-aos-duration="1000">
-        <h1 className="text-3xl md:text-4xl font-bold my-3 text-white">
+        <h1 className="my-3 text-3xl font-bold text-white md:text-4xl">
           مقالات الرأي
         </h1>
-        <p className="text-xl my-5 text-white">
+        <p className="my-5 text-xl text-white">
           مجموعة من المقالات المحدثة باستمرار
         </p>
-        <div className="flex flex-wrap justify-between gap-15 m-5 md:justify-center text-center sm:justify-center">
+        <div className="m-5 flex flex-wrap justify-between gap-15 text-center sm:justify-center md:justify-center">
           {!isEmptyArray(articles) &&
             articles.map(({ _id, title, Img }) => (
               <Link to={`/article/${_id}`} key={_id}>
-                <Card description={title} image={`${HOST_SERVER}/imgs/${Img}`} />
+                <Card
+                  description={title}
+                  image={`${HOST_SERVER}/imgs/${Img}`}
+                />
               </Link>
             ))}
         </div>
         <Button
-          className="bg-white !text-primary hover:bg-white hover:scale-105 transition-transform duration-200 font-semibold mx-auto"
+          className="mx-auto bg-white font-semibold !text-primary transition-transform duration-200 hover:scale-105 hover:bg-white"
           link="/articles">
           عرض المزيد
         </Button>

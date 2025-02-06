@@ -9,28 +9,28 @@ function InfoCard({ title, subtitle, programs, imageSrc }) {
   }, []);
   return (
     <div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 my-10 md:my-22">
+      <div className="container mx-auto my-10 px-4 sm:px-6 md:my-22 lg:px-8">
         <div className="text-center">
-          <h1 className="text-2xl md:text-3xl font-bold py-3.5 underlineR w-fit mx-auto my-10">
+          <h1 className="underlineR mx-auto my-10 w-fit py-3.5 text-2xl font-bold md:text-3xl">
             {title}
           </h1>
-          <div className="flex flex-col-reverse md:flex-row items-center mt-6 gap-6">
+          <div className="mt-6 flex flex-col-reverse items-center gap-6 md:flex-row">
             <div
-              className="md:w-1/2 text-right"
+              className="text-right md:w-1/2"
               data-aos="fade-down"
               data-aos-duration="1500">
-              <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
+              <h2 className="mb-4 text-2xl font-semibold text-primary md:text-3xl">
                 {subtitle}
               </h2>
               <div className="space-y-0 md:space-y-2">
                 {programs.map((program, index) => (
                   <div
                     key={index}
-                    className="bg-white p-4 rounded-lg flex items-center group hover:translate-x-2 hover:scale-105 transition-all duration-300">
-                    <div className="border-2 border-primary rounded-full p-1 group-hover:bg-primary group-hover:border-primary cursor-default">
+                    className="group flex items-center rounded-lg bg-white p-4 transition-all duration-300 hover:translate-x-2 hover:scale-105">
+                    <div className="cursor-default rounded-full border-2 border-primary p-1 group-hover:border-primary group-hover:bg-primary">
                       <AiFillSafetyCertificate className="text-lg text-primary group-hover:text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold mr-4 group-hover:text-primary">
+                    <h3 className="mr-4 text-xl font-semibold group-hover:text-primary">
                       {program}
                     </h3>
                   </div>
@@ -43,7 +43,7 @@ function InfoCard({ title, subtitle, programs, imageSrc }) {
               loading="lazy"
               data-aos="fade-up"
               data-aos-duration="1500"
-              className="w-full md:w-1/2 rounded-lg shadow-md object-cover"
+              className="w-full rounded-lg object-cover shadow-md md:w-1/2"
             />
           </div>
         </div>

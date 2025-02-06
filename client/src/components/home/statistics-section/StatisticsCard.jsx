@@ -10,13 +10,14 @@ const StatisticsCard = ({ icon, number, label }) => {
   return (
     <div
       ref={ref}
-      className="flex flex-col items-center justify-center border-2 border-transparent rounded-xl p-4 w-50 h-50 bg-gradient-to-r from-[#da1e33] to-[#a21c34] shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 cursor-default"
-    >
-      <div className="text-white text-6xl mb-2">{icon}</div>
-      <p className="text-white text-3xl font-bold">
-        {inView ? <CountUp end={number} duration={2} /> : number}
+      className="flex h-50 w-50 transform cursor-default flex-col items-center justify-center rounded-xl border-2 border-transparent bg-gradient-to-r from-[#da1e33] to-[#a21c34] p-4 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+      <div className="mb-2 text-6xl text-white">{icon}</div>
+      <p className="text-3xl font-bold text-white">
+        {inView ?
+          <CountUp end={number} duration={2} />
+        : number}
       </p>
-      <p className="text-white text-xl font-medium mt-1">{label}</p>
+      <p className="mt-1 text-xl font-medium text-white">{label}</p>
     </div>
   );
 };

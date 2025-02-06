@@ -71,7 +71,11 @@
 
 .hero .hero-text .hero-text-description {
   color: hsla(0, 0%, 100%, 0.8);
-  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  font-family:
+    Open Sans,
+    Helvetica,
+    Arial,
+    sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

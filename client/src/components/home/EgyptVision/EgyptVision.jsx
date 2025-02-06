@@ -15,17 +15,17 @@ const EgyptVision = () => {
   return (
     <>
       <section
-        className="flex flex-col place-items-center p-7 ev-section pb-10"
+        className="ev-section flex flex-col place-items-center p-7 pb-10"
         loading="lazy">
-        <h2 className="font-extrabold text-3xl md:text-4xl pb-5 underlineR mb-6 text-stone-100">
-          {data.title} <span className="text-primary relative top-1">2030</span>
+        <h2 className="underlineR mb-6 pb-5 text-3xl font-extrabold text-stone-100 md:text-4xl">
+          {data.title} <span className="relative top-1 text-primary">2030</span>
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 text-stone-100 container place-items-center">
+        <div className="container grid grid-cols-1 place-items-center gap-16 text-stone-100 lg:grid-cols-2">
           <div className="space-y-5">
             {data && data.visionArray.map((t, index) => <p key={index}>{t}</p>)}
 
             <a
-              className="ev-button bg-secondary group w-fit flex"
+              className="ev-button group flex w-fit bg-secondary"
               href="https://www.presidency.eg/AR/%D9%85%D8%B5%D8%B1/%D8%B1%D8%A4%D9%8A%D8%A9-%D9%85%D8%B5%D8%B1-2030/"
               target="_blank"
               rel="noopener noreferrer">
@@ -36,7 +36,7 @@ const EgyptVision = () => {
           <img
             src="/images/egypt-vision.png"
             loading="lazy"
-            className="rounded object-scale-down hidden lg:block"
+            className="hidden rounded object-scale-down lg:block"
             alt={data.title}
           />
         </div>

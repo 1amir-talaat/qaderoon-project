@@ -46,7 +46,7 @@ function AllArticles() {
 
   const displayedArticles = articles.slice(
     currentPage * limit,
-    (currentPage + 1) * limit
+    (currentPage + 1) * limit,
   );
 
   return (
@@ -83,15 +83,14 @@ function AllArticles() {
         <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
       <section className="py-11 pb-16">
-        <h2 className="font-extrabold text-3xl md:text-4xl pb-5 underlineR text-neutral-950 mx-auto">
-          آخر <span className="text-primary relative top-1">المقالات</span>
+        <h2 className="underlineR mx-auto pb-5 text-3xl font-extrabold text-neutral-950 md:text-4xl">
+          آخر <span className="relative top-1 text-primary">المقالات</span>
         </h2>
 
-        <main className="flex flex-wrap justify-between gap-15 m-5 md:justify-center text-center sm:justify-center mt-16">
-          {isLoading || isPageLoading ? (
+        <main className="m-5 mt-16 flex flex-wrap justify-between gap-15 text-center sm:justify-center md:justify-center">
+          {isLoading || isPageLoading ?
             <Loader />
-          ) : (
-            displayedArticles.map(({ _id, title, Img }) => (
+          : displayedArticles.map(({ _id, title, Img }) => (
               <Link key={_id} to={`/article/${_id}`}>
                 <Card
                   description={title}
@@ -99,16 +98,16 @@ function AllArticles() {
                 />
               </Link>
             ))
-          )}
+          }
         </main>
 
         {!isLoading && !isEmptyArray(articles) && (
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="mt-8 flex justify-center space-x-2">
             <button
               onClick={() => handlePageClick(currentPage - 1)}
               disabled={currentPage === 0}
-              className={`px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 transition-colors ${
-                currentPage === 0 ? "opacity-50 cursor-not-allowed" : ""
+              className={`rounded bg-gray-300 px-4 py-2 transition-colors hover:bg-gray-400 ${
+                currentPage === 0 ? "cursor-not-allowed opacity-50" : ""
               }`}>
               السابق
             </button>
@@ -116,13 +115,13 @@ function AllArticles() {
             {currentPage > 0 && (
               <button
                 onClick={() => handlePageClick(currentPage - 1)}
-                className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 transition-colors">
+                className="rounded bg-gray-300 px-4 py-2 transition-colors hover:bg-gray-400">
                 {currentPage}
               </button>
             )}
 
             <button
-              className="px-4 py-2 bg-primary text-white rounded cursor-default"
+              className="cursor-default rounded bg-primary px-4 py-2 text-white"
               disabled>
               {currentPage + 1}
             </button>
@@ -130,7 +129,7 @@ function AllArticles() {
             {currentPage < totalPages - 1 && (
               <button
                 onClick={() => handlePageClick(currentPage + 1)}
-                className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 transition-colors">
+                className="rounded bg-gray-300 px-4 py-2 transition-colors hover:bg-gray-400">
                 {currentPage + 2}
               </button>
             )}
@@ -138,10 +137,10 @@ function AllArticles() {
             <button
               onClick={() => handlePageClick(currentPage + 1)}
               disabled={currentPage >= totalPages - 1}
-              className={`px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 transition-colors ${
-                currentPage >= totalPages - 1
-                  ? "opacity-50 cursor-not-allowed"
-                  : ""
+              className={`rounded bg-gray-300 px-4 py-2 transition-colors hover:bg-gray-400 ${
+                currentPage >= totalPages - 1 ?
+                  "cursor-not-allowed opacity-50"
+                : ""
               }`}>
               التالي
             </button>

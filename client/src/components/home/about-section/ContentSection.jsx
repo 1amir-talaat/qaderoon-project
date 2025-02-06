@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import Button from "../../../utils/Button";
 
 const ContentSection = () => (
-  <div
-    className="text-right"
-    data-aos="fade-right">
+  <div className="text-right" data-aos="fade-right">
     <p
-      className="text-gray-700 text-lg md:text-xl font-bold leading-relaxed tracking-wide"
+      className="text-lg leading-relaxed font-bold tracking-wide text-gray-700 md:text-xl"
       style={{ lineHeight: "1.7" }}>
       احد مؤسسات المجتمع المدنى بوزارة التضامن الإجتماعى بقرار وزاري قيد رقم
       <span className="text-primary">١١٤٩٢</span> لسنة{" "}
@@ -27,13 +25,13 @@ const ContentSection = () => (
       داخل مصر. تعمل شباب قادرون علي تنمية قدرات الشباب المصري وتطوير مهاراتهم
       الريادية وتوفير فرص عمل لائقة للشباب وبناء الوعي والتثقيف للمجتمع ودعم
       البحث العلمي وريادة الأعمال والاستثمار وملفات المرأة والبيئة والتكنولوجيا
-      ضمن استراتيجية الوطنية  <span className="text-primary">لمصر ٢٠٣٠ </span>.
+      ضمن استراتيجية الوطنية <span className="text-primary">لمصر ٢٠٣٠ </span>.
     </p>
-    <div className="flex flex-col justify-start sm:flex-col md:flex-row mt-8 md:gap-8">
+    <div className="mt-8 flex flex-col justify-start sm:flex-col md:flex-row md:gap-8">
       {" "}
       {/* Increased gap between buttons */}
       <Link to="/about/institution">
-        <Button className="inline-flex items-center text-lg font-medium text-center text-white bg-primary rounded-lg hover:bg-secondary focus:ring-4 focus:outline-none transition duration-150 card-button hover:scale-105 transition-transform duration-200 px-8 py-4 sm:px-6 sm:py-3 md:px-8 md:py-4">
+        <Button className="card-button inline-flex items-center rounded-lg bg-primary px-8 py-4 text-center text-lg font-medium text-white transition transition-transform duration-150 duration-200 hover:scale-105 hover:bg-secondary focus:ring-4 focus:outline-none sm:px-6 sm:py-3 md:px-8 md:py-4">
           {" "}
           {/* Increased padding */}
           عرض المزيد
@@ -42,7 +40,7 @@ const ContentSection = () => (
       <a
         target="_blank"
         href="https://youtu.be/XU18YdtyNHk?si=0axAfZTf2PY5JtcO">
-        <Button className="inline-flex items-center text-lg font-medium text-center text-white bg-primary rounded-lg hover:bg-secondary transition duration-150 card-button hover:scale-105 transition-transform duration-200 px-8 py-4 sm:px-6 sm:py-3 md:px-8 md:py-4">
+        <Button className="card-button inline-flex items-center rounded-lg bg-primary px-8 py-4 text-center text-lg font-medium text-white transition transition-transform duration-150 duration-200 hover:scale-105 hover:bg-secondary sm:px-6 sm:py-3 md:px-8 md:py-4">
           {" "}
           {/* Increased padding */}
           فيديو تعريفي <FaPlay className="group-hover:-translate-x-2" />

@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet";
 import { ORG_NAME } from "../../../lib/constants";
 
-
 function Governorates() {
   const governorates = [
     "محافظة القاهرة",
@@ -63,20 +62,18 @@ function Governorates() {
 
       <div
         data-aos="fade-down"
-        className="container px-6 py-5 mx-auto my-10 lg:my-20"
-      >
-        <h2 className="font-extrabold text-2xl md:text-4xl underlineR md:pb-6 text-gray-900 mb-8 text-center">
+        className="container mx-auto my-10 px-6 py-5 lg:my-20">
+        <h2 className="underlineR mb-8 text-center text-2xl font-extrabold text-gray-900 md:pb-6 md:text-4xl">
           محافظات تواجد{" "}
-          <span className="text-primary relative">شباب قادرون</span>
+          <span className="relative text-primary">شباب قادرون</span>
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-8">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 md:gap-8 lg:grid-cols-4 xl:grid-cols-5">
           {governorates.map((governorate, index) => (
             <div
               data-aos="fade-down"
               key={index}
-              className="bg-white p-6 shadow-sm md:shadow-md rounded-lg hover:shadow-lg transform transition-all duration-300 hover:scale-105 cursor-default"
-            >
-              <h3 className="text-lg md:text-xl font-semibold text-primary text-center">
+              className="transform cursor-default rounded-lg bg-white p-6 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg md:shadow-md">
+              <h3 className="text-center text-lg font-semibold text-primary md:text-xl">
                 {governorate}
               </h3>
             </div>

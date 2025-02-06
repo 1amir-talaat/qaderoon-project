@@ -13,7 +13,7 @@ const ArticleDetails = ({ article }) => {
           name="description"
           content={`${article.title.slice(
             0,
-            150
+            150,
           )}... اقرأ المزيد على موقع ${ORG_NAME}.`}
         />
         <meta
@@ -27,16 +27,16 @@ const ArticleDetails = ({ article }) => {
           property="og:description"
           content={`${article.title.slice(
             0,
-            150
+            150,
           )}... اكتشف المقال بالكامل على موقع ${ORG_NAME}.`}
         />
         <meta property="og:type" content="article" />
         <meta
           property="og:image"
           content={
-            article.Img
-              ? `${HOST_SERVER}/imgs/${article.Img}`
-              : "/images/og-banner.jpg"
+            article.Img ?
+              `${HOST_SERVER}/imgs/${article.Img}`
+            : "/images/og-banner.jpg"
           }
         />
         <meta property="og:url" content={window.location.href} />
@@ -49,57 +49,57 @@ const ArticleDetails = ({ article }) => {
           name="twitter:description"
           content={`${article.title.slice(
             0,
-            150
+            150,
           )}... المزيد على موقع ${ORG_NAME}.`}
         />
         <meta
           name="twitter:image"
           content={
-            article.Img
-              ? `${HOST_SERVER}/imgs/${article.Img}`
-              : "/images/twitter-card.jpg"
+            article.Img ?
+              `${HOST_SERVER}/imgs/${article.Img}`
+            : "/images/twitter-card.jpg"
           }
         />
       </Helmet>
       {/* Hero Section */}
-      <div className="mb-4 md:mb-0 w-full lg:max-w-screen-lg max-w-screen mx-auto relative h-full aspect-video hover:scale-105 transition-transform duration-500 cursor-default">
-        <div className="absolute left-0 bottom-0 w-full h-full z-10 bg-gradient-to-b from-transparent to-black" />
+      <div className="relative mx-auto mb-4 aspect-video h-full w-full max-w-screen cursor-default transition-transform duration-500 md:mb-0 md:max-w-screen-lg lg:hover:scale-105">
+        <div className="absolute bottom-0 left-0 z-10 h-full w-full bg-gradient-to-b from-transparent to-black" />
         <img
           loading="lazy"
           src={article.Img ? `${HOST_SERVER}/imgs/${article.Img}` : ""}
-          className="absolute left-0 top-0 w-full h-full z-0 object-cover bg-black"
+          className="absolute top-0 left-0 z-0 h-full w-full bg-black object-cover"
           alt={article.title}
         />
 
         {/* Article Header */}
-        <div className="p-4 absolute bottom-0 left-0 z-20 w-full">
-          <h2 className="md:text-4xl text-lg font-semibold text-white leading-tight">
+        <div className="absolute bottom-0 left-0 z-20 w-full p-4">
+          <h2 className="text-lg leading-tight font-semibold text-white md:text-2xl lg:text-3xl">
             {article.title}
           </h2>
 
           {/* Author Info */}
-          <div className="flex mt-3">
-            <div className="md:ml-3 ml-0 w-full flex justify-between items-center sm:block">
-              <p className="font-semibold text-gray-200 text-base md:text-lg mb-3">
+          <div className="mt-3 flex">
+            <div className="ml-0 flex w-full items-center justify-between sm:block md:ml-3">
+              <p className="mb-3 text-base font-semibold text-gray-200 md:text-lg">
                 <span>بقلم </span>
                 {article.author.name}
               </p>
-              <pre className="font-semibold text-gray-200 w-full text-sm md:text-base hidden md:block">
+              <pre className="hidden w-full text-sm font-semibold text-gray-200 md:block md:text-base">
                 {article.author.title}
               </pre>
               {/* Date */}
-              <p className="mt-2 font-semibold text-white text-sm w-fit justify-self-left sm:justify-self-auto">
+              <p className="justify-self-left mt-2 w-fit text-sm font-semibold text-white sm:justify-self-auto">
                 نشر في {new Date(article.createdAt).toLocaleDateString("Ar-eg")}
               </p>
             </div>
             <img
               loading="lazy"
               src={
-                article.author?.image
-                  ? `${HOST_SERVER}/imgs/${article.author?.image}`
-                  : `/images/profile.png`
+                article.author?.image ?
+                  `${HOST_SERVER}/imgs/${article.author?.image}`
+                : `/images/profile.png`
               }
-              className="md:size-24 size-16 rounded-full object-cover hidden sm:block"
+              className="hidden size-16 rounded-full object-cover sm:block lg:size-24"
               alt={article.author.name}
             />
           </div>
@@ -107,11 +107,7 @@ const ArticleDetails = ({ article }) => {
       </div>
 
       {/* Article Content */}
-      <div className="px-4 lg:px-0 mt-12 pb-12 text-gray-700 lg:max-w-screen-lg w-full mx-auto text-lg">
-        <div className="md:text-justify">
-          <MarkdownParser content={article.content} />
-        </div>
-      </div>
+      <MarkdownParser content={article.content} />
     </>
   );
 };

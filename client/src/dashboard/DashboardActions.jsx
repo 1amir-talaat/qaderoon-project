@@ -69,7 +69,7 @@ const DashboardActions = () => {
         />
         <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex-row px-10 py-20 justify-center">
+      <div className="grid grid-cols-1 flex-row justify-center gap-6 px-10 py-20 md:grid-cols-2 lg:grid-cols-3">
         {dashboardItems.map((item, index) => (
           <DashboardCard
             key={index}

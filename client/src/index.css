@@ -52,11 +52,11 @@ p {
 }
 
 @utility debug {
-  @apply border-pink-600 border-4;
+  @apply border-4 border-pink-600;
 }
 
 .underlineR {
-  @apply relative pb-4 w-fit mx-auto;
+  @apply relative mx-auto w-fit pb-4;
   /* Adds a line under header text */
 }
 
@@ -65,7 +65,7 @@ p {
   inset-inline-start: 25%;
   background-color: var(--color-primary);
   transform: translateY(-30%);
-  @apply bottom-0 h-1 w-[50%] absolute;
+  @apply absolute bottom-0 h-1 w-[50%];
 }
 
 /* WebKit Browsers (Chrome, Safari) */

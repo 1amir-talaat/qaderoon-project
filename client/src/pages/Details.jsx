@@ -20,7 +20,7 @@ function Details(props) {
         const res = await Api.get(`${HOST_SERVER}/articles/${id}`);
 
         const authorRes = await Api.get(
-          `${HOST_SERVER}/authors/${res.data.data.author}`
+          `${HOST_SERVER}/authors/${res.data.data.author}`,
         );
 
         setData({ ...res.data.data, author: authorRes.data.data });
@@ -57,20 +57,17 @@ function Details(props) {
   }, [id, type]);
 
   return (
-    <main className="max-w-screen-xl mx-auto pb-10">
-      {isLoading || isEmptyObject(data) ? (
-        <div className="w-full loader-container grid place-items-center overflow-y-hidden h-[75dvh]">
+    <main className="mx-auto max-w-screen-xl pb-10">
+      {isLoading || isEmptyObject(data) ?
+        <div className="loader-container grid h-[75dvh] w-full place-items-center overflow-y-hidden">
           <Loader />
         </div>
-      ) : (
-        <article className="lg:mt-10 mt-0">
-          {type == "news" ? (
+      : <article className="mt-0 lg:mt-10">
+          {type == "news" ?
             <NewsDetails news={data} />
-          ) : (
-            <ArticleDetails article={data} />
-          )}
+          : <ArticleDetails article={data} />}
         </article>
-      )}
+      }
     </main>
   );
 }

@@ -1,14 +1,12 @@
 @import "tailwindcss";
 
-
 .underlinee {
-    position: relative;
-  }
-  
-  .underlinee::after {
-    content: "";
-    right: 0;
-    background-color: var(--color-primary);
-    @apply bottom-0 h-1 w-[15%] lg:w-[10%] absolute;
-  }
-  
+  position: relative;
+}
+
+.underlinee::after {
+  content: "";
+  right: 0;
+  background-color: var(--color-primary);
+  @apply absolute bottom-0 h-1 w-[15%] lg:w-[10%];
+}

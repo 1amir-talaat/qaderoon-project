@@ -112,22 +112,22 @@ const Supreme = () => {
         <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
 
-      <div className="space-y-8 px-4 md:px-10 lg:px-20 my-16">
+      <div className="my-16 space-y-8 px-4 md:px-10 lg:px-20">
         {sections.map((section, index) => (
           <div key={index} className="p-6" data-aos="fade-down">
-            <h2 className="font-extrabold text-2xl md:text-4xl pb-5 underlinee text-neutral-950 mb-6">
+            <h2 className="underlinee mb-6 pb-5 text-2xl font-extrabold text-neutral-950 md:text-4xl">
               {section.title}
             </h2>
-            <p className="text-gray-700 mb-6 text-justify">
+            <p className="mb-6 text-justify text-gray-700">
               {section.definition}
             </p>
             <div className="">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                 {section.responsibilities.map((responsibility, idx) => (
                   <div
                     key={idx}
-                    className="bg-gray-100 p-4 rounded-lg shadow-inner">
-                    <h4 className="text-lg text-primary font-semibold mb-2">
+                    className="rounded-lg bg-gray-100 p-4 shadow-inner">
+                    <h4 className="mb-2 text-lg font-semibold text-primary">
                       {responsibility.title}
                     </h4>
                     <ul className="pl-6 text-gray-700">
@@ -139,10 +139,10 @@ const Supreme = () => {
                 ))}
               </div>
             </div>
-            <h4 className="text-lg text-black font-semibold mt-6">
+            <h4 className="mt-6 text-lg font-semibold text-black">
               تكوين الهيئة:
             </h4>
-            <p className="text-gray-700 mt-2 text-justify">
+            <p className="mt-2 text-justify text-gray-700">
               {section.composition}
             </p>
           </div>

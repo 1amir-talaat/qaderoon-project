@@ -37,7 +37,7 @@ function Offices() {
         <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
 
-      <div className="w-full mx-auto px-4 md:px-10 lg:px-20 my-16 text-gray-900">
+      <div className="mx-auto my-16 w-full px-4 text-gray-900 md:px-10 lg:px-20">
         {/* المكتب الإداري */}
         <AdministrativeOffice />
 

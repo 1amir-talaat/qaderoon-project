@@ -8,22 +8,24 @@ import Loader from "./utils/Loader/Loader.jsx";
 
 const Footer = lazy(() => import("./components/Footer/Footer"));
 const Navbar = lazy(() => import("./components/Navbar/Navbar"));
-const Certification = lazy(() =>
-  import("./components/services/Certification/Certification.jsx")
+const Certification = lazy(
+  () => import("./components/services/Certification/Certification.jsx"),
 );
-const Conferences = lazy(() =>
-  import("./components/services/Conferences and seminars/Conferences.jsx")
+const Conferences = lazy(
+  () =>
+    import("./components/services/Conferences and seminars/Conferences.jsx"),
 );
-const Employment = lazy(() =>
-  import("./components/services/employment/Employment.jsx")
+const Employment = lazy(
+  () => import("./components/services/employment/Employment.jsx"),
 );
 const ManageAuthors = lazy(() => import("./dashboard/ManageAuthors.jsx"));
 const ManageArticles = lazy(() => import("./dashboard/ManageArticles.jsx"));
 const ManageNews = lazy(() => import("./dashboard/ManageNews.jsx"));
-const TrainingAndِConsulting = lazy(() =>
-  import(
-    "./components/services/Training and consulting/TrainingAndِConsulting.jsx"
-  )
+const TrainingAndِConsulting = lazy(
+  () =>
+    import(
+      "./components/services/Training and consulting/TrainingAndِConsulting.jsx"
+    ),
 );
 const JoinUs = lazy(() => import("./pages/Join-us/Join-us.jsx"));
 const ComingSoon = lazy(() => import("./utils/CoomingSoon/ComingSoon"));
@@ -46,11 +48,11 @@ const AddAuthor = lazy(() => import("./dashboard/AddAuthor"));
 // About Us Lazy Loading
 const Whowe = lazy(() => import("./components/AboutUS/WhoWe/Whowe"));
 const Speech = lazy(() => import("./components/AboutUS/Speech/Speech"));
-const Governorates = lazy(() =>
-  import("./components/AboutUS/Governorates/Governorates")
+const Governorates = lazy(
+  () => import("./components/AboutUS/Governorates/Governorates"),
 );
-const SuccessPartners = lazy(() =>
-  import("./components/AboutUS/SuccessPartners/SuccessPartners")
+const SuccessPartners = lazy(
+  () => import("./components/AboutUS/SuccessPartners/SuccessPartners"),
 );
 const Units = lazy(() => import("./components/AboutUS/Units/units.jsx"));
 const Offices = lazy(() => import("./components/AboutUS/Offices/Offices"));
@@ -71,7 +73,7 @@ function App() {
       {/* Lazy Loading Components */}
       <Suspense
         fallback={
-          <div className="h-screen w-screen flex items-center justify-center">
+          <div className="flex h-screen w-screen items-center justify-center">
             <Loader />
           </div>
         }>

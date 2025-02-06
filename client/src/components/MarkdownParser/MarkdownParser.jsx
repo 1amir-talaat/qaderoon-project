@@ -1,5 +1,5 @@
-import "./MarkdownParser.css";
 import { md } from "../../lib/markdown";
+import "./MarkdownParser.css";
 
 const MarkdownParser = ({ content }) => {
   const renderedContent = md.render(content);

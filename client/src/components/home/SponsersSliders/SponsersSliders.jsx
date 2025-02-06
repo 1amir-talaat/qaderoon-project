@@ -109,10 +109,10 @@ const sponsors = [
 
 const SponsorsSlider = () => {
   return (
-    <div className="sponsors-slider-container container w-full mx-auto px-3 md:px-1 my-16">
+    <div className="sponsors-slider-container container mx-auto my-16 w-full px-3 md:px-1">
       {/* Title Section */}
-      <h2 className="font-extrabold text-3xl md:text-4xl pb-5 underlineR mb-6 text-neutral-950">
-        شركاء <span className="text-primary relative top-1">النجاح</span>
+      <h2 className="underlineR mb-6 pb-5 text-3xl font-extrabold text-neutral-950 md:text-4xl">
+        شركاء <span className="relative top-1 text-primary">النجاح</span>
       </h2>
 
       {/* Swiper Slider */}
@@ -129,19 +129,14 @@ const SponsorsSlider = () => {
         }}
         className="mySwiper mt-14">
         {sponsors.map((sponsor) => (
-          <SwiperSlide
-            className="select-none"
-            key={sponsor.id}>
-            <div className="sponsor-card w-full h-full flex flex-col justify-center items-center">
-              <a
-                href={sponsor.link}
-                target="_blank"
-                rel="noopener noreferrer">
+          <SwiperSlide className="select-none" key={sponsor.id}>
+            <div className="sponsor-card flex h-full w-full flex-col items-center justify-center">
+              <a href={sponsor.link} target="_blank" rel="noopener noreferrer">
                 <img
                   loading="lazy"
                   src={`/images/sponsors/sponsor-${sponsor.id}.png`}
                   alt={sponsor.name}
-                  className="object-contain w-full max-h-30"
+                  className="max-h-30 w-full object-contain"
                 />
               </a>
             </div>

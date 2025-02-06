@@ -37,8 +37,8 @@ const Board = () => {
         <meta name="twitter:image" content="/images/twitter-card-board.jpg" />
       </Helmet>
 
-      <section className="rounded-xl mx-auto bg-gray-100 ">
-        <div className="container mx-auto pt-12 px-6 py-1 lg:py-20 mb-10">
+      <section className="mx-auto rounded-xl bg-gray-100">
+        <div className="container mx-auto mb-10 px-6 py-1 pt-12 lg:py-20">
           <AboutBroad />
           <Formating />
         </div>

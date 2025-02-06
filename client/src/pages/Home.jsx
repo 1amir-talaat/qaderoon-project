@@ -8,7 +8,6 @@ import Articles from "../components/home/articles-section/Articles";
 import StatisticsSection from "../components/home/statistics-section/StatisticsSection";
 import { ORG_NAME } from "../lib/constants";
 
-
 const Home = () => {
   return (
     <>

@@ -72,8 +72,8 @@ const AddAuthor = () => {
         />
         <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
-      <div className="max-w-3xl w-full mx-auto my-10 p-6 bg-gray-100 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6 text-red-600">Add Author</h2>
+      <div className="mx-auto my-10 w-full max-w-3xl rounded-lg bg-gray-100 p-6 shadow-md">
+        <h2 className="mb-6 text-2xl font-bold text-red-600">Add Author</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <Label htmlFor="name" label="Author Name" />
@@ -110,7 +110,7 @@ const AddAuthor = () => {
           <div className="flex items-center justify-between">
             <button
               type="submit"
-              className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              className="focus:shadow-outline rounded bg-red-600 px-4 py-2 font-bold text-white hover:bg-red-700 focus:outline-none">
               Add Author
             </button>
           </div>

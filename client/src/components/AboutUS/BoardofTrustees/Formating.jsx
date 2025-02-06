@@ -3,13 +3,11 @@ const Formating = () => {
     <>
       <h2
         data-aos="fade-down"
-        className="font-extrabold text-2xl md:text-4xl pb-5 underlinee text-neutral-950 mb-6 my-15 ">
+        className="underlinee my-15 mb-6 pb-5 text-2xl font-extrabold text-neutral-950 md:text-4xl">
         التكوين
       </h2>
-      <div
-        className="text-right"
-        data-aos="fade-down">
-        <p className="text-base md:text-2xl text-gray-800 leading-relaxed mb-20">
+      <div className="text-right" data-aos="fade-down">
+        <p className="mb-20 text-base leading-relaxed text-gray-800 md:text-2xl">
           يتكون مجلس الأمناء من أفراد ذوي خبرات ومهارات متنوعة في مجالات
           التعليم، الأعمال، الشباب، الابتكار، والشؤون المالية، مما يعزز قدرة
           المجلس على تقديم إشراف فعال واتخاذ قرارات استراتيجية مدروسة.

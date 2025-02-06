@@ -49,14 +49,13 @@ const links = [
 
 const SocialLinks = () => {
   return (
-    <ul className="mt-6 flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8 md:mt-4 ">
+    <ul className="mt-6 flex flex-wrap justify-center gap-4 sm:gap-6 md:mt-4 lg:gap-8">
       {links.map((link, index) => (
         <li key={index}>
           <SocialIcon
             platform={link.platform}
             href={link.href}
-            color={link.color}
-          >
+            color={link.color}>
             {link.icon}
           </SocialIcon>
         </li>

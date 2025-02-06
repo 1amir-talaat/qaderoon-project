@@ -7,7 +7,7 @@
   width: 15px;
   transition-delay: 0.2s;
 }
-.card-images{
+.card-images {
   aspect-ratio: 16/12;
   object-fit: cover;
   width: 100%;

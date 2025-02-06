@@ -40,16 +40,16 @@ const ContactUs = () => {
         />
         <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
-      <div className="container my-11 mx-auto">
+      <div className="container mx-auto my-11">
         {/* Header is always visible */}
-        <h2 className="font-extrabold text-3xl md:text-4xl pb-5 underlineR text-neutral-950 mb-6">
-          تواصل <span className="text-primary relative top-1">معنا</span>
+        <h2 className="underlineR mb-6 pb-5 text-3xl font-extrabold text-neutral-950 md:text-4xl">
+          تواصل <span className="relative top-1 text-primary">معنا</span>
         </h2>
 
         {/* Iframe wrapper with loader */}
         <div className="relative">
           {loading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10 ">
+            <div className="bg-opacity-75 absolute inset-0 z-10 flex items-center justify-center bg-white">
               <Loader />
             </div>
           )}

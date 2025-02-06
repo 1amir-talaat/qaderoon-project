@@ -5,5 +5,9 @@
   "withNodeModules": true,
   "singleAttributePerLine": false,
   "experimentalTernaries": true,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./src/colors.css",
+  "tailwindPreserveWhitespace": false,
+  "tailwindPreserveDuplicates": true
 }

@@ -9,7 +9,7 @@ const Footer = () => {
     <>
       <footer className="bg-gray-100">
         <div className="mx-auto max-w-screen-xl space-y-8 px-4 pt-12 pb-6 sm:px-6 lg:space-y-16 lg:px-8">
-          <div className="sm:flex sm:items-center sm:justify-between f-social-links">
+          <div className="f-social-links sm:flex sm:items-center sm:justify-between">
             <Logo />
             <SocialLinks />
           </div>
@@ -26,9 +26,7 @@ const Footer = () => {
               ))}
           </div>
 
-          <p
-            className="py-4 text-base text-center text-gray-700"
-            dir="ltr">
+          <p className="py-4 text-center text-base text-gray-700" dir="ltr">
             © 2025 Qaderoon Co. All rights reserved.
           </p>
         </div>

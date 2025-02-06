@@ -7,16 +7,12 @@ export const Logo = () => (
     rel="noopener noreferrer"
     href="/"
     className="flex justify-center space-x-6 select-none">
-    <span className="self-center text-3xl pt-5 text-primary logo">
+    <span className="logo self-center pt-5 text-3xl text-primary">
       {ORG_NAME}
     </span>
 
-    <div className="flex items-center justify-center size-16 rounded-full bg-default-400">
-      <img
-        loading="lazy"
-        src="/images/logo.png"
-        alt="Qaderoon Logo"
-      />
+    <div className="bg-default-400 flex size-16 items-center justify-center rounded-full">
+      <img loading="lazy" src="/images/logo.png" alt="Qaderoon Logo" />
     </div>
   </Link>
 );

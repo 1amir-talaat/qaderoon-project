@@ -1,9 +1,9 @@
 const ContentOne = () => {
   return (
-    <article
-      className="text-right"
-      data-aos="fade-down">
-      <p className="text-base md:text-xl text-gray-800 leading-relaxed mb-6" style={{ lineHeight: "1.8" }}>
+    <article className="text-right" data-aos="fade-down">
+      <p
+        className="mb-6 text-base leading-relaxed text-gray-800 md:text-xl"
+        style={{ lineHeight: "1.8" }}>
         بدأت <span className="text-secondary">شباب قادرون</span> كأحد الكيانات
         الشبابية ب<span className="text-secondary">وزارة الشباب والرياضة</span>{" "}
         بدعم ورعاية من معالى وزير الشباب والرياضة الأستاذ الدكتور /{" "}
@@ -37,14 +37,14 @@ const ContentOne = () => {
         العربي والإقليمي إلى:
       </p>
 
-      <ol className="text-base md:text-lg list-decimal list-inside space-y-2 pl-5 marker:font-bold marker:text-red-600">
-        <li className="text-gray-800 hover:text-red-600 transition-colors">
+      <ol className="list-inside list-decimal space-y-2 pl-5 text-base marker:font-bold marker:text-red-600 md:text-lg">
+        <li className="text-gray-800 transition-colors hover:text-red-600">
           سوق عمل جديد للشباب المصري.
         </li>
-        <li className="text-gray-800 hover:text-red-600 transition-colors">
+        <li className="text-gray-800 transition-colors hover:text-red-600">
           بناء شراكات اقتصادية وتكنولوجية مع الدول العربية.
         </li>
-        <li className="text-gray-800 hover:text-red-600 transition-colors">
+        <li className="text-gray-800 transition-colors hover:text-red-600">
           تعزيز الدور المصري في تمكين الشباب والمرأة بالوطن العربي خلال الـ 10
           سنوات الأخيرة.
         </li>

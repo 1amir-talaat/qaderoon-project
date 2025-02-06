@@ -72,8 +72,8 @@ const AddNews = () => {
         />
         <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
-      <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6 text-primary">Add News</h2>
+      <div className="mx-auto mt-10 max-w-md rounded-lg bg-white p-6 shadow-md">
+        <h2 className="mb-6 text-2xl font-bold text-primary">Add News</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <Label htmlFor="newsTitle" label="News Title" />
@@ -108,7 +108,7 @@ const AddNews = () => {
           <div className="flex items-center justify-between">
             <button
               type="submit"
-              className="bg-primary hover:bg-secondary transition-color duration-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              className="transition-color focus:shadow-outline rounded bg-primary px-4 py-2 font-bold text-white duration-300 hover:bg-secondary focus:outline-none">
               Publish
             </button>
           </div>

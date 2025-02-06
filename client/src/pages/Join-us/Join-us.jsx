@@ -40,16 +40,16 @@ const JoinUs = () => {
         />
         <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
-      <div className="container my-11 mx-auto">
+      <div className="container mx-auto my-11">
         {/* Header is always visible */}
-        <h2 className="font-extrabold text-3xl md:text-4xl pb-5 underlineR text-neutral-950 mb-6">
-          إنضم <span className="text-primary relative top-1">إلينا</span>
+        <h2 className="underlineR mb-6 pb-5 text-3xl font-extrabold text-neutral-950 md:text-4xl">
+          إنضم <span className="relative top-1 text-primary">إلينا</span>
         </h2>
 
         {/* Iframe wrapper with loader */}
         <div className="relative">
           {loading && (
-            <div className="absolute overflow-hidden flex items-center justify-center bg-white z-10 w-full h-[50vh]">
+            <div className="absolute z-10 flex h-[50vh] w-full items-center justify-center overflow-hidden bg-white">
               <Loader />
             </div>
           )}

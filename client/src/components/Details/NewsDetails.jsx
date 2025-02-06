@@ -13,7 +13,7 @@ const NewsDetails = ({ news }) => {
           name="description"
           content={`${news.newsTitle.slice(
             0,
-            150
+            150,
           )}... اكتشف الخبر بالكامل على موقع ${ORG_NAME}.`}
         />
         <meta
@@ -27,16 +27,16 @@ const NewsDetails = ({ news }) => {
           property="og:description"
           content={`${news.newsTitle.slice(
             0,
-            150
+            150,
           )}... اكتشف الخبر بالكامل على موقع ${ORG_NAME}.`}
         />
         <meta property="og:type" content="article" />
         <meta
           property="og:image"
           content={
-            news.newsImg
-              ? `${HOST_SERVER}/imgs/${news.newsImg}`
-              : "/images/og-banner.jpg"
+            news.newsImg ?
+              `${HOST_SERVER}/imgs/${news.newsImg}`
+            : "/images/og-banner.jpg"
           }
         />
         <meta property="og:url" content={window.location.href} />
@@ -52,39 +52,39 @@ const NewsDetails = ({ news }) => {
           name="twitter:description"
           content={`${news.newsTitle.slice(
             0,
-            150
+            150,
           )}... اكتشف الخبر بالكامل على موقع ${ORG_NAME}.`}
         />
         <meta
           name="twitter:image"
           content={
-            news.newsImg
-              ? `${HOST_SERVER}/imgs/${news.newsImg}`
-              : "/images/twitter-card.jpg"
+            news.newsImg ?
+              `${HOST_SERVER}/imgs/${news.newsImg}`
+            : "/images/twitter-card.jpg"
           }
         />
       </Helmet>
       {/* Hero Section */}
-      <div className="mb-4 md:mb-0 w-full lg:max-w-screen-lg max-w-screen mx-auto relative h-full aspect-video hover:scale-105 transition-transform duration-500 cursor-default">
-        <div className="absolute left-0 bottom-0 w-full h-full z-10 bg-gradient-to-b from-transparent to-black" />
+      <div className="relative mx-auto mb-4 aspect-video h-full w-full max-w-screen cursor-default transition-transform duration-500 hover:scale-105 md:mb-0 lg:max-w-screen-lg">
+        <div className="absolute bottom-0 left-0 z-10 h-full w-full bg-gradient-to-b from-transparent to-black" />
         <img
           loading="lazy"
           src={news.newsImg ? `${HOST_SERVER}/imgs/${news.newsImg}` : ""}
-          className="absolute left-0 top-0 w-full h-full z-0 object-cover bg-black"
+          className="absolute top-0 left-0 z-0 h-full w-full bg-black object-cover"
           alt={news.newsTitle}
         />
 
         {/* News Header */}
-        <div className="p-4 absolute bottom-0 left-0 z-20 w-full">
-          <h2 className="md:text-4xl text-lg font-semibold text-white leading-tight">
+        <div className="absolute bottom-0 left-0 z-20 w-full p-4">
+          <h2 className="text-lg leading-tight font-semibold text-white md:text-4xl">
             {news.newsTitle}
           </h2>
 
           {/* Author Info */}
-          <div className="flex mt-3">
-            <div className="md:ml-3 ml-0 w-full flex justify-between items-center sm:block">
+          <div className="mt-3 flex">
+            <div className="ml-0 flex w-full items-center justify-between sm:block md:ml-3">
               {/* Date */}
-              <p className="mt-2 font-semibold text-white text-sm w-fit justify-self-left sm:justify-self-auto">
+              <p className="justify-self-left mt-2 w-fit text-sm font-semibold text-white sm:justify-self-auto">
                 نشر في {new Date(news.createdAt).toLocaleDateString("Ar-eg")}
               </p>
             </div>
@@ -93,7 +93,7 @@ const NewsDetails = ({ news }) => {
       </div>
 
       {/* News Content */}
-      <div className="px-4 lg:px-0 mt-12 pb-12 text-gray-700 lg:max-w-screen-lg w-full mx-auto text-lg">
+      <div className="mx-auto mt-12 w-full px-4 pb-12 text-lg text-gray-700 lg:max-w-screen-lg lg:px-0">
         <div className="md:text-justify">
           <MarkdownParser content={news.newsDesc} />
         </div>

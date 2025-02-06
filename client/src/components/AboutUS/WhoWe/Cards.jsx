@@ -9,7 +9,7 @@ const Cards = () => {
     },
     {
       title: "الاهداف",
-      icon: <FaHandshake className="text-white w-12 h-12" />,
+      icon: <FaHandshake className="h-12 w-12 text-white" />,
       para: "نعمل علي نشر الوعي الوطني و تنمية قدرات الشباب و دعم البحث العلمي و التشجيع علي الابتكار وريادة الاعمال والمشاركة المجتمعية والتطوعية ودعم رؤية مصر 2030 للتنمية المستدامة",
     },
     {
@@ -20,7 +20,7 @@ const Cards = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 mx-2">
+    <div className="mx-2 grid grid-cols-1 gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
       {data.map((object, index) => {
         // Determine the appropriate heading level based on its index or context
         // If this is a list of sections, you might want to use <h2> or <h3> accordingly
@@ -29,29 +29,27 @@ const Cards = () => {
         return (
           <div
             data-aos="fade-up"
-            className="bg-white shadow-black/40 rounded-xl shadow-sm hover:shadow-md transform transition-all duration-300 hover:scale-105 cursor-pointer"
+            className="transform cursor-pointer rounded-xl bg-white shadow-sm shadow-black/40 transition-all duration-300 hover:scale-105 hover:shadow-md"
             key={object.title}>
             <div className="p-6">
-              <div className="flex justify-center mb-6">
-                <div className="bg-primary p-4 rounded-full shadow-md transition-transform transform hover:scale-110">
+              <div className="mb-6 flex justify-center">
+                <div className="transform rounded-full bg-primary p-4 shadow-md transition-transform hover:scale-110">
                   {/* Render the icon dynamically */}
-                  {typeof object.icon === "string" ? (
+                  {typeof object.icon === "string" ?
                     <img
                       loading="lazy"
                       src={object.icon}
                       alt="icon"
-                      className="w-12 h-12 "
+                      className="h-12 w-12"
                     />
-                  ) : (
-                    object.icon
-                  )}
+                  : object.icon}
                 </div>
               </div>
               {/* Use the dynamically determined HeadingTag */}
-              <HeadingTag className="font-semibold text-2xl text-gray-800 mb-4">
+              <HeadingTag className="mb-4 text-2xl font-semibold text-gray-800">
                 {object.title}
               </HeadingTag>
-              <p className="text-base text-gray-600 leading-relaxed">
+              <p className="text-base leading-relaxed text-gray-600">
                 {object.para}
               </p>
             </div>

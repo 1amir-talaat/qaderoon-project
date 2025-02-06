@@ -22,10 +22,10 @@ const AttachmentsFileInput = ({
               required={required}
               {...rest}
             />
-            <span className="mx-auto mb-3 flex h-[50px] w-[50px] items-center justify-center rounded-full border border-stroke bg-white dark:bg-dark-2">
+            <span className="border-stroke dark:bg-dark-2 mx-auto mb-3 flex h-[50px] w-[50px] items-center justify-center rounded-full border bg-white">
               <FiUpload />
             </span>
-            <span className="text-base text-body-color dark:text-gray-700">
+            <span className="text-body-color text-base dark:text-gray-700">
               Drag &amp; drop or &nbsp;
               <span className="text-primary underline"> browse </span>
             </span>
