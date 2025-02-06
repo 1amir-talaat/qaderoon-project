@@ -1,9 +1,7 @@
 {
   "tabWidth": 2,
   "useTabs": false,
-  "bracketSameLine": true,
-  "withNodeModules": true,
   "singleAttributePerLine": true,
   "experimentalTernaries": true,
-  "endOfLine": "auto"
+  "endOfLine": "lf"
 }

@@ -20,7 +20,7 @@ app.use(
       "https://qyf-eg.org",
       "https://www.qyf-eg.org",
       "http://localhost:5173",
-    ]; 
+    ];
     const origin = req.header("Origin");
 
     if (allowedOrigins.includes(origin)) {
@@ -28,7 +28,7 @@ app.use(
     } else {
       callback(null, { origin: false });
     }
-  }) 
+  }),
 );
 
 app.use((req, res, next) => {
@@ -51,7 +51,6 @@ app.use((req, res, next) => {
 
   next();
 });
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

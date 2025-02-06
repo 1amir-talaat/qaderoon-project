@@ -26,12 +26,10 @@ exports.addReport = async (req, res) => {
         .status(201)
         .json({ message: "Report added successfully", data: newReport });
     } catch (error) {
-      res
-        .status(500)
-        .json({
-          message: "An error occurred while adding the report",
-          error: error.message,
-        });
+      res.status(500).json({
+        message: "An error occurred while adding the report",
+        error: error.message,
+      });
     }
   });
 };
@@ -41,12 +39,10 @@ exports.getReports = async (req, res) => {
     const reports = await Report.find();
     res.status(200).json({ data: reports });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "An error occurred while fetching reports",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "An error occurred while fetching reports",
+      error: error.message,
+    });
   }
 };
 
@@ -58,12 +54,10 @@ exports.getReportById = async (req, res) => {
     }
     res.status(200).json({ data: report });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "An error occurred while fetching the report",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "An error occurred while fetching the report",
+      error: error.message,
+    });
   }
 };
 
@@ -86,7 +80,7 @@ exports.updateReport = async (req, res) => {
         const oldFilePath = path.join(
           __dirname,
           "../../Public/Imgs",
-          report.Img
+          report.Img,
         );
         if (fs.existsSync(oldFilePath)) {
           fs.unlinkSync(oldFilePath);
@@ -103,12 +97,10 @@ exports.updateReport = async (req, res) => {
         .status(200)
         .json({ message: "Report updated successfully", data: report });
     } catch (error) {
-      res
-        .status(500)
-        .json({
-          message: "An error occurred while updating the report",
-          error: error.message,
-        });
+      res.status(500).json({
+        message: "An error occurred while updating the report",
+        error: error.message,
+      });
     }
   });
 };
@@ -126,11 +118,9 @@ exports.deleteReport = async (req, res) => {
     }
     res.status(200).json({ message: "Report deleted successfully" });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "An error occurred while deleting the report",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "An error occurred while deleting the report",
+      error: error.message,
+    });
   }
 };

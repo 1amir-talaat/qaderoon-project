@@ -1,487 +1,449 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "version": "1.0.0",
-        "title": "qaderoon-project",
-        "description": " هي مؤسسة مجتمع مدني شبابية تطوعية مشهرة برقم 11492 لسنة 2022 بوزارة التضامن الإجتماعي مشروع شباب قادرون",
-        "license": {
-            "name": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
-        }
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "qaderoon-project",
+    "description": " هي مؤسسة مجتمع مدني شبابية تطوعية مشهرة برقم 11492 لسنة 2022 بوزارة التضامن الإجتماعي مشروع شباب قادرون",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Article",
+      "description": "Articles Endpoints"
     },
-    "host": "localhost:5000",
-    "basePath": "/",
-    "tags": [
-        {
-            "name": "Article",
-            "description": "Articles Endpoints"
-        },
-        {
-            "name": "Admin",
-            "description": "Admin Endpoints"
+    {
+      "name": "Admin",
+      "description": "Admin Endpoints"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/articles": {
+      "get": {
+        "summary": "Retrive All Articles",
+        "description": "Returns all articles from the system that the user has access to",
+        "produces": ["application/json"],
+        "tags": ["Article"],
+        "responses": {
+          "200": {
+            "description": "A list of articles.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/articles"
+              }
+            }
+          }
         }
-    ],
-    "schemes": [
-        "http"
-    ],
-    "consumes": [
-        "application/json"
-    ],
-    "produces": [
-        "application/json"
-    ],
-    "paths": {
-        "/articles": {
-            "get": {
-                "summary": "Retrive All Articles",
-                "description": "Returns all articles from the system that the user has access to",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Article"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "A list of articles.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/articles"
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "summary": "Add a New Article",
-                "description": "Creates a new Article with an image upload capability",
-                "consumes": [
-                    "multipart/form-data"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Article"
-                ],
-                "parameters": [
-                    {
-                        "in": "formData",
-                        "name": "Img",
-                        "type": "file",
-                        "required": true,
-                        "description": "Image file to be uploaded"
-                    },
-                    {
-                        "in": "formData",
-                        "name": "title",
-                        "type": "string",
-                        "required": true,
-                        "description": "Title of the Article"
-                    },
-                    {
-                        "in": "formData",
-                        "name": "content",
-                        "type": "string",
-                        "required": true,
-                        "description": "Content of the Article"
-                    },
-                    {
-                        "in": "formData",
-                        "name": "author",
-                        "type": "string",
-                        "required": true,
-                        "description": "Author of the Article (ObjectId) eg:507f1f77bcf86cd799439011"
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Article successfully created",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "message": {
-                                    "type": "string",
-                                    "example": "Article added successfully"
-                                },
-                                "data": {
-                                    "$ref": "#/definitions/articles"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid input or missing fields",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "message": {
-                                    "type": "string",
-                                    "example": "All fields are required."
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Server error",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "message": {
-                                    "type": "string",
-                                    "example": "An error occurred while adding the Article"
-                                },
-                                "error": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/articles/{id}": {
-            "get": {
-                "summary": "Get Article by ID",
-                "description": "Retrieves a specific article using its ID",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Article"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "type": "string",
-                        "required": true,
-                        "description": "Article ID to retrieve"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Article successfully retrieved",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "data": {
-                                    "$ref": "#/definitions/articles"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "Article not found",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "message": {
-                                    "type": "string",
-                                    "example": "Report not found"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Server error",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "message": {
-                                    "type": "string",
-                                    "example": "An error occurred while fetching the report"
-                                },
-                                "error": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "put": {
-                "summary": "Update an Article",
-                "description": "Update an existing article with optional image upload",
-                "consumes": [
-                    "multipart/form-data"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Article"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "type": "string",
-                        "required": true,
-                        "description": "Article ID to update"
-                    },
-                    {
-                        "in": "formData",
-                        "name": "Img",
-                        "type": "file",
-                        "required": false,
-                        "description": "New image file (optional)"
-                    },
-                    {
-                        "in": "formData",
-                        "name": "title",
-                        "type": "string",
-                        "required": false,
-                        "description": "New title for the article"
-                    },
-                    {
-                        "in": "formData",
-                        "name": "content",
-                        "type": "string",
-                        "required": false,
-                        "description": "New content for the article"
-                    },
-                    {
-                        "in": "formData",
-                        "name": "author",
-                        "type": "string",
-                        "required": false,
-                        "description": "New author ObjectId"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Article successfully updated",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "message": {
-                                    "type": "string",
-                                    "example": "Report updated successfully"
-                                },
-                                "data": {
-                                    "$ref": "#/definitions/articles"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "Article not found",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "message": {
-                                    "type": "string",
-                                    "example": "Report not found"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Server error",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "message": {
-                                    "type": "string",
-                                    "example": "An error occurred while updating the report"
-                                },
-                                "error": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "summary": "Delete Article",
-                "description": "Deletes an article and its associated image file",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Article"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "type": "string",
-                        "required": true,
-                        "description": "Article ID to delete"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Article successfully deleted",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "message": {
-                                    "type": "string",
-                                    "example": "Report deleted successfully"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "Article not found",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "message": {
-                                    "type": "string",
-                                    "example": "Report not found"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Server error",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "message": {
-                                    "type": "string",
-                                    "example": "An error occurred while deleting the report"
-                                },
-                                "error": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-
-          "/admin/login": {
-            "post": {
-              "tags": ["Admin"],
-              "summary": "Login admin",
-              "consumes": ["application/x-www-form-urlencoded"],
-              "produces": ["application/json"],
-              "parameters": [
-                {
-                    "in": "formData",
-                    "name": "email",
-                    "type": "string",
-                    "required": true,
-                    "description": "Admin email"
-                  },
-                  {
-                    "in": "formData",
-                    "name": "password",
-                    "type": "string",
-                    "required": true,
-                    "description": "Password of the admin"
-                  }
-              ],
-              "responses": {
-                "200": {
-                  "description": "Login successful",
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "accessToken": {
-                        "type": "string"
-                      },
-                      "refreshToken": {
-                        "type": "string"
-                      },
-                      "hostname": {
-                        "type": "string"
-                      },
-                      "location": {
-                        "type": "string"
-                      }
-                    }
-                  }
+      },
+      "post": {
+        "summary": "Add a New Article",
+        "description": "Creates a new Article with an image upload capability",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "tags": ["Article"],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "Img",
+            "type": "file",
+            "required": true,
+            "description": "Image file to be uploaded"
+          },
+          {
+            "in": "formData",
+            "name": "title",
+            "type": "string",
+            "required": true,
+            "description": "Title of the Article"
+          },
+          {
+            "in": "formData",
+            "name": "content",
+            "type": "string",
+            "required": true,
+            "description": "Content of the Article"
+          },
+          {
+            "in": "formData",
+            "name": "author",
+            "type": "string",
+            "required": true,
+            "description": "Author of the Article (ObjectId) eg:507f1f77bcf86cd799439011"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Article successfully created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Article added successfully"
                 },
-                "400": {
-                  "description": "Invalid credentials",
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "error": {
-                        "type": "string"
-                      }
-                    }
-                  }
+                "data": {
+                  "$ref": "#/definitions/articles"
                 }
               }
             }
-          }   },
-    "definitions": {
-        "articles": {
-            "required": [
-                "title",
-                "content",
-                "author",
-                "Img"
-            ],
-            "type": "object",
-            "properties": {
-                "_id": {
-                    "type": "string",
-                    "description": "Unique identifier for the document (ObjectId format)"
-                },
-                "title": {
-                    "type": "string",
-                    "description": "Title of the post"
-                },
-                "content": {
-                    "type": "string",
-                    "description": "Content of the post"
-                },
-                "Img": {
-                    "type": "string",
-                    "description": "URL or path to the image"
-                },
-                "author": {
-                    "type": "string",
-                    "description": "Unique identifier of the author (ObjectId format)"
-                },
-                "createdAt": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Timestamp of when the document was created"
-                },
-                "updatedAt": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Timestamp of when the document was last updated"
-                },
-                "__v": {
-                    "type": "integer",
-                    "description": "Version key for the document"
+          },
+          "400": {
+            "description": "Invalid input or missing fields",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "All fields are required."
                 }
+              }
             }
-        },
-
-        "admin": {
-            "required": [
-                "email",
-                "password"
-            ],
-            "type": "object",
-            "properties": {
-                "_id": {
-                    "type": "string",
-                    "description": "Unique identifier for the document (ObjectId format)"
+          },
+          "500": {
+            "description": "Server error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "An error occurred while adding the Article"
                 },
-                "email": {
-                    "type": "string",
-                    "description": "Email of admin"
-                },
-                "password": {
-                    "type": "string",
-                    "description": "admin password"
+                "error": {
+                  "type": "string"
                 }
-              
+              }
             }
+          }
         }
+      }
+    },
+    "/articles/{id}": {
+      "get": {
+        "summary": "Get Article by ID",
+        "description": "Retrieves a specific article using its ID",
+        "produces": ["application/json"],
+        "tags": ["Article"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "description": "Article ID to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Article successfully retrieved",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/definitions/articles"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Article not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Report not found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "An error occurred while fetching the report"
+                },
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an Article",
+        "description": "Update an existing article with optional image upload",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "tags": ["Article"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "description": "Article ID to update"
+          },
+          {
+            "in": "formData",
+            "name": "Img",
+            "type": "file",
+            "required": false,
+            "description": "New image file (optional)"
+          },
+          {
+            "in": "formData",
+            "name": "title",
+            "type": "string",
+            "required": false,
+            "description": "New title for the article"
+          },
+          {
+            "in": "formData",
+            "name": "content",
+            "type": "string",
+            "required": false,
+            "description": "New content for the article"
+          },
+          {
+            "in": "formData",
+            "name": "author",
+            "type": "string",
+            "required": false,
+            "description": "New author ObjectId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Article successfully updated",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Report updated successfully"
+                },
+                "data": {
+                  "$ref": "#/definitions/articles"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Article not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Report not found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "An error occurred while updating the report"
+                },
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Article",
+        "description": "Deletes an article and its associated image file",
+        "produces": ["application/json"],
+        "tags": ["Article"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "description": "Article ID to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Article successfully deleted",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Report deleted successfully"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Article not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Report not found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "An error occurred while deleting the report"
+                },
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/admin/login": {
+      "post": {
+        "tags": ["Admin"],
+        "summary": "Login admin",
+        "consumes": ["application/x-www-form-urlencoded"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "email",
+            "type": "string",
+            "required": true,
+            "description": "Admin email"
+          },
+          {
+            "in": "formData",
+            "name": "password",
+            "type": "string",
+            "required": true,
+            "description": "Password of the admin"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "accessToken": {
+                  "type": "string"
+                },
+                "refreshToken": {
+                  "type": "string"
+                },
+                "hostname": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid credentials",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
     }
+  },
+  "definitions": {
+    "articles": {
+      "required": ["title", "content", "author", "Img"],
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "description": "Unique identifier for the document (ObjectId format)"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the post"
+        },
+        "content": {
+          "type": "string",
+          "description": "Content of the post"
+        },
+        "Img": {
+          "type": "string",
+          "description": "URL or path to the image"
+        },
+        "author": {
+          "type": "string",
+          "description": "Unique identifier of the author (ObjectId format)"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the document was created"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the document was last updated"
+        },
+        "__v": {
+          "type": "integer",
+          "description": "Version key for the document"
+        }
+      }
+    },
+
+    "admin": {
+      "required": ["email", "password"],
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "description": "Unique identifier for the document (ObjectId format)"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email of admin"
+        },
+        "password": {
+          "type": "string",
+          "description": "admin password"
+        }
+      }
+    }
+  }
 }
