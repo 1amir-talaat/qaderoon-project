@@ -33,7 +33,7 @@ export const StringLimit = (string, limit) => {
  */
 export const isEmptyArray = (array) => {
   if (array === undefined) return true;
-  for (let _ in array) return false;
+  for (const _ in array) return false;
   return true;
 };
 
@@ -45,7 +45,7 @@ export const isEmptyArray = (array) => {
  */
 export const isEmptyObject = (obj) => {
   if (obj === undefined) return true;
-  for (let key in obj) {
+  for (const key in obj) {
     if (key) {
       return false;
     }
