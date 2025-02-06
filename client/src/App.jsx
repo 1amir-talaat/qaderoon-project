@@ -3,20 +3,20 @@ import "aos/dist/aos.css";
 import { lazy, Suspense, useEffect } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-// Import Static Components
-import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar";
-import Certification from "./components/services/Certification/Certification.jsx";
-import Conferences from "./components/services/Conferences and seminars/Conferences.jsx";
-import Employment from "./components/services/employment/Employment.jsx";
-import ManageAuthors from "./dashboard/ManageAuthors.jsx";
-import ManageArticles from "./dashboard/ManageArticles.jsx";
-import ManageNews from "./dashboard/ManageNews.jsx";
-import TrainingAndِConsulting from "./components/services/Training and consulting/TrainingAndِConsulting.jsx";
-import JoinUs from "./pages/Join-us/Join-us.jsx";
-import ComingSoon from "./utils/CoomingSoon/ComingSoon";
-import ScrollToTop from "./utils/ScrollToTop";
+// apply lazy loading to all pages
 
+const Footer =  lazy(() => import("./components/Footer/Footer"));
+const Navbar = lazy(() => import("./components/Navbar/Navbar"));
+const Certification = lazy(() => import("./components/services/Certification/Certification.jsx"));
+const Conferences = lazy(() => import("./components/services/Conferences and seminars/Conferences.jsx"));
+const Employment = lazy(() => import("./components/services/employment/Employment.jsx"));
+const ManageAuthors = lazy(() => import("./dashboard/ManageAuthors.jsx"));
+const ManageArticles = lazy(() => import("./dashboard/ManageArticles.jsx"));
+const ManageNews = lazy(() => import("./dashboard/ManageNews.jsx"));
+const TrainingAndِConsulting = lazy(() => import("./components/services/Training and consulting/TrainingAndِConsulting.jsx"));
+const JoinUs = lazy(() => import("./pages/Join-us/Join-us.jsx"));
+const ComingSoon = lazy(()=> import("./utils/CoomingSoon/ComingSoon"));
+const ScrollToTop = lazy(()=> import("./utils/ScrollToTop"));
 // Lazy Loaded Components
 const Home = lazy(() => import("./pages/Home"));
 const AllArticles = lazy(() => import("./pages/AllArticles"));
