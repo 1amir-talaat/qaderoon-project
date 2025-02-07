@@ -1,23 +1,23 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { ORG_NAME } from "../../../lib/constants";
 
-import unitsData from "../../../data/unitsData";
 import {
-  FaFemale,
-  FaBroadcastTower,
   FaAccessibleIcon,
+  FaBroadcastTower,
+  FaBuilding,
   FaBullhorn,
-  FaHandshake,
-  FaUniversity,
   FaClipboardList,
+  FaCogs,
+  FaFemale,
+  FaHandshake,
+  FaHandsHelping,
+  FaRegBuilding,
   FaRegHandshake,
   FaTasks,
-  FaCogs,
+  FaUniversity,
   FaUsers,
-  FaBuilding,
-  FaRegBuilding,
-  FaHandsHelping,
 } from "react-icons/fa";
+import unitsData from "../../../data/unitsData";
 
 const Units = () => {
   return (

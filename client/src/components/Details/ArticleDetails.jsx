@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { HOST_SERVER, ORG_NAME } from "../../lib/constants";
 import { StringLimit } from "../../lib/utils";
 import MarkdownParser from "../MarkdownParser/MarkdownParser";

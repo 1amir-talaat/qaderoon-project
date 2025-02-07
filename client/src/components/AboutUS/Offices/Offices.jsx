@@ -1,8 +1,8 @@
+import { Helmet } from "react-helmet-async";
+import { ORG_NAME } from "../../../lib/constants";
 import AdministrativeOffice from "./AdministrativeOffice";
 import ExecutiveOffice from "./ExecutiveOffice";
 import TechnicalOffice from "./TechnicalOffice";
-import { Helmet } from "react-helmet";
-import { ORG_NAME } from "../../../lib/constants";
 
 function Offices() {
   return (

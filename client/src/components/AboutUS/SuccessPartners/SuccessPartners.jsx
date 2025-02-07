@@ -100,7 +100,7 @@ const sponsors = [
     link: "https://www.facebook.com/Falcon197/?locale=ar_AR",
   },
 ];
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { ORG_NAME } from "../../../lib/constants";
 
 const SuccessPartners = () => {

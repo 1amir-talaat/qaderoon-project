@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { ORG_NAME } from "../../../lib/constants";
 import InfoCard from "../../../utils/InfoCard";
 
@@ -24,7 +24,10 @@ function Certification() {
           content="التحقق من الشهادات, شهادات أكاديمية, شهادات مهنية, توظيف الموظفين, التحقق من الهوية, التحقق من الخلفية, قرارات تجارية"
         />
 
-        <meta property="og:title" content={`التحقق من الشهادات | ${ORG_NAME}`} />
+        <meta
+          property="og:title"
+          content={`التحقق من الشهادات | ${ORG_NAME}`}
+        />
         <meta
           property="og:description"
           content="خدمات التحقق من صحة الشهادات الأكاديمية والمهنية، الوثائق المطلوبة لتوظيف الموظفين، والتحقق من الهوية والخلفية لتسهيل اتخاذ القرارات التجارية بمؤسسة شباب قادرون."
@@ -35,7 +38,10 @@ function Certification() {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@qaderoon492" />
-        <meta name="twitter:title" content={`التحقق من الشهادات | ${ORG_NAME}`} />
+        <meta
+          name="twitter:title"
+          content={`التحقق من الشهادات | ${ORG_NAME}`}
+        />
         <meta
           name="twitter:description"
           content="خدمات التحقق من صحة الشهادات الأكاديمية والمهنية، الوثائق المطلوبة لتوظيف الموظفين، والتحقق من الهوية والخلفية لتسهيل اتخاذ القرارات التجارية بمؤسسة شباب قادرون."

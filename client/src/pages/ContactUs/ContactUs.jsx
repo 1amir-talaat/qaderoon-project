@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./contactUs.css";
-import Loader from "../../utils/Loader/Loader";
+import { Helmet } from "react-helmet-async";
 import { ORG_NAME } from "../../lib/constants";
-import { Helmet } from "react-helmet";
+import Loader from "../../utils/Loader/Loader";
+import "./contactUs.css";
 
 const ContactUs = () => {
   const [loading, setLoading] = useState(true);

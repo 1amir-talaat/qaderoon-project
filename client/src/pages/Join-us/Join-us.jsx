@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./Join.css";
-import Loader from "../../utils/Loader/Loader";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { ORG_NAME } from "../../lib/constants";
+import Loader from "../../utils/Loader/Loader";
+import "./Join.css";
 
 const JoinUs = () => {
   const [loading, setLoading] = useState(true);

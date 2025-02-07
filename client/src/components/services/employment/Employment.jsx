@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { ORG_NAME } from "../../../lib/constants";
 import InfoCard from "../../../utils/InfoCard";
 

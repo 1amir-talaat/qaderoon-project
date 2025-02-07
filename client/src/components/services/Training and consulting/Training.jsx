@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { ORG_NAME } from "../../../lib/constants";
 import InfoCard from "../../../utils/InfoCard";
 
@@ -24,7 +24,10 @@ function Training() {
           content="التدريب, الاستشارات, القيادة, التكنولوجيا الحديثة, مهارات الاتصال, التفاوض, تطوير المهارات"
         />
 
-        <meta property="og:title" content={`التدريب والاستشارات | ${ORG_NAME}`} />
+        <meta
+          property="og:title"
+          content={`التدريب والاستشارات | ${ORG_NAME}`}
+        />
         <meta
           property="og:description"
           content="برامج تدريبية متكاملة تشمل القيادة، التكنولوجيا الحديثة، مهارات الاتصال، والتفاوض لضمان تطوير المهارات وتحقيق النجاح المهني بمؤسسة شباب قادرون."
@@ -35,7 +38,10 @@ function Training() {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@qaderoon492" />
-        <meta name="twitter:title" content={`التدريب والاستشارات | ${ORG_NAME}`} />
+        <meta
+          name="twitter:title"
+          content={`التدريب والاستشارات | ${ORG_NAME}`}
+        />
         <meta
           name="twitter:description"
           content="برامج تدريبية متكاملة تشمل القيادة، التكنولوجيا الحديثة، مهارات الاتصال، والتفاوض لضمان تطوير المهارات وتحقيق النجاح المهني بمؤسسة شباب قادرون."

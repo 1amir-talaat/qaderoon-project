@@ -1,9 +1,9 @@
+import { Helmet } from "react-helmet-async";
+import { ORG_NAME } from "../../../lib/constants";
 import Cards from "./Cards";
 import ContentOne from "./ContentOne";
-import HeaderWho from "./HearderWho";
 import Header2 from "./Header2";
-import { Helmet } from "react-helmet";
-import { ORG_NAME } from "../../../lib/constants";
+import HeaderWho from "./HearderWho";
 
 const Whowe = () => {
   return (

@@ -1,8 +1,8 @@
+import { Helmet } from "react-helmet-async";
+import { ORG_NAME } from "../../../lib/constants";
 import AboutBroad from "./AboutBroad";
 import Formating from "./Formating";
 import { Missions } from "./Missions";
-import { Helmet } from "react-helmet";
-import { ORG_NAME } from "../../../lib/constants";
 
 const Board = () => {
   return (

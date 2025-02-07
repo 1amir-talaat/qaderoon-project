@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import EgyptVision from "../components/home/EgyptVision/EgyptVision";
 import HomeLandingSlider from "../components/home/LandingSlider/HomeLandingSlider";
 import SponsorsSlider from "../components/home/SponsersSliders/SponsersSliders";

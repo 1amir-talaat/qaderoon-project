@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { ORG_NAME } from "../../../lib/constants";
 import InfoCard from "../../../utils/InfoCard";
 
@@ -24,7 +24,10 @@ function Conferences() {
           content="المؤتمرات, الندوات, تنظيم المؤتمرات, تخطيط المؤتمرات, تأمين المتحدثين, تنسيق الفعاليات, إدارة المؤتمرات"
         />
 
-        <meta property="og:title" content={`المؤتمرات والندوات | ${ORG_NAME}`} />
+        <meta
+          property="og:title"
+          content={`المؤتمرات والندوات | ${ORG_NAME}`}
+        />
         <meta
           property="og:description"
           content="خدمات متكاملة لتنظيم المؤتمرات والندوات، تشمل التخطيط، التنظيم، تأمين المتحدثين والإدارة الفعالة لضمان نجاح الفعاليات بمؤسسة شباب قادرون."
@@ -35,7 +38,10 @@ function Conferences() {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@qaderoon492" />
-        <meta name="twitter:title" content={`المؤتمرات والندوات | ${ORG_NAME}`} />
+        <meta
+          name="twitter:title"
+          content={`المؤتمرات والندوات | ${ORG_NAME}`}
+        />
         <meta
           name="twitter:description"
           content="خدمات متكاملة لتنظيم المؤتمرات والندوات، تشمل التخطيط، التنظيم، تأمين المتحدثين والإدارة الفعالة لضمان نجاح الفعاليات بمؤسسة شباب قادرون."

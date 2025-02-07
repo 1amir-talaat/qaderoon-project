@@ -1,8 +1,8 @@
-import { FaNewspaper, FaUserPlus, FaEdit } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 import { AiFillFileAdd } from "react-icons/ai";
-import DashboardCard from "./DashboardCard";
-import { Helmet } from "react-helmet";
+import { FaEdit, FaNewspaper, FaUserPlus } from "react-icons/fa";
 import { ORG_NAME } from "../lib/constants";
+import DashboardCard from "./DashboardCard";
 
 const DashboardActions = () => {
   const dashboardItems = [

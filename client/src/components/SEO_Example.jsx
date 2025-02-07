@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { ORG_NAME } from "../lib/constants";
 
 const SEO_Example = () => {

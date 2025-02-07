@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import AttachmentsFileInput from "../components/Forms/AttachmentsFileInput";
 import DefaultInput from "../components/Forms/DefaultInput";
 import Label from "../components/Forms/Label";
