@@ -1,4 +1,6 @@
+import { Helmet } from "react-helmet";
 import InfoCard from "../../../utils/InfoCard";
+import { ORG_NAME } from "../lib/constants"; // Assuming ORG_NAME is defined here
 
 function ActivitiesCard() {
   const trainingPrograms = [
@@ -12,55 +14,43 @@ function ActivitiesCard() {
   ];
 
   return (
-    // <div>
-    //   <div className="container mx-auto px-4 sm:px-6 lg:px-8 my-10 md:my-22">
-    //     <div className="text-center">
-    //       <h1 className="text-2xl md:text-3xl font-bold py-3.5 underlineR w-fit mx-auto">
-    //         أنشطة المؤسسة
-    //       </h1>
-    //       <div className="flex flex-col-reverse md:flex-row mt-6 gap-6">
-    //         <div
-    //           className="md:w-1/2 text-right"
-    //           data-aos="fade-down"
-    //           data-aos-duration="1500">
-    //           <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
-    //             البرامج التدريبية
-    //           </h2>
-    //           <div className="space-y-0 md:space-y-2">
-    //             {" "}
-    //             {trainingPrograms.map((program, index) => (
-    //               <div
-    //                 key={index}
-    //                 className="bg-white p-4 rounded-lg flex items-center group hover:translate-x-2 hover:scale-105 transition-all duration-300">
-    //                 <div className="border-2 border-primary rounded-full p-1 group-hover:bg-primary group-hover:border-primary cursor-default">
-    //                   <AiFillSafetyCertificate className="text-lg text-primary group-hover:text-white" />
-    //                 </div>
-    //                 <h3 className="text-xl font-semibold mr-4 group-hover:text-primary">
-    //                   {" "}
-    //                   {program}
-    //                 </h3>
-    //               </div>
-    //             ))}
-    //           </div>
-    //         </div>
-    //         <img
-    //           src="/images/ac-pic.png"
-    //           alt="pic"
-    //           loading="lazy"
-    //           data-aos="fade-up"
-    //           data-aos-duration="1500"
-    //           className="w-full md:w-1/2 rounded-lg shadow-md object-cover"
-    //         />
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-    <InfoCard
-      title="أنشطة المؤسسة"
-      subtitle="البرامج التدريبية"
-      programs={trainingPrograms}
-      imageSrc="/images/ac-pic.png"
-    />
+    <>
+      <Helmet>
+        <title>أنشطة المؤسسة | {ORG_NAME}</title>
+        
+        <meta
+          name="description"
+          content="تعرف على الانشطة التي تقوم بها مؤسسة شباب قادرون لتأهيل الشباب لسوق العمل وبناء قدرات المجتمع المدني."
+        />
+        
+        <meta
+          name="keywords"
+          content="أنشطة المؤسسة, برامج تدريبية, شباب قادرون, تأهيل لسوق العمل, ريادة الأعمال, بناء قدرات المجتمع المدني"
+        />
+        <meta property="og:title" content={`أنشطة المؤسسة | ${ORG_NAME}`} />
+        <meta
+          property="og:description"
+          content="تعرف على الانشطة التي تقوم بها مؤسسة شباب قادرون لتأهيل الشباب لسوق العمل وبناء قدرات المجتمع المدني."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/og-banner.jpg" />
+        <meta property="og:url" content={window.location.href} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@qaderoon492" />
+        <meta name="twitter:title" content={`أنشطة المؤسسة | ${ORG_NAME}`} />
+        <meta
+          name="twitter:description"
+          content="تعرف على الانشطة التي تقوم بها مؤسسة شباب قادرون لتأهيل الشباب لسوق العمل وبناء قدرات المجتمع المدني."
+        />
+        <meta name="twitter:image" content="/images/twitter-card.jpg" />
+      </Helmet>
+      <InfoCard
+        title="أنشطة المؤسسة"
+        subtitle="البرامج التدريبية"
+        programs={trainingPrograms}
+        imageSrc="/images/ac-pic.png"
+      />
+    </>
   );
 }
 
