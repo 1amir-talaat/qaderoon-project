@@ -1,5 +1,3 @@
-// import React from 'react'
-
 import Consulting from "./Consulting";
 import Training from "./Training";
 

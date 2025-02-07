@@ -33,7 +33,8 @@ const HomeLandingSlider = () => {
   };
 
   const handleTabKeyDown = (e, index) => {
-    if (e.key === "Enter" || e.key === " ") { // Check for Enter or Space key
+    if (e.key === "Enter" || e.key === " ") {
+      // Check for Enter or Space key
       handleTabClick(index);
     }
   };
@@ -68,7 +69,7 @@ const HomeLandingSlider = () => {
               autoplay={{ delay: 5000 }}
               loop
               effect="cards"
-              onSwiper={(swiper) => {heroSwiper.current = swiper}}
+              onSwiper={swiper => {heroSwiper.current = swiper}}
               grabCursor
               onSlideChange={handleSlideChange}
               modules={[EffectCards]}
@@ -87,7 +88,7 @@ const HomeLandingSlider = () => {
               key={d.title}
               className={`tab-item ${activeIndex === index ? "active" : ""}`}
               onClick={() => handleTabClick(index)}
-              onKeyDown={(e) => handleTabKeyDown(e, index)} // Add onKeyDown handler
+              onKeyDown={e => handleTabKeyDown(e, index)}
             >
               <div className="tab-title">{d.title}</div>
             </div>

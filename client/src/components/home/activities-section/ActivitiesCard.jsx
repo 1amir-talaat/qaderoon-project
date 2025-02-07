@@ -13,7 +13,6 @@ function ActivitiesCard() {
 
   return (
     <>
-
       <InfoCard
         title="أنشطة المؤسسة"
         subtitle="البرامج التدريبية"

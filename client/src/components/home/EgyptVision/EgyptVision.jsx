@@ -22,7 +22,7 @@ const EgyptVision = () => {
         </h2>
         <div className="container grid grid-cols-1 place-items-center gap-16 text-stone-100 lg:grid-cols-2">
           <div className="space-y-5">
-            {data?.visionArray.map((t) => <p key={t}>{t}</p>)}
+            {data?.visionArray.map(t => <p key={t}>{t}</p>)}
 
             <a
               className="ev-button group flex w-fit bg-secondary"

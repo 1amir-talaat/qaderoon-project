@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
+import { ORG_NAME } from "../../../lib/constants";
 import InfoCard from "../../../utils/InfoCard";
-import { ORG_NAME } from "../lib/constants";
 
 function Employment() {
   const EmploymentServices = [
@@ -18,7 +18,7 @@ function Employment() {
           name="description"
           content="خدمات التوظيف الشاملة، بما في ذلك البحث عن المواهب، التقييم، والاختيار، بالإضافة إلى التدريب والتأهيل لضمان نجاح الموظفين الجدد بمؤسسة شباب قادرون."
         />
-        
+
         <meta
           name="keywords"
           content="التوظيف, البحث عن المواهب, اختيار المتقدمين, التدريب والتأهيل, خدمات التوظيف, الكفاءات"

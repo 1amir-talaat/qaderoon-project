@@ -80,11 +80,14 @@ function Navbar() {
       <div className="z-50 flex cursor-pointer flex-col items-center justify-center lg:hidden">
         <div onClick={() => setNavMenuOpen(!navMenuOpen)} className="space-y-1">
           <div
-            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "translate-y-2 rotate-45" : ""}`} />
+            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "translate-y-2 rotate-45" : ""}`}
+          />
           <div
-            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "opacity-0" : ""}`} />
+            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "opacity-0" : ""}`}
+          />
           <div
-            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+            className={`h-1 w-10 rounded-full bg-[#262e30]/90 transition-all duration-300 ease-in-out ${navMenuOpen ? "-translate-y-2 -rotate-45" : ""}`}
+          />
         </div>
 
         {/* Mobile Menu */}

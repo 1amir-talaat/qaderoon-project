@@ -2,7 +2,7 @@
 @import "../../colors.css";
 
 .markdown-content {
-  @apply mx-auto mt-12 w-full max-w-screen-lg space-y-6 px-8 pb-12 text-lg leading-relaxed text-gray-800 lg:px-4 md:text-xl lg:max-w-screen-lg;
+  @apply mx-auto mt-12 w-full max-w-screen-lg space-y-6 px-8 pb-12 text-lg leading-relaxed text-gray-800 md:text-xl lg:max-w-screen-lg lg:px-4;
 
   h1 {
     @apply text-2xl font-bold text-secondary md:text-4xl;

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
+import { ORG_NAME } from "../../../lib/constants";
 import InfoCard from "../../../utils/InfoCard";
-import { ORG_NAME } from "../lib/constants";
 
 function Conferences() {
   const conferenceServices = [
@@ -18,7 +18,7 @@ function Conferences() {
           name="description"
           content="خدمات متكاملة لتنظيم المؤتمرات والندوات، تشمل التخطيط، التنظيم، تأمين المتحدثين والإدارة الفعالة لضمان نجاح الفعاليات بمؤسسة شباب قادرون."
         />
-        
+
         <meta
           name="keywords"
           content="المؤتمرات, الندوات, تنظيم المؤتمرات, تخطيط المؤتمرات, تأمين المتحدثين, تنسيق الفعاليات, إدارة المؤتمرات"

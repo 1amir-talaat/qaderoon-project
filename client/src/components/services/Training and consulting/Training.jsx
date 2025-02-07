@@ -1,9 +1,8 @@
 import { Helmet } from "react-helmet";
+import { ORG_NAME } from "../../../lib/constants";
 import InfoCard from "../../../utils/InfoCard";
-import { ORG_NAME } from "../lib/constants";
 
 function Training() {
-
   const trainingPrograms = [
     "برامج تدريبية تفاعلية وممتعة",
     "تدريب على استخدام التكنولوجيا الحديثة",
@@ -19,7 +18,7 @@ function Training() {
           name="description"
           content="برامج تدريبية متكاملة تشمل القيادة، التكنولوجيا الحديثة، مهارات الاتصال، والتفاوض لضمان تطوير المهارات وتحقيق النجاح المهني بمؤسسة شباب قادرون."
         />
-        
+
         <meta
           name="keywords"
           content="التدريب, الاستشارات, القيادة, التكنولوجيا الحديثة, مهارات الاتصال, التفاوض, تطوير المهارات"

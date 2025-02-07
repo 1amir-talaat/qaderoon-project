@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
+import { ORG_NAME } from "../../../lib/constants";
 import InfoCard from "../../../utils/InfoCard";
-import { ORG_NAME } from "../lib/constants"; 
 
 function Certification() {
   const CertificationServices = [
@@ -18,7 +18,7 @@ function Certification() {
           name="description"
           content="خدمات التحقق من صحة الشهادات الأكاديمية والمهنية، الوثائق المطلوبة لتوظيف الموظفين، والتحقق من الهوية والخلفية لتسهيل اتخاذ القرارات التجارية بمؤسسة شباب قادرون."
         />
-        
+
         <meta
           name="keywords"
           content="التحقق من الشهادات, شهادات أكاديمية, شهادات مهنية, توظيف الموظفين, التحقق من الهوية, التحقق من الخلفية, قرارات تجارية"
