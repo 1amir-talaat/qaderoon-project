@@ -1,4 +1,6 @@
+import { Helmet } from "react-helmet";
 import InfoCard from "../../../utils/InfoCard";
+import { ORG_NAME } from "../lib/constants"; 
 
 function Certification() {
   const CertificationServices = [
@@ -9,12 +11,45 @@ function Certification() {
   ];
 
   return (
-    <InfoCard
-      title="التحقق من الشهادات"
-      subtitle="خدمات التحقق"
-      programs={CertificationServices}
-      imageSrc="/images/pyramids.jpg"
-    />
+    <>
+      <Helmet>
+        <title>التحقق من الشهادات | {ORG_NAME}</title>
+        <meta
+          name="description"
+          content="خدمات التحقق من صحة الشهادات الأكاديمية والمهنية، الوثائق المطلوبة لتوظيف الموظفين، والتحقق من الهوية والخلفية لتسهيل اتخاذ القرارات التجارية بمؤسسة شباب قادرون."
+        />
+        
+        <meta
+          name="keywords"
+          content="التحقق من الشهادات, شهادات أكاديمية, شهادات مهنية, توظيف الموظفين, التحقق من الهوية, التحقق من الخلفية, قرارات تجارية"
+        />
+
+        <meta property="og:title" content={`التحقق من الشهادات | ${ORG_NAME}`} />
+        <meta
+          property="og:description"
+          content="خدمات التحقق من صحة الشهادات الأكاديمية والمهنية، الوثائق المطلوبة لتوظيف الموظفين، والتحقق من الهوية والخلفية لتسهيل اتخاذ القرارات التجارية بمؤسسة شباب قادرون."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/pyramids.jpg" />
+        <meta property="og:url" content={window.location.href} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@qaderoon492" />
+        <meta name="twitter:title" content={`التحقق من الشهادات | ${ORG_NAME}`} />
+        <meta
+          name="twitter:description"
+          content="خدمات التحقق من صحة الشهادات الأكاديمية والمهنية، الوثائق المطلوبة لتوظيف الموظفين، والتحقق من الهوية والخلفية لتسهيل اتخاذ القرارات التجارية بمؤسسة شباب قادرون."
+        />
+        <meta name="twitter:image" content="/images/pyramids.jpg" />
+      </Helmet>
+
+      <InfoCard
+        title="التحقق من الشهادات"
+        subtitle="خدمات التحقق"
+        programs={CertificationServices}
+        imageSrc="/images/pyramids.jpg"
+      />
+    </>
   );
 }
 
