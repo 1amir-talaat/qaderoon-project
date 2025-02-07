@@ -1,6 +1,9 @@
+import { Helmet } from "react-helmet";
 import InfoCard from "../../../utils/InfoCard";
+import { ORG_NAME } from "../lib/constants";
 
 function Training() {
+
   const trainingPrograms = [
     "برامج تدريبية تفاعلية وممتعة",
     "تدريب على استخدام التكنولوجيا الحديثة",
@@ -9,55 +12,45 @@ function Training() {
   ];
 
   return (
-    // <div>
-    //   <div className="container mx-auto px-4 sm:px-6 lg:px-8 my-10 md:my-22">
-    //     <div className="text-center">
-    //       <h1 className="text-2xl md:text-3xl font-bold py-3.5 underlineR w-fit mx-auto my-10">
-    //         التدريب و الاستشارات
-    //       </h1>
-    //       <div className="flex flex-col-reverse md:flex-row items-center mt-6 gap-6">
-    //         <div
-    //           className="md:w-1/2 text-right"
-    //           data-aos="fade-down"
-    //           data-aos-duration="1500">
-    //           <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
-    //             التدريب
-    //           </h2>
-    //           <div className="space-y-0 md:space-y-2">
-    //             {" "}
-    //             {trainingPrograms.map((program, index) => (
-    //               <div
-    //                 key={index}
-    //                 className="bg-white p-4 rounded-lg flex items-center group hover:translate-x-2 hover:scale-105 transition-all duration-300">
-    //                 <div className="border-2 border-primary rounded-full p-1 group-hover:bg-primary group-hover:border-primary cursor-default">
-    //                   <AiFillSafetyCertificate className="text-lg text-primary group-hover:text-white" />
-    //                 </div>
-    //                 <h3 className="text-xl font-semibold mr-4 group-hover:text-primary">
-    //                   {" "}
-    //                   {program}
-    //                 </h3>
-    //               </div>
-    //             ))}
-    //           </div>
-    //         </div>
-    //         <img
-    //           src="/images/pyramids.jpg"
-    //           alt="pic"
-    //           loading="lazy"
-    //           data-aos="fade-up"
-    //           data-aos-duration="1500"
-    //           className="w-full md:w-1/2 rounded-lg shadow-md object-cover"
-    //         />
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-    <InfoCard
-      title="التدريب و الاستشارات"
-      subtitle="التدريب"
-      programs={trainingPrograms}
-      imageSrc="/images/pyramids.jpg"
-    />
+    <>
+      <Helmet>
+        <title>التدريب والاستشارات | {ORG_NAME}</title>
+        <meta
+          name="description"
+          content="برامج تدريبية متكاملة تشمل القيادة، التكنولوجيا الحديثة، مهارات الاتصال، والتفاوض لضمان تطوير المهارات وتحقيق النجاح المهني بمؤسسة شباب قادرون."
+        />
+        
+        <meta
+          name="keywords"
+          content="التدريب, الاستشارات, القيادة, التكنولوجيا الحديثة, مهارات الاتصال, التفاوض, تطوير المهارات"
+        />
+
+        <meta property="og:title" content={`التدريب والاستشارات | ${ORG_NAME}`} />
+        <meta
+          property="og:description"
+          content="برامج تدريبية متكاملة تشمل القيادة، التكنولوجيا الحديثة، مهارات الاتصال، والتفاوض لضمان تطوير المهارات وتحقيق النجاح المهني بمؤسسة شباب قادرون."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/og-banner.jpg" />
+        <meta property="og:url" content={window.location.href} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@qaderoon492" />
+        <meta name="twitter:title" content={`التدريب والاستشارات | ${ORG_NAME}`} />
+        <meta
+          name="twitter:description"
+          content="برامج تدريبية متكاملة تشمل القيادة، التكنولوجيا الحديثة، مهارات الاتصال، والتفاوض لضمان تطوير المهارات وتحقيق النجاح المهني بمؤسسة شباب قادرون."
+        />
+        <meta name="twitter:image" content="/images/twitter-card.jpg" />
+      </Helmet>
+
+      <InfoCard
+        title="التدريب و الاستشارات"
+        subtitle="التدريب"
+        programs={trainingPrograms}
+        imageSrc="/images/pyramids.jpg"
+      />
+    </>
   );
 }
 
