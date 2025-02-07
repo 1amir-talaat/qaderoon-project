@@ -30,7 +30,7 @@ function Certification() {
           content="خدمات التحقق من صحة الشهادات الأكاديمية والمهنية، الوثائق المطلوبة لتوظيف الموظفين، والتحقق من الهوية والخلفية لتسهيل اتخاذ القرارات التجارية بمؤسسة شباب قادرون."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/images/pyramids.jpg" />
+        <meta property="og:image" content="/images/og-banner.jpg" />
         <meta property="og:url" content={window.location.href} />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -40,7 +40,7 @@ function Certification() {
           name="twitter:description"
           content="خدمات التحقق من صحة الشهادات الأكاديمية والمهنية، الوثائق المطلوبة لتوظيف الموظفين، والتحقق من الهوية والخلفية لتسهيل اتخاذ القرارات التجارية بمؤسسة شباب قادرون."
         />
-        <meta name="twitter:image" content="/images/pyramids.jpg" />
+        <meta name="twitter:image" content="/images/twitter-card.jpg" />
       </Helmet>
 
       <InfoCard
